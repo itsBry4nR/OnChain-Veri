@@ -12,7 +12,7 @@ jobs:
     strategy:
       matrix:
         # 6 Makine çalıştırıyoruz (0'dan 5'e kadar)
-        group: [0, 1, 2, 3, 4, 5] 
+        group: [0, 1, 2, 3, 4] 
     
     steps:
     - uses: actions/checkout@v4
@@ -22,7 +22,7 @@ jobs:
         
     - name: Parça İndir
       # Scripti ilgili grup numarasıyla çalıştır
-      run: node scripts/fetch-data.js --group ${{ matrix.group }} --total 6
+      run: node scripts/fetch-data.js --group ${{ matrix.group }} --total 5
       
     - name: Parçayı Yükle (Artifact)
       uses: actions/upload-artifact@v4  # GÜNCELLENDİ: v4
