@@ -2,17 +2,18 @@ name: Matrix Data Fetcher
 
 on:
   schedule:
-    - cron: '0 4 * * *' # UTC 04:00'te çalışacak
+    - cron: '0 4 * * *' # Her gece UTC 04:00 (TSİ 07:00)'de çalış
   workflow_dispatch:      # Manuel tetikleme butonu
 
 jobs:
-  # 1. AŞAMA: PARALEL AJANLAR (Veri Çekme)
+  # 1. AŞAMA: PARALEL AJANLAR
   fetch-shards:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        # 6 Makine çalıştırıyoruz (0'dan 5'e kadar)
-        group: [0, 1, 2, 3, 4] 
+        # Şimdilik sadece 3 verimiz var, 1 makine (Grup 0) hepsini halleder.
+        # İleride veri artarsa burayı [0, 1, 2...] diye çoğaltırsın.
+        group: [0] 
     
     steps:
     - uses: actions/checkout@v4
@@ -21,11 +22,11 @@ jobs:
         node-version: 20
         
     - name: Parça İndir
-      # Scripti ilgili grup numarasıyla çalıştır
-      run: node scripts/fetch-data.js --group ${{ matrix.group }} --total 5
+      # DİKKAT: --total 1 yaptık çünkü tek makine çalışıyor.
+      run: node scripts/fetch-data.js --group ${{ matrix.group }} --total 1
       
     - name: Parçayı Yükle (Artifact)
-      uses: actions/upload-artifact@v4  # GÜNCELLENDİ: v4
+      uses: actions/upload-artifact@v4
       with:
         name: data-shard-${{ matrix.group }}
         path: data/shard-${{ matrix.group }}.json
@@ -33,11 +34,11 @@ jobs:
 
   # 2. AŞAMA: BİRLEŞTİRME (Merge)
   combine-and-push:
-    needs: fetch-shards  # Ajanlar bitmeden başlama
+    needs: fetch-shards
     runs-on: ubuntu-latest
     
     permissions:
-      contents: write # Repoya yazma izni ver
+      contents: write # Repoya yazma izni
 
     steps:
     - uses: actions/checkout@v4
@@ -45,29 +46,24 @@ jobs:
       with:
         node-version: 20
         
-    # Tüm parçaları indir (v4 ile tüm artifact'leri çeker)
     - name: Tüm Parçaları İndir
-      uses: actions/download-artifact@v4 # GÜNCELLENDİ: v4
+      uses: actions/download-artifact@v4
       with:
         path: data-temp
         
-    # İndirilen dosyaları doğru yere taşı
-    # v4, her artifact'i kendi klasörüne koyar: data-temp/data-shard-0/shard-0.json
+    # İndirilen dosyaları (data-temp içinden) ana data klasörüne taşı
     - name: Dosyaları Taşı
       run: |
         mkdir -p data
-        # data-temp altındaki tüm alt klasörlerdeki json'ları data'ya taşı
         find data-temp -name "shard-*.json" -exec mv {} data/ \;
         
-    # Birleştirici scripti çalıştır
     - name: JSON Birleştir
       run: node scripts/fetch-data.js --merge
       
-    # GitHub'a geri yükle
     - name: Commit & Push
       run: |
         git config --global user.name 'Matrix Bot'
         git config --global user.email 'bot@noreply.github.com'
         git add data/all-metrics.json
-        # Sadece değişiklik varsa commit at
+        # Değişiklik varsa kaydet, yoksa hata verme
         git diff --quiet && git diff --staged --quiet || (git commit -m "Günlük Veri (Matrix): $(date)" && git push)
