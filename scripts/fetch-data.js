@@ -3,10 +3,12 @@ const fs = require('fs');
 const path = require('path');
 
 // --- EMNİYET SİBOBU ---
-const MAX_PER_AGENT = 5; // Bir ajan en fazla kaç istek atabilir?
+// Senin isteğin üzerine: Bir ajan en fazla 4 istek atabilir.
+// Eğer 5. iş gelirse kendini kapatır (Ban yememek için).
+const MAX_PER_AGENT = 4;
 
 const ALL_ENDPOINTS = {
-    // Örnek Metrik (Sen burayı dolduracaksın)
+    // Şimdilik sadece istediğin 3 metrik
     'mvrv': 'https://bitcoin-data.com/v1/mvrv-zscore',
     'sth':  'https://bitcoin-data.com/v1/sth-mvrv',
     'lth':  'https://bitcoin-data.com/v1/lth-mvrv',
@@ -25,12 +27,13 @@ async function fetchShard() {
     // Matematiksel Dağıtım (Round Robin)
     const myKeys = keys.filter((_, index) => index % totalGroups === groupIndex);
     
-    // --- KRİTİK KONTROL ---
+    // --- KRİTİK KONTROL (SİGORTA) ---
+    // Ajanın kapasitesini aşıp aşmadığını kontrol eder.
     if (myKeys.length > MAX_PER_AGENT) {
         console.error(`🚨 KIRMIZI ALARM! [Ajan #${groupIndex}]`);
         console.error(`❌ Bu ajana ${myKeys.length} iş yüklendi. Maksimum izin verilen: ${MAX_PER_AGENT}`);
         console.error(`💡 ÇÖZÜM: 'update.yml' dosyasındaki makine sayısını artırmalısın!`);
-        process.exit(1); // İşlemi kasten patlat ki haberin olsun
+        process.exit(1); // İşlemi durdur (Ban yeme riskini önle)
     }
     
     console.log(`🤖 [Ajan #${groupIndex}] Güvenli modda çalışıyor. (Yük: ${myKeys.length}/${MAX_PER_AGENT})`);
@@ -70,12 +73,14 @@ function mergeShards() {
     console.log('🔗 [BİRLEŞTİRİCİ] Parçalar toplanıyor...');
     const finalBundle = { lastUpdated: Date.now(), metrics: {} };
     
+    // data klasöründeki shard dosyalarını bul
     const files = fs.readdirSync(DATA_DIR).filter(f => f.startsWith('shard-') && f.endsWith('.json'));
     
     files.forEach(file => {
         try {
             const content = JSON.parse(fs.readFileSync(path.join(DATA_DIR, file), 'utf-8'));
             Object.assign(finalBundle.metrics, content);
+            // İşlenen parçayı sil
             fs.unlinkSync(path.join(DATA_DIR, file));
         } catch (e) { console.error(e); }
     });
