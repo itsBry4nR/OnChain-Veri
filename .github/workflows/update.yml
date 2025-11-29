@@ -2,8 +2,8 @@ name: Matrix Data Fetcher
 
 on:
   schedule:
-    - cron: '0 0 * * *' # Her gece çalış (UTC 00:00)
-  workflow_dispatch:      # Manuel tetiklemek için buton
+    - cron: '0 0 * * *' # Her gece UTC 00:00'da çalış
+  workflow_dispatch:      # Manuel tetikleme butonu
 
 jobs:
   # 1. AŞAMA: PARALEL AJANLAR (Veri Çekme)
@@ -11,22 +11,21 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        # 6'ya böldüğümüz için 0'dan 5'e kadar sayı veriyoruz.
-        # Eğer "fetch-data.js" içinde "--total 10" yaparsan burayı da 0..9 yapmalısın.
+        # 6 Makine çalıştırıyoruz (0'dan 5'e kadar)
         group: [0, 1, 2, 3, 4, 5] 
     
     steps:
-    - uses: actions/checkout@v3
-    - uses: actions/setup-node@v3
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v4
       with:
-        node-version: 18
+        node-version: 20
         
     - name: Parça İndir
       # Scripti ilgili grup numarasıyla çalıştır
       run: node scripts/fetch-data.js --group ${{ matrix.group }} --total 6
       
     - name: Parçayı Yükle (Artifact)
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4  # GÜNCELLENDİ: v4
       with:
         name: data-shard-${{ matrix.group }}
         path: data/shard-${{ matrix.group }}.json
@@ -37,23 +36,28 @@ jobs:
     needs: fetch-shards  # Ajanlar bitmeden başlama
     runs-on: ubuntu-latest
     
+    permissions:
+      contents: write # Repoya yazma izni ver
+
     steps:
-    - uses: actions/checkout@v3
-    - uses: actions/setup-node@v3
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v4
       with:
-        node-version: 18
+        node-version: 20
         
-    # Tüm parçaları indir
+    # Tüm parçaları indir (v4 ile tüm artifact'leri çeker)
     - name: Tüm Parçaları İndir
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4 # GÜNCELLENDİ: v4
       with:
         path: data-temp
         
     # İndirilen dosyaları doğru yere taşı
+    # v4, her artifact'i kendi klasörüne koyar: data-temp/data-shard-0/shard-0.json
     - name: Dosyaları Taşı
       run: |
         mkdir -p data
-        mv data-temp/data-shard-*/*.json data/
+        # data-temp altındaki tüm alt klasörlerdeki json'ları data'ya taşı
+        find data-temp -name "shard-*.json" -exec mv {} data/ \;
         
     # Birleştirici scripti çalıştır
     - name: JSON Birleştir
