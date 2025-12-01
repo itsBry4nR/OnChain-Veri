@@ -6,17 +6,19 @@ const path = require('path');
 const MAX_PER_AGENT = 4;
 
 const ALL_ENDPOINTS = {
-    // --- MEVCUT GRAFİĞİN ÇALIŞMASI İÇİN GEREKENLER (Z-Score Ailesi) ---
+    // --- MEVCUT GRAFİĞİN ÇALIŞMASI İÇİN GEREKENLER ---
     // DİKKAT: Sol taraftaki isimleri (mvrv, sth, lth) değiştirmemelisin!
     'mvrv':     'https://bitcoin-data.com/v1/mvrv-zscore', 
     'sth':      'https://bitcoin-data.com/v1/sth-mvrv',
     'lth':      'https://bitcoin-data.com/v1/lth-mvrv',
+    'mvrv-ratio': 'https://bitcoin-data.com/v1/mvrv',
 
-    // --- YENİ EKLENENLER (MVRV Oranı ve SOPR Ailesi) ---
-    'mvrv-ratio': 'https://bitcoin-data.com/v1/mvrv', // İsim çakışmasın diye '-ratio' ekledik
+    // --- YENİ EKLENENLER ---
     'sopr':       'https://bitcoin-data.com/v1/sopr',
     'sth-sopr':   'https://bitcoin-data.com/v1/sth-sopr',
-    'lth-sopr':   'https://bitcoin-data.com/v1/lth-sopr'
+    'lth-sopr':   'https://bitcoin-data.com/v1/lth-sopr',
+    'asopr':      'https://bitcoin-data.com/v1/asopr',
+    
 };
 
 const DATA_DIR = path.join(__dirname, '..', 'data');
