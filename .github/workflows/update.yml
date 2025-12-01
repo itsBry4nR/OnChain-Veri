@@ -6,14 +6,12 @@ on:
   workflow_dispatch:      # Manuel tetikleme butonu
 
 jobs:
-  # 1. AŞAMA: PARALEL AJANLAR
   fetch-shards:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        # Şimdilik sadece 3 verimiz var, 1 makine (Grup 0) hepsini halleder.
-        # İleride veri artarsa burayı [0, 1, 2...] diye çoğaltırsın.
-        group: [0] 
+        # DİKKAT: Artık 2 makine çalışacak
+        group: [0, 1] 
     
     steps:
     - uses: actions/checkout@v4
@@ -22,8 +20,8 @@ jobs:
         node-version: 20
         
     - name: Parça İndir
-      # DİKKAT: --total 1 yaptık çünkü tek makine çalışıyor.
-      run: node scripts/fetch-data.js --group ${{ matrix.group }} --total 1
+      # DİKKAT: Total 2 oldu
+      run: node scripts/fetch-data.js --group ${{ matrix.group }} --total 2
       
     - name: Parçayı Yükle (Artifact)
       uses: actions/upload-artifact@v4
