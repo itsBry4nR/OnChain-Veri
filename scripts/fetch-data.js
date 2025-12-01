@@ -3,19 +3,20 @@ const fs = require('fs');
 const path = require('path');
 
 // --- EMNİYET SİBOBU ---
-const MAX_PER_AGENT = 4; // 1 Ajan max 4 istek atabilir (Ban koruması)
+const MAX_PER_AGENT = 4;
 
 const ALL_ENDPOINTS = {
-    // --- MVRV Ailesi ---
-    'mvrv-z':   'https://bitcoin-data.com/v1/mvrv-zscore', // Z-Score
-    'mvrv':     'https://bitcoin-data.com/v1/mvrv',        // MVRV Ratio (Yeni Eklenen)
-    'sth-mvrv': 'https://bitcoin-data.com/v1/sth-mvrv',
-    'lth-mvrv': 'https://bitcoin-data.com/v1/lth-mvrv',
+    // --- MEVCUT GRAFİĞİN ÇALIŞMASI İÇİN GEREKENLER (Z-Score Ailesi) ---
+    // DİKKAT: Sol taraftaki isimleri (mvrv, sth, lth) değiştirmemelisin!
+    'mvrv':     'https://bitcoin-data.com/v1/mvrv-zscore', 
+    'sth':      'https://bitcoin-data.com/v1/sth-mvrv',
+    'lth':      'https://bitcoin-data.com/v1/lth-mvrv',
 
-    // --- SOPR Ailesi (Yeni) ---
-    'sopr':     'https://bitcoin-data.com/v1/sopr',
-    'sth-sopr': 'https://bitcoin-data.com/v1/sth-sopr',
-    'lth-sopr': 'https://bitcoin-data.com/v1/lth-sopr'
+    // --- YENİ EKLENENLER (MVRV Oranı ve SOPR Ailesi) ---
+    'mvrv-ratio': 'https://bitcoin-data.com/v1/mvrv', // İsim çakışmasın diye '-ratio' ekledik
+    'sopr':       'https://bitcoin-data.com/v1/sopr',
+    'sth-sopr':   'https://bitcoin-data.com/v1/sth-sopr',
+    'lth-sopr':   'https://bitcoin-data.com/v1/lth-sopr'
 };
 
 const DATA_DIR = path.join(__dirname, '..', 'data');
@@ -27,29 +28,25 @@ const totalGroups = parseInt(args[args.indexOf('--total') + 1]) || 1;
 
 async function fetchShard() {
     const keys = Object.keys(ALL_ENDPOINTS);
-    
-    // Matematiksel Dağıtım (İş Bölümü)
     const myKeys = keys.filter((_, index) => index % totalGroups === groupIndex);
     
-    // --- KRİTİK KONTROL ---
+    // Güvenlik Kontrolü
     if (myKeys.length > MAX_PER_AGENT) {
-        console.error(`🚨 KIRMIZI ALARM! [Ajan #${groupIndex}]`);
-        console.error(`❌ Bu ajana ${myKeys.length} iş yüklendi. Maksimum izin verilen: ${MAX_PER_AGENT}`);
-        console.error(`💡 ÇÖZÜM: '.github/workflows/update.yml' dosyasındaki 'group' sayısını artırmalısın!`);
-        process.exit(1); 
+        console.error(`🚨 HATA: Ajan #${groupIndex} kapasitesi doldu (${myKeys.length}/${MAX_PER_AGENT}).`);
+        process.exit(1);
     }
     
-    console.log(`🤖 [Ajan #${groupIndex}] Güvenli modda çalışıyor. (Görev: ${myKeys.length} adet)`);
+    console.log(`🤖 Ajan #${groupIndex} görev başında. Liste: ${myKeys.join(', ')}`);
     
     const partialResult = {};
 
     for (const key of myKeys) {
         try {
-            console.log(`📥 [Ajan #${groupIndex}] İndiriliyor: ${key}`);
+            console.log(`📥 İndiriliyor: ${key}`);
             const response = await fetch(ALL_ENDPOINTS[key]);
             
             if (response.status === 429) {
-                console.error(`⚠️ [Ajan #${groupIndex}] HATA: 429 Limit.`);
+                console.error(`⚠️ 429 Limit Hatası: ${key}`);
                 partialResult[key] = null;
                 continue;
             }
@@ -57,27 +54,26 @@ async function fetchShard() {
             if (!response.ok) throw new Error(`HTTP ${response.status}`);
             
             partialResult[key] = await response.json();
-            
-            // 2 saniye bekle
-            await new Promise(r => setTimeout(r, 2000));
+            await new Promise(r => setTimeout(r, 2000)); // Bekleme süresi
             
         } catch (error) {
-            console.error(`❌ [Ajan #${groupIndex}] HATA (${key}):`, error.message);
+            console.error(`❌ Hata (${key}):`, error.message);
             partialResult[key] = null;
         }
     }
     
     const filePath = path.join(DATA_DIR, `shard-${groupIndex}.json`);
     fs.writeFileSync(filePath, JSON.stringify(partialResult, null, 2));
-    console.log(`✅ [Ajan #${groupIndex}] Tamamlandı.`);
 }
 
 function mergeShards() {
-    console.log('🔗 [BİRLEŞTİRİCİ] Parçalar toplanıyor...');
+    console.log('🔗 Parçalar birleştiriliyor...');
     const finalBundle = { lastUpdated: Date.now(), metrics: {} };
     
     const files = fs.readdirSync(DATA_DIR).filter(f => f.startsWith('shard-') && f.endsWith('.json'));
     
+    if (files.length === 0) console.warn('⚠️ Uyarı: Hiç parça dosyası bulunamadı.');
+
     files.forEach(file => {
         try {
             const content = JSON.parse(fs.readFileSync(path.join(DATA_DIR, file), 'utf-8'));
@@ -87,7 +83,7 @@ function mergeShards() {
     });
     
     fs.writeFileSync(path.join(DATA_DIR, 'all-metrics.json'), JSON.stringify(finalBundle));
-    console.log(`🏆 MEGA PAKET HAZIR: ${Object.keys(finalBundle.metrics).length} metrik.`);
+    console.log(`🏆 Mega Paket Hazır. Toplam Metrik: ${Object.keys(finalBundle.metrics).length}`);
 }
 
 if (args.includes('--merge')) mergeShards();
