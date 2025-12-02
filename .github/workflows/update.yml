@@ -2,7 +2,7 @@ name: Matrix Data Fetcher
 
 on:
   schedule:
-    - cron: '0 4 * * *' # Her gece UTC 04:00 (TSİ 07:00)'de çalış
+    - cron: '30 9 * * *' # Her gece UTC 09:30 (TSİ 12:30)'de çalış
   workflow_dispatch:      # Manuel tetikleme butonu
 
 jobs:
