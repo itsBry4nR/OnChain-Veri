@@ -13,12 +13,16 @@ const ALL_ENDPOINTS = {
     'lth':      'https://bitcoin-data.com/v1/lth-mvrv',
     'mvrv-ratio': 'https://bitcoin-data.com/v1/mvrv',
 
-    // --- YENİ EKLENENLER ---
+    // --- Sopr Ailesi ---
     'sopr':       'https://bitcoin-data.com/v1/sopr',
     'sth-sopr':   'https://bitcoin-data.com/v1/sth-sopr',
     'lth-sopr':   'https://bitcoin-data.com/v1/lth-sopr',
     'asopr':      'https://bitcoin-data.com/v1/asopr',
-    
+
+    // --- NUPL Ailesi ---
+    'nupl':       'https://bitcoin-data.com/v1/nupl',
+    'sth-nupl':   'https://bitcoin-data.com/v1/nupl-sth',
+    'lth-nupl':   'https://bitcoin-data.com/v1/nupl-lth'    
 };
 
 const DATA_DIR = path.join(__dirname, '..', 'data');
