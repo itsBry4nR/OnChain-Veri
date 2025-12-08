@@ -22,7 +22,7 @@ const ALL_ENDPOINTS = {
     // --- NUPL Ailesi ---
     'nupl':       'https://bitcoin-data.com/v1/nupl',
     'sth-nupl':   'https://bitcoin-data.com/v1/nupl-sth',
-    'lth-nupl':   'https://bitcoin-data.com/v1/nupl-lth'   
+    'lth-nupl':   'https://bitcoin-data.com/v1/nupl-lth',   
 
     // --- Realized Price Ailesi ve Delta Price İçin gerekli apiler
     'market-cap':     'https://bitcoin-data.com/v1/market-cap',
