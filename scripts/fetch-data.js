@@ -31,7 +31,10 @@ const ALL_ENDPOINTS = {
     'realized-price': 'https://bitcoin-data.com/v1/realized-price',
     'sth-realized-price':  'https://bitcoin-data.com/v1/sth-realized-price',
     'lth-realized-price':  'https://bitcoin-data.com/v1/lth-realized-price',
-    'true-market-mean':     'https://bitcoin-data.com/v1/true-market-mean'
+    'true-market-mean':     'https://bitcoin-data.com/v1/true-market-mean',
+
+    // --- CDD Binary ---
+    'cdd-binary':     'https://bitcoin-data.com/v1/supply-adjusted-cdd-binary'
 };
 
 const DATA_DIR = path.join(__dirname, '..', 'data');
