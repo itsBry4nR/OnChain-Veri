@@ -35,7 +35,11 @@ const ALL_ENDPOINTS = {
 
     // --- CDD Binary ---
     'supply-adjusted-cdd-binary':   'https://bitcoin-data.com/v1/supply-adjusted-cdd-binary',
-    'supply-adjusted-cdd': 'https://bitcoin-data.com/v1/supply-adjusted-cdd'
+    'supply-adjusted-cdd': 'https://bitcoin-data.com/v1/supply-adjusted-cdd',
+
+    /// --- Supply Profit/Loss % ---
+    'supply-profit': 'https://bitcoin-data.com/v1/supply-profit',
+    'supply-loss': 'https://bitcoin-data.com/v1/supply-loss'
 };
 
 const DATA_DIR = path.join(__dirname, '..', 'data');
