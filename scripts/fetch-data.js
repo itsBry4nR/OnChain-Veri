@@ -34,7 +34,7 @@ const ALL_ENDPOINTS = {
     'true-market-mean':     'https://bitcoin-data.com/v1/true-market-mean',
 
     // --- CDD Binary ---
-    'cdd-binary':   'https://bitcoin-data.com/v1/supply-adjusted-cdd-binary',
+    'supply-adjusted-cdd-binary':   'https://bitcoin-data.com/v1/supply-adjusted-cdd-binary',
     'supply-adjusted-cdd': 'https://bitcoin-data.com/v1/supply-adjusted-cdd'
 };
 
