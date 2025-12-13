@@ -39,7 +39,10 @@ const ALL_ENDPOINTS = {
 
     /// --- Supply Profit/Loss % ---
     'supply-profit': 'https://bitcoin-data.com/v1/supply-profit',
-    'supply-loss': 'https://bitcoin-data.com/v1/supply-loss'
+    'supply-loss': 'https://bitcoin-data.com/v1/supply-loss',
+
+    /// --- Rhodl Ratio ----
+    'rhodl-ratio': 'https://bitcoin-data.com/v1/rhodl-ratio'
 };
 
 const DATA_DIR = path.join(__dirname, '..', 'data');
