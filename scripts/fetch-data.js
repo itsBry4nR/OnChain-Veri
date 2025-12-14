@@ -45,7 +45,10 @@ const ALL_ENDPOINTS = {
     'rhodl-ratio': 'https://bitcoin-data.com/v1/rhodl-ratio',
 
     // --- Puell Multiple ---
-    'puell-multiple': 'https://bitcoin-data.com/v1/puell-multiple'
+    'puell-multiple': 'https://bitcoin-data.com/v1/puell-multiple',
+
+    // --- Dynamic NVTS 25. api ---
+    'nvts': 'https://bitcoin-data.com/v1/nvts'
 };
 
 const DATA_DIR = path.join(__dirname, '..', 'data');
