@@ -41,8 +41,11 @@ const ALL_ENDPOINTS = {
     'supply-profit': 'https://bitcoin-data.com/v1/supply-profit',
     'supply-loss': 'https://bitcoin-data.com/v1/supply-loss',
 
-    /// --- Rhodl Ratio ----
-    'rhodl-ratio': 'https://bitcoin-data.com/v1/rhodl-ratio'
+    /// --- Rhodl Ratio ---
+    'rhodl-ratio': 'https://bitcoin-data.com/v1/rhodl-ratio',
+
+    // --- Puell Multiple ---
+    'puell-multiple': 'https://bitcoin-data.com/v1/puell-multiple'
 };
 
 const DATA_DIR = path.join(__dirname, '..', 'data');
