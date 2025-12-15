@@ -51,7 +51,7 @@ const ALL_ENDPOINTS = {
     'nvts': 'https://bitcoin-data.com/v1/nvts',
 
     // --- Reverse Risk & MVOCDD 27.api ---
-    'reverse-risk': 'https://bitcoin-data.com/v1/reserve-risk'
+    'reverse-risk': 'https://bitcoin-data.com/v1/reserve-risk',
     'mvocdd': 'https://bitcoin-data.com/v1/mvocdd'
 };
 
