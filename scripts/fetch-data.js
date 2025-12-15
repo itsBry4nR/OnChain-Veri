@@ -47,8 +47,11 @@ const ALL_ENDPOINTS = {
     // --- Puell Multiple ---
     'puell-multiple': 'https://bitcoin-data.com/v1/puell-multiple',
 
-    // --- Dynamic NVTS 25. api ---
-    'nvts': 'https://bitcoin-data.com/v1/nvts'
+    // --- Dynamic NVTS ---
+    'nvts': 'https://bitcoin-data.com/v1/nvts',
+
+    // --- Reverse Risk 26.api ---
+    'reverse-risk': 'https://bitcoin-data.com/v1/reserve-risk'
 };
 
 const DATA_DIR = path.join(__dirname, '..', 'data');
