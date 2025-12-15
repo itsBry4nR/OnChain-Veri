@@ -50,8 +50,9 @@ const ALL_ENDPOINTS = {
     // --- Dynamic NVTS ---
     'nvts': 'https://bitcoin-data.com/v1/nvts',
 
-    // --- Reverse Risk 26.api ---
+    // --- Reverse Risk & MVOCDD 27.api ---
     'reverse-risk': 'https://bitcoin-data.com/v1/reserve-risk'
+    'mvocdd': 'https://bitcoin-data.com/v1/mvocdd'
 };
 
 const DATA_DIR = path.join(__dirname, '..', 'data');
