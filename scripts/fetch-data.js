@@ -27,7 +27,6 @@ const ALL_ENDPOINTS = {
     // --- Realized Price Ailesi ve Delta Price İçin gerekli apiler
     'market-cap':     'https://bitcoin-data.com/v1/market-cap',
     'cap-real-usd':   'https://bitcoin-data.com/v1/cap-real-usd',
-    'supply-current': 'https://bitcoin-data.com/v1/supply-current',
     'realized-price': 'https://bitcoin-data.com/v1/realized-price',
     'sth-realized-price':  'https://bitcoin-data.com/v1/sth-realized-price',
     'lth-realized-price':  'https://bitcoin-data.com/v1/lth-realized-price',
@@ -54,9 +53,13 @@ const ALL_ENDPOINTS = {
     'reverse-risk': 'https://bitcoin-data.com/v1/reserve-risk',
     'mvocdd': 'https://bitcoin-data.com/v1/mvocdd',
 
-    //--- NRPL Family 29.api ---
+    //--- NRPL Family ---
     'nrpl-usd': 'https://bitcoin-data.com/v1/nrpl-usd',
-    'nrpl-btc': 'https://bitcoin-data.com/v1/nrpl-btc'
+    'nrpl-btc': 'https://bitcoin-data.com/v1/nrpl-btc',
+
+    // --- Liveliness için gerekli apiler 30.api---
+    'supply-current': 'https://bitcoin-data.com/v1/supply-current',
+    'cdd': 'https://bitcoin-data.com/v1/cdd'
 };
 
 const DATA_DIR = path.join(__dirname, '..', 'data');
