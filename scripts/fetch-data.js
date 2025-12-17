@@ -57,9 +57,12 @@ const ALL_ENDPOINTS = {
     'nrpl-usd': 'https://bitcoin-data.com/v1/nrpl-usd',
     'nrpl-btc': 'https://bitcoin-data.com/v1/nrpl-btc',
 
-    // --- Liveliness için gerekli apiler 30.api---
+    // --- Liveliness için gerekli apiler ---
     'supply-current': 'https://bitcoin-data.com/v1/supply-current',
-    'cdd': 'https://bitcoin-data.com/v1/cdd'
+    'cdd': 'https://bitcoin-data.com/v1/cdd',
+
+    // --- Aviv 31.api ---
+    'aviv': 'https://bitcoin-data.com/v1/aviv'
 };
 
 const DATA_DIR = path.join(__dirname, '..', 'data');
