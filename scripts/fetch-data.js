@@ -65,8 +65,11 @@ const ALL_ENDPOINTS = {
     // --- Aviv Ratio ---
     'aviv': 'https://bitcoin-data.com/v1/aviv',
 
-    // --- HashRibbons 33.api ---
-    'hashribbons': 'https://bitcoin-data.com/v1/hashribbons'
+    // --- HashRibbons ---
+    'hashribbons': 'https://bitcoin-data.com/v1/hashribbons',
+
+    // --- VDD Multiple 34.api ---
+    'vdd-multiple': 'https://bitcoin-data.com/v1/vdd-multiple'
 };
 
 const DATA_DIR = path.join(__dirname, '..', 'data');
