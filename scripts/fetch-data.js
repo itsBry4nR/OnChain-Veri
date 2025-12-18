@@ -62,8 +62,11 @@ const ALL_ENDPOINTS = {
     'supply-current': 'https://bitcoin-data.com/v1/supply-current',
     'cdd': 'https://bitcoin-data.com/v1/cdd',
 
-    // --- Aviv 32.api ---
-    'aviv': 'https://bitcoin-data.com/v1/aviv'
+    // --- Aviv Ratio ---
+    'aviv': 'https://bitcoin-data.com/v1/aviv',
+
+    // --- HashRibbons 33.api ---
+    'hashribbons': 'https://bitcoin-data.com/v1/hashribbons'
 };
 
 const DATA_DIR = path.join(__dirname, '..', 'data');
