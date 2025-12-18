@@ -31,6 +31,7 @@ const ALL_ENDPOINTS = {
     'sth-realized-price':  'https://bitcoin-data.com/v1/sth-realized-price',
     'lth-realized-price':  'https://bitcoin-data.com/v1/lth-realized-price',
     'true-market-mean':     'https://bitcoin-data.com/v1/true-market-mean',
+    'btc-price': 'https://bitcoin-data.com/v1/btc-price',
 
     // --- CDD Binary ---
     'supply-adjusted-cdd-binary':   'https://bitcoin-data.com/v1/supply-adjusted-cdd-binary',
@@ -61,7 +62,7 @@ const ALL_ENDPOINTS = {
     'supply-current': 'https://bitcoin-data.com/v1/supply-current',
     'cdd': 'https://bitcoin-data.com/v1/cdd',
 
-    // --- Aviv 31.api ---
+    // --- Aviv 32.api ---
     'aviv': 'https://bitcoin-data.com/v1/aviv'
 };
 
