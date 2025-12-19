@@ -10,8 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        # DİKKAT: Artık 9 makine çalışacak
-        group: [0, 1, 2, 3, 4, 5, 6, 7, 8]
+        # DİKKAT: Artık 10 makine çalışacak
+        group: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
     
     steps:
     - uses: actions/checkout@v4
@@ -20,8 +20,8 @@ jobs:
         node-version: 20
         
     - name: Parça İndir
-      # DİKKAT: Total 9 oldu
-      run: node scripts/fetch-data.js --group ${{ matrix.group }} --total 9
+      # DİKKAT: Total 10 oldu
+      run: node scripts/fetch-data.js --group ${{ matrix.group }} --total 10
       
     - name: Parçayı Yükle (Artifact)
       uses: actions/upload-artifact@v4
