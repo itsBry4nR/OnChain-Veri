@@ -77,9 +77,8 @@ const ALL_ENDPOINTS = {
     'realizedLossLth': 'https://bitcoin-data.com/v1/realized_loss_lth',
     'realizedLossSth': 'https://bitcoin-data.com/v1/realized_loss_sth',
 
-    // --- Supply Profit/Loss % 40.api ---
-    'supplyProfit': 'https://bitcoin-data.com/v1/supply-profit',
-    'supplyLoss': 'https://bitcoin-data.com/v1/supply-loss'
+    // --- Stablecoin Supply 39.api ---
+    'stablecoin-supply': 'https://bitcoin-data.com/v1/stablecoin-supply'
 };
 
 const DATA_DIR = path.join(__dirname, '..', 'data');
