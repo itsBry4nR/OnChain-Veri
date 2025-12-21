@@ -78,7 +78,7 @@ const ALL_ENDPOINTS = {
     'realizedLossSth': 'https://bitcoin-data.com/v1/realized_loss_sth',
 
     // --- Supply Profit/Loss % 40.api ---
-    'supplyProfit': 'https://bitcoin-data.com/v1/supply-profit'
+    'supplyProfit': 'https://bitcoin-data.com/v1/supply-profit',
     'supplyLoss': 'https://bitcoin-data.com/v1/supply-loss'
 };
 
