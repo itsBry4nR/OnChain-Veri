@@ -20,7 +20,8 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y xvfb libgbm-dev
-          npm install  # <-- BURAYI DEĞİŞTİRDİK (Eskisi: npm ci)
+          # HATA ÇÖZÜMÜ: package.json aramayı bırak, direkt kur!
+          npm install playwright 
           npx playwright install --with-deps chromium
 
       # Sanal Ekran ile Scripti Çalıştır
@@ -28,6 +29,8 @@ jobs:
         continue-on-error: true 
         timeout-minutes: 5
         run: |
+          # Node path ayarı yaparak scriptin modülleri bulmasını garantiye alalım
+          export NODE_PATH=$(npm root -g)
           xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" node scripts/fetch-cq-local.js
 
       # İndirilen Dosyayı veya Hata Resmini Sakla
@@ -85,7 +88,9 @@ jobs:
       - name: Dosyaları Düzenle
         run: |
           mkdir -p data/local
+          # Shard dosyalarını data/ içine taşı
           find all-data-temp -name "shard-*.json" -exec mv {} data/ \;
+          # CQ verisini data/local/ içine taşı (Varsa)
           find all-data-temp -name "cq-exchange-netflow.json" -exec mv {} data/local/ \; || true
           
           echo "📂 Dosya Yapısı Kontrolü:"
