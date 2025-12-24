@@ -108,18 +108,24 @@ async function fetchShard() {
     for (const key of myKeys) {
         try {
             console.log(`📥 İndiriliyor: ${key}`);
-            const response = await fetch(ALL_ENDPOINTS[key]);
-            
-            if (response.status === 429) {
-                console.error(`⚠️ 429 Limit Hatası: ${key}`);
-                partialResult[key] = null;
-                continue;
-            }
+const response = await fetch(ALL_ENDPOINTS[key]);
 
-            if (!response.ok) throw new Error(`HTTP ${response.status}`);
-            
-            partialResult[key] = await response.json();
-            await new Promise(r => setTimeout(r, 2000)); // Bekleme süresi
+console.log(`➡️ ${key} status: ${response.status}`);
+const text = await response.text();
+console.log(`➡️ ${key} first200:`, text.slice(0, 200));
+
+if (response.status === 429) {
+  console.error(`⚠️ 429 Limit Hatası: ${key}`);
+  partialResult[key] = null;
+  continue;
+}
+
+if (!response.ok) throw new Error(`HTTP ${response.status} body=${text.slice(0, 200)}`);
+
+// NOT: text zaten okunduğu için response.json() yapamazsın; JSON.parse yapıyoruz.
+partialResult[key] = JSON.parse(text);
+
+await new Promise(r => setTimeout(r, 2000)); // Bekleme süresi
             
         } catch (error) {
             console.error(`❌ Hata (${key}):`, error.message);
