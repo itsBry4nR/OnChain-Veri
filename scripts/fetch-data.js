@@ -92,70 +92,74 @@ const groupIndex = parseInt(args[args.indexOf('--group') + 1]) || 0;
 const totalGroups = parseInt(args[args.indexOf('--total') + 1]) || 1;
 
 async function fetchShard() {
-    const keys = Object.keys(ALL_ENDPOINTS);
-    const myKeys = keys.filter((_, index) => index % totalGroups === groupIndex);
-    
-    // Güvenlik Kontrolü
-    if (myKeys.length > MAX_PER_AGENT) {
-        console.error(`🚨 HATA: Ajan #${groupIndex} kapasitesi doldu (${myKeys.length}/${MAX_PER_AGENT}).`);
-        process.exit(1);
-    }
-    
-    console.log(`🤖 Ajan #${groupIndex} görev başında. Liste: ${myKeys.join(', ')}`);
-    
-    const partialResult = {};
+  const keys = Object.keys(ALL_ENDPOINTS);
+  const myKeys = keys.filter((_, index) => index % totalGroups === groupIndex);
 
-    for (const key of myKeys) {
-  try {
-    console.log(`📥 İndiriliyor: ${key}`);
-
-    const url = ALL_ENDPOINTS[key];
-
-const headers = {
-  'accept': 'application/json, text/plain, */*',
-  'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36',
-};
-
-if (url.includes('api.cryptoquant.com')) {
-  const tokenRaw = process.env.CRYPTOQUANT_BEARER || '';
-  const token = tokenRaw.replace(/^Bearer\s+/i, '').trim();
-  if (!token) throw new Error('Missing env CRYPTOQUANT_BEARER');
-
-  headers['authorization'] = `Bearer ${token}`;
-  headers['origin'] = 'https://cryptoquant.com';
-  headers['referer'] = 'https://cryptoquant.com/';
-  headers['cache-control'] = 'no-cache';
-  headers['pragma'] = 'no-cache';
-
-  const cqCookie = (process.env.CRYPTOQUANT_COOKIE || '').trim();
-  if (cqCookie) headers['cookie'] = cqCookie;
-}
-
-const response = await fetch(url, { headers });
-
-console.log(`➡️ ${key} status: ${response.status}`);
-const text = await response.text();
-console.log(`➡️ ${key} first200:`, text.slice(0, 200));
-
-if (response.status === 429) {
-  console.error(`⚠️ 429 Limit Hatası: ${key}`);
-  partialResult[key] = null;
-  continue;
-}
-
-if (!response.ok) throw new Error(`HTTP ${response.status} body=${text.slice(0, 200)}`);
-
-partialResult[key] = JSON.parse(text);
-
-    await new Promise(r => setTimeout(r, 2000));
-  } catch (error) {
-    console.error(`❌ Hata (${key}):`, error.message);
-    partialResult[key] = null;
+  // Güvenlik Kontrolü
+  if (myKeys.length > MAX_PER_AGENT) {
+    console.error(`🚨 HATA: Ajan #${groupIndex} kapasitesi doldu (${myKeys.length}/${MAX_PER_AGENT}).`);
+    process.exit(1);
   }
-}
-    
-    const filePath = path.join(DATA_DIR, `shard-${groupIndex}.json`);
-    fs.writeFileSync(filePath, JSON.stringify(partialResult, null, 2));
+
+  console.log(`🤖 Ajan #${groupIndex} görev başında. Liste: ${myKeys.join(', ')}`);
+
+  const partialResult = {};
+
+  for (const key of myKeys) {
+    try {
+      console.log(`📥 İndiriliyor: ${key}`);
+
+      const url = ALL_ENDPOINTS[key];
+
+      const headers = {
+        'accept': 'application/json, text/plain, */*',
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36',
+      };
+
+      if (url.includes('api.cryptoquant.com')) {
+        const tokenRaw = process.env.CRYPTOQUANT_BEARER || '';
+        const token = tokenRaw.replace(/^Bearer\s+/i, '').trim();
+        if (!token) throw new Error('Missing env CRYPTOQUANT_BEARER');
+
+        headers['authorization'] = `Bearer ${token}`;
+        headers['origin'] = 'https://cryptoquant.com';
+        headers['referer'] = 'https://cryptoquant.com/';
+        headers['cache-control'] = 'no-cache';
+        headers['pragma'] = 'no-cache';
+
+        const cqCookie = (process.env.CRYPTOQUANT_COOKIE || '').trim();
+        if (cqCookie) headers['cookie'] = cqCookie;
+      }
+
+      const response = await fetch(url, { headers });
+
+      console.log(`➡️ ${key} status: ${response.status}`);
+
+      const text = await response.text();
+      console.log(`➡️ ${key} first200:`, text.slice(0, 200));
+
+      if (response.status === 429) {
+        console.error(`⚠️ 429 Limit Hatası: ${key}`);
+        partialResult[key] = null;
+        continue;
+      }
+
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status} body=${text.slice(0, 200)}`);
+      }
+
+      partialResult[key] = JSON.parse(text);
+
+      // Bekleme süresi
+      await new Promise(r => setTimeout(r, 2000));
+    } catch (error) {
+      console.error(`❌ Hata (${key}):`, error.message);
+      partialResult[key] = null;
+    }
+  }
+
+  const filePath = path.join(DATA_DIR, `shard-${groupIndex}.json`);
+  fs.writeFileSync(filePath, JSON.stringify(partialResult, null, 2));
 }
 
 function mergeShards() {
