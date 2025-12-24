@@ -78,7 +78,10 @@ const ALL_ENDPOINTS = {
     'realizedLossSth': 'https://bitcoin-data.com/v1/realized_loss_sth',
 
     // --- Stablecoin Supply 39.api ---
-    'stablecoin-supply': 'https://bitcoin-data.com/v1/stablecoin-supply'
+    'stablecoin-supply': 'https://bitcoin-data.com/v1/stablecoin-supply',
+
+    //Exchange Net Position Change 40.api ---
+'cq-exchange-netflow': 'https://api.cryptoquant.com/live/v4/charts/61a5fbaf45de34521f1dcad1?window=DAY&from=1135375200000&to=1766575363174&limit=70000'
 };
 
 const DATA_DIR = path.join(__dirname, '..', 'data');
