@@ -23,9 +23,6 @@ jobs:
           node-version: 20
 
       - name: Parça İndir
-        env:
-          CRYPTOQUANT_BEARER: ${{ secrets.CRYPTOQUANT_BEARER }}
-          CRYPTOQUANT_COOKIE: ${{ secrets.CRYPTOQUANT_COOKIE }}
         run: node scripts/fetch-data.js --group ${{ matrix.group }} --total 10
 
       - name: Parçayı Yükle (Artifact)
