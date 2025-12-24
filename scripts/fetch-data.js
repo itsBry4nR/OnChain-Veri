@@ -132,37 +132,60 @@ function mergeShards() {
     console.log('🔗 Parçalar birleştiriliyor...');
     const finalBundle = { lastUpdated: Date.now(), metrics: {} };
     
-    // 1. Normal API Parçalarını Birleştir
+    // 1. Normal Parçaları Birleştir
     const files = fs.readdirSync(DATA_DIR).filter(f => f.startsWith('shard-') && f.endsWith('.json'));
     
-    if (files.length === 0) console.warn('⚠️ Uyarı: Hiç parça dosyası bulunamadı.');
-
     files.forEach(file => {
         try {
             const content = JSON.parse(fs.readFileSync(path.join(DATA_DIR, file), 'utf-8'));
             Object.assign(finalBundle.metrics, content);
-            fs.unlinkSync(path.join(DATA_DIR, file)); // Temizlik
+            fs.unlinkSync(path.join(DATA_DIR, file)); 
         } catch (e) { console.error(e); }
     });
 
-    // 2. CRYPTOQUANT VERİSİNİ EKLE (Özel Entegrasyon)
+    // 2. CRYPTOQUANT DEBUG VE ENTEGRASYON
     const cqPath = path.join(DATA_DIR, 'local', 'cq-exchange-netflow.json');
+    console.log(`🔎 CQ Dosyası aranıyor: ${cqPath}`);
+
     if (fs.existsSync(cqPath)) {
         try {
-            console.log('💎 CryptoQuant verisi bulundu, pakete ekleniyor...');
-            const cqContent = JSON.parse(fs.readFileSync(cqPath, 'utf-8'));
+            const fileContent = fs.readFileSync(cqPath, 'utf-8');
+            console.log(`📄 CQ Dosya Boyutu: ${fileContent.length} byte`);
             
-            // CryptoQuant verisi { result: { data: [...] } } yapısındadır.
-            // Biz sadece data dizisini alıp 'cq-exchange-netflow' adıyla kaydediyoruz.
-            if (cqContent && cqContent.result && cqContent.result.data) {
-                finalBundle.metrics['cq-exchange-netflow'] = cqContent.result.data;
-                console.log(`✅ CQ Verisi Eklendi (${cqContent.result.data.length} satır)`);
+            // Dosya boş mu kontrol et
+            if (!fileContent.trim()) {
+                console.error('❌ HATA: CQ Dosyası BOŞ!');
+            } else {
+                const cqContent = JSON.parse(fileContent);
+                
+                // Olası veri yollarını kontrol et
+                let validData = null;
+
+                if (cqContent?.result?.data) {
+                    validData = cqContent.result.data;
+                    console.log('✅ Veri Formatı: Standard (result.data)');
+                } else if (cqContent?.data) {
+                    validData = cqContent.data;
+                    console.log('✅ Veri Formatı: Alternatif (data)');
+                } else if (Array.isArray(cqContent)) {
+                    validData = cqContent;
+                    console.log('✅ Veri Formatı: Düz Dizi (Array)');
+                } else {
+                    console.error('❌ HATA: CQ JSON formatı tanınamadı! İçerik özeti:', JSON.stringify(cqContent).slice(0, 200));
+                }
+
+                if (validData && Array.isArray(validData) && validData.length > 0) {
+                    finalBundle.metrics['cq-exchange-netflow'] = validData;
+                    console.log(`🎉 BAŞARILI: ${validData.length} satır CQ verisi eklendi.`);
+                } else {
+                    console.warn('⚠️ UYARI: Veri bulundu ama dizi boş veya geçersiz.');
+                }
             }
         } catch (e) {
-            console.error('❌ CryptoQuant verisi bozuk:', e.message);
+            console.error('❌ CQ Dosyası Okuma Hatası:', e.message);
         }
     } else {
-        console.warn('⚠️ CryptoQuant dosyası bulunamadı (cq-exchange-netflow.json). Eski veri korunacak.');
+        console.warn('⚠️ UYARI: cq-exchange-netflow.json dosyası BULUNAMADI.');
     }
     
     fs.writeFileSync(path.join(DATA_DIR, 'all-metrics.json'), JSON.stringify(finalBundle));
