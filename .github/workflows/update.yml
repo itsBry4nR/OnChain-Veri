@@ -20,11 +20,10 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y xvfb libgbm-dev
-          npm ci
+          npm install  # <-- BURAYI DEĞİŞTİRDİK (Eskisi: npm ci)
           npx playwright install --with-deps chromium
 
       # Sanal Ekran ile Scripti Çalıştır
-      # continue-on-error: true -> Eğer Cloudflare engellerse sistem durmasın, diğer veriler güncellensin.
       - name: 🕵️‍♂️ CryptoQuant Ajanı
         continue-on-error: true 
         timeout-minutes: 5
@@ -67,7 +66,7 @@ jobs:
 
   # 3. İş: Hepsini Birleştir ve Gönder
   combine-and-push:
-    needs: [fetch-cq, fetch-shards] # İki işin de bitmesini bekle
+    needs: [fetch-cq, fetch-shards]
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -78,19 +77,15 @@ jobs:
         with:
           node-version: 20
 
-      # Tüm Artifactleri (CQ + Shards) İndir
       - name: Tüm Verileri İndir
         uses: actions/download-artifact@v4
         with:
           path: all-data-temp
 
-      # Dosyaları Doğru Yerlere Taşı
       - name: Dosyaları Düzenle
         run: |
           mkdir -p data/local
-          # Shard dosyalarını data/ içine taşı
           find all-data-temp -name "shard-*.json" -exec mv {} data/ \;
-          # CQ verisini data/local/ içine taşı (Varsa)
           find all-data-temp -name "cq-exchange-netflow.json" -exec mv {} data/local/ \; || true
           
           echo "📂 Dosya Yapısı Kontrolü:"
@@ -104,5 +99,4 @@ jobs:
           git config --global user.name 'Matrix Bot'
           git config --global user.email 'bot@noreply.github.com'
           git add data/all-metrics.json
-          # Eğer değişiklik varsa commit et, yoksa hata verme
           git diff --quiet && git diff --staged --quiet || (git commit -m "Günlük Veri (CQ + API): $(date)" && git push)
