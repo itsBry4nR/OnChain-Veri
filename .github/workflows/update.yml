@@ -70,30 +70,39 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      
       - uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      - name: Download All Artifacts
+      - name: Tüm Verileri İndir
         uses: actions/download-artifact@v4
         with:
           path: all-data-temp
 
-      - name: Organize Files
+      - name: Dosyaları Düzenle ve Kontrol Et
         run: |
+          echo "📂 İndirilen Ham Dosyalar:"
+          ls -R all-data-temp/
+          
           mkdir -p data/local
+          
+          # Shardları taşı
           find all-data-temp -name "shard-*.json" -exec mv {} data/ \;
-          find all-data-temp -name "cq-exchange-netflow.json" -exec mv {} data/local/ \; || true
-          echo "Files organized."
+          
+          # CQ dosyasını taşı (Hata gizlemeyi kaldırdık)
+          find all-data-temp -name "cq-exchange-netflow.json" -exec mv {} data/local/ \;
+          
+          echo "📂 Düzenleme Sonrası Data Klasörü:"
+          ls -R data/
 
-      - name: Merge JSON
+      - name: JSON Birleştir (Merge)
         run: node scripts/fetch-data.js --merge
 
-      - name: Commit and Push
+      - name: Commit & Push
         run: |
           git config --global user.name 'Matrix Bot'
           git config --global user.email 'bot@noreply.github.com'
+          
           git add data/all-metrics.json
           git add data/local/cq-exchange-netflow.json
           
@@ -101,5 +110,5 @@ jobs:
             git commit -m "Auto Update: $(date)"
             git push
           else
-            echo "No changes to commit."
+            echo "⚠️ Değişiklik yok."
           fi
