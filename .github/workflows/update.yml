@@ -79,23 +79,17 @@ jobs:
         with:
           path: all-data-temp
 
-      - name: Dosyaları Düzenle ve Kontrol Et
+      - name: Dosyaları Yerleştir
         run: |
-          echo "📂 İndirilen Ham Dosyalar:"
-          ls -R all-data-temp/
-          
           mkdir -p data/local
           
-          # Shardları taşı
+          # 1. Shardları taşı (all-metrics oluşumu için)
           find all-data-temp -name "shard-*.json" -exec mv {} data/ \;
           
-          # CQ dosyasını taşı (Hata gizlemeyi kaldırdık)
-          find all-data-temp -name "cq-exchange-netflow.json" -exec mv {} data/local/ \;
-          
-          echo "📂 Düzenleme Sonrası Data Klasörü:"
-          ls -R data/
+          # 2. CQ verisini taşı (Sadece dosya olarak dursun)
+          find all-data-temp -name "cq-exchange-netflow.json" -exec mv {} data/local/ \; || true
 
-      - name: JSON Birleştir (Merge)
+      - name: JSON Birleştir (Sadece Bitcoin-Data)
         run: node scripts/fetch-data.js --merge
 
       - name: Commit & Push
@@ -103,11 +97,12 @@ jobs:
           git config --global user.name 'Matrix Bot'
           git config --global user.email 'bot@noreply.github.com'
           
+          # İki dosyayı da ayrı ayrı ekle
           git add data/all-metrics.json
           git add data/local/cq-exchange-netflow.json
           
           if [ -n "$(git status --porcelain)" ]; then
-            git commit -m "Auto Update: $(date)"
+            git commit -m "Günlük Rapor: Veriler Güncellendi $(date)"
             git push
           else
             echo "⚠️ Değişiklik yok."
