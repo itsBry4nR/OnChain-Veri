@@ -2,39 +2,34 @@ name: Matrix Data Fetcher
 
 on:
   schedule:
-    - cron: '30 9 * * *' # UTC 09:30 (TSİ 12:30)
-  workflow_dispatch:      # Manuel tetikleme
+    - cron: '30 9 * * *'
+  workflow_dispatch:
 
 jobs:
-  # 1. İş: CryptoQuant Verisini Çek (Sanal Ekranlı Ajan)
   fetch-cq:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      
       - uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      # Playwright ve Sanal Ekran (XVFB) Kurulumu
-      - name: Bağımlılıkları Kur
+      - name: Install Dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y xvfb libgbm-dev
-          # HATA ÇÖZÜMÜ: package.json aramayı bırak, direkt kur!
-          npm install playwright 
+          npm install playwright
           npx playwright install --with-deps chromium
 
-      # Sanal Ekran ile Scripti Çalıştır
-      - name: 🕵️‍♂️ CryptoQuant Ajanı
-        continue-on-error: true 
+      - name: Run CryptoQuant Agent
+        continue-on-error: true
         timeout-minutes: 5
         run: |
-          # Node path ayarı yaparak scriptin modülleri bulmasını garantiye alalım
           export NODE_PATH=$(npm root -g)
           xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" node scripts/fetch-cq-local.js
 
-      # İndirilen Dosyayı veya Hata Resmini Sakla
-      - name: CQ Verisini Yükle
+      - name: Upload CQ Data
         uses: actions/upload-artifact@v4
         with:
           name: data-cq
@@ -43,7 +38,6 @@ jobs:
             debug-error.png
           retention-days: 1
 
-  # 2. İş: Diğer API'leri Çek (Mevcut Matrix Sistemi)
   fetch-shards:
     runs-on: ubuntu-latest
     strategy:
@@ -53,21 +47,21 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+      
       - uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      - name: Parça İndir
+      - name: Download Data Shard
         run: node scripts/fetch-data.js --group ${{ matrix.group }} --total 10
 
-      - name: Parçayı Yükle
+      - name: Upload Shard Artifact
         uses: actions/upload-artifact@v4
         with:
           name: data-shard-${{ matrix.group }}
           path: data/shard-${{ matrix.group }}.json
           retention-days: 1
 
-  # 3. İş: Hepsini Birleştir ve Gönder
   combine-and-push:
     needs: [fetch-cq, fetch-shards]
     runs-on: ubuntu-latest
@@ -76,45 +70,36 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+      
       - uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      - name: Tüm Verileri İndir
+      - name: Download All Artifacts
         uses: actions/download-artifact@v4
         with:
           path: all-data-temp
 
-      - name: Dosyaları Düzenle
+      - name: Organize Files
         run: |
           mkdir -p data/local
-          # Shard dosyalarını data/ içine taşı
           find all-data-temp -name "shard-*.json" -exec mv {} data/ \;
-          # CQ verisini data/local/ içine taşı (Varsa)
           find all-data-temp -name "cq-exchange-netflow.json" -exec mv {} data/local/ \; || true
-          
-          echo "📂 Dosya Yapısı Kontrolü:"
-          ls -R data/
+          echo "Files organized."
 
-      - name: JSON Birleştir
+      - name: Merge JSON
         run: node scripts/fetch-data.js --merge
 
-     - name: Commit & Push
+      - name: Commit and Push
         run: |
           git config --global user.name 'Matrix Bot'
           git config --global user.email 'bot@noreply.github.com'
-          
-          # 1. Önce CryptoQuant verisini merge scripti ile ana dosyaya ekle
-          node scripts/fetch-data.js --merge
-          
-          # 2. Hem ana dosyayı hem de ham CQ dosyasını ekle (Yedek olsun)
           git add data/all-metrics.json
           git add data/local/cq-exchange-netflow.json
           
-          # 3. Değişiklik varsa commit at, yoksa hata verme (exit 0)
           if [ -n "$(git status --porcelain)" ]; then
-            git commit -m "Günlük Veri (CQ + API): $(date)"
+            git commit -m "Auto Update: $(date)"
             git push
           else
-            echo "⚠️ Değişiklik yok, commit atılmadı."
+            echo "No changes to commit."
           fi
