@@ -106,32 +106,55 @@ async function fetchShard() {
     const partialResult = {};
 
     for (const key of myKeys) {
-        try {
-            console.log(`📥 İndiriliyor: ${key}`);
-const response = await fetch(ALL_ENDPOINTS[key]);
+  try {
+    console.log(`📥 İndiriliyor: ${key}`);
 
-console.log(`➡️ ${key} status: ${response.status}`);
-const text = await response.text();
-console.log(`➡️ ${key} first200:`, text.slice(0, 200));
+    const url = ALL_ENDPOINTS[key];
 
-if (response.status === 429) {
-  console.error(`⚠️ 429 Limit Hatası: ${key}`);
-  partialResult[key] = null;
-  continue;
-}
+    // --- CryptoQuant için özel header seti ---
+    const headers = {
+      'Accept': 'application/json, text/plain, */*',
+      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36',
+    };
 
-if (!response.ok) throw new Error(`HTTP ${response.status} body=${text.slice(0, 200)}`);
+    if (key.startsWith('cq-')) {
+      const tokenRaw = process.env.CRYPTOQUANT_BEARER || '';
+      const token = tokenRaw.replace(/^Bearer\s+/i, '').trim();
+      if (!token) throw new Error('Missing env CRYPTOQUANT_BEARER');
 
-// NOT: text zaten okunduğu için response.json() yapamazsın; JSON.parse yapıyoruz.
-partialResult[key] = JSON.parse(text);
+      headers['Authorization'] = `Bearer ${token}`;
+      headers['Origin'] = 'https://cryptoquant.com';
+      headers['Referer'] = 'https://cryptoquant.com/';
+      headers['Cache-Control'] = 'no-cache';
+      headers['Pragma'] = 'no-cache';
 
-await new Promise(r => setTimeout(r, 2000)); // Bekleme süresi
-            
-        } catch (error) {
-            console.error(`❌ Hata (${key}):`, error.message);
-            partialResult[key] = null;
-        }
+      // Cookie gerekiyorsa (bazı durumlarda şart)
+      const cqCookie = (process.env.CRYPTOQUANT_COOKIE || '').trim();
+      if (cqCookie) headers['Cookie'] = cqCookie;
     }
+
+    const response = await fetch(url, { headers });
+
+    console.log(`➡️ ${key} status: ${response.status}`);
+    const text = await response.text();
+    console.log(`➡️ ${key} first200:`, text.slice(0, 200));
+
+    if (response.status === 429) {
+      console.error(`⚠️ 429 Limit Hatası: ${key}`);
+      partialResult[key] = null;
+      continue;
+    }
+
+    if (!response.ok) throw new Error(`HTTP ${response.status} body=${text.slice(0, 200)}`);
+
+    partialResult[key] = JSON.parse(text);
+
+    await new Promise(r => setTimeout(r, 2000));
+  } catch (error) {
+    console.error(`❌ Hata (${key}):`, error.message);
+    partialResult[key] = null;
+  }
+}
     
     const filePath = path.join(DATA_DIR, `shard-${groupIndex}.json`);
     fs.writeFileSync(filePath, JSON.stringify(partialResult, null, 2));
