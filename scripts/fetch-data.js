@@ -111,43 +111,41 @@ async function fetchShard() {
 
     const url = ALL_ENDPOINTS[key];
 
-    // --- CryptoQuant için özel header seti ---
-    const headers = {
-      'Accept': 'application/json, text/plain, */*',
-      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36',
-    };
+const headers = {
+  'accept': 'application/json, text/plain, */*',
+  'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36',
+};
 
-    if (key.startsWith('cq-')) {
-      const tokenRaw = process.env.CRYPTOQUANT_BEARER || '';
-      const token = tokenRaw.replace(/^Bearer\s+/i, '').trim();
-      if (!token) throw new Error('Missing env CRYPTOQUANT_BEARER');
+if (url.includes('api.cryptoquant.com')) {
+  const tokenRaw = process.env.CRYPTOQUANT_BEARER || '';
+  const token = tokenRaw.replace(/^Bearer\s+/i, '').trim();
+  if (!token) throw new Error('Missing env CRYPTOQUANT_BEARER');
 
-      headers['Authorization'] = `Bearer ${token}`;
-      headers['Origin'] = 'https://cryptoquant.com';
-      headers['Referer'] = 'https://cryptoquant.com/';
-      headers['Cache-Control'] = 'no-cache';
-      headers['Pragma'] = 'no-cache';
+  headers['authorization'] = `Bearer ${token}`;
+  headers['origin'] = 'https://cryptoquant.com';
+  headers['referer'] = 'https://cryptoquant.com/';
+  headers['cache-control'] = 'no-cache';
+  headers['pragma'] = 'no-cache';
 
-      // Cookie gerekiyorsa (bazı durumlarda şart)
-      const cqCookie = (process.env.CRYPTOQUANT_COOKIE || '').trim();
-      if (cqCookie) headers['Cookie'] = cqCookie;
-    }
+  const cqCookie = (process.env.CRYPTOQUANT_COOKIE || '').trim();
+  if (cqCookie) headers['cookie'] = cqCookie;
+}
 
-    const response = await fetch(url, { headers });
+const response = await fetch(url, { headers });
 
-    console.log(`➡️ ${key} status: ${response.status}`);
-    const text = await response.text();
-    console.log(`➡️ ${key} first200:`, text.slice(0, 200));
+console.log(`➡️ ${key} status: ${response.status}`);
+const text = await response.text();
+console.log(`➡️ ${key} first200:`, text.slice(0, 200));
 
-    if (response.status === 429) {
-      console.error(`⚠️ 429 Limit Hatası: ${key}`);
-      partialResult[key] = null;
-      continue;
-    }
+if (response.status === 429) {
+  console.error(`⚠️ 429 Limit Hatası: ${key}`);
+  partialResult[key] = null;
+  continue;
+}
 
-    if (!response.ok) throw new Error(`HTTP ${response.status} body=${text.slice(0, 200)}`);
+if (!response.ok) throw new Error(`HTTP ${response.status} body=${text.slice(0, 200)}`);
 
-    partialResult[key] = JSON.parse(text);
+partialResult[key] = JSON.parse(text);
 
     await new Promise(r => setTimeout(r, 2000));
   } catch (error) {
