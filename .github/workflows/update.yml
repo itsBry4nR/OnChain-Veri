@@ -2,68 +2,70 @@ name: Matrix Data Fetcher
 
 on:
   schedule:
-    - cron: '30 9 * * *' # Her gece UTC 09:30 (TSİ 12:30)'de çalış
-  workflow_dispatch:      # Manuel tetikleme butonu
+    - cron: '30 9 * * *' # UTC 09:30 (TSİ 12:30)
+  workflow_dispatch:
 
 jobs:
   fetch-shards:
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
-        # DİKKAT: Artık 10 makine çalışacak
         group: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-    
-    steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-node@v4
-      with:
-        node-version: 20
-        
-        - name: Parça İndir
-      run: node scripts/fetch-data.js --group ${{ matrix.group }} --total 10
-      env:
-        CRYPTOQUANT_BEARER: ${{ secrets.CRYPTOQUANT_BEARER }}
-        CRYPTOQUANT_COOKIE: ${{ secrets.CRYPTOQUANT_COOKIE }}
-      
-    - name: Parçayı Yükle (Artifact)
-      uses: actions/upload-artifact@v4
-      with:
-        name: data-shard-${{ matrix.group }}
-        path: data/shard-${{ matrix.group }}.json
-        retention-days: 1
 
-  # 2. AŞAMA: BİRLEŞTİRME (Merge)
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Parça İndir
+        env:
+          CRYPTOQUANT_BEARER: ${{ secrets.CRYPTOQUANT_BEARER }}
+          CRYPTOQUANT_COOKIE: ${{ secrets.CRYPTOQUANT_COOKIE }}
+        run: node scripts/fetch-data.js --group ${{ matrix.group }} --total 10
+
+      - name: Parçayı Yükle (Artifact)
+        uses: actions/upload-artifact@v4
+        with:
+          name: data-shard-${{ matrix.group }}
+          path: data/shard-${{ matrix.group }}.json
+          retention-days: 1
+
   combine-and-push:
     needs: fetch-shards
     runs-on: ubuntu-latest
-    
     permissions:
-      contents: write # Repoya yazma izni
+      contents: write
 
     steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-node@v4
-      with:
-        node-version: 20
-        
-    - name: Tüm Parçaları İndir
-      uses: actions/download-artifact@v4
-      with:
-        path: data-temp
-        
-    # İndirilen dosyaları (data-temp içinden) ana data klasörüne taşı
-    - name: Dosyaları Taşı
-      run: |
-        mkdir -p data
-        find data-temp -name "shard-*.json" -exec mv {} data/ \;
-        
-    - name: JSON Birleştir
-      run: node scripts/fetch-data.js --merge
-      
-    - name: Commit & Push
-      run: |
-        git config --global user.name 'Matrix Bot'
-        git config --global user.email 'bot@noreply.github.com'
-        git add data/all-metrics.json
-        # Değişiklik varsa kaydet, yoksa hata verme
-        git diff --quiet && git diff --staged --quiet || (git commit -m "Günlük Veri (Matrix): $(date)" && git push)
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Tüm Parçaları İndir
+        uses: actions/download-artifact@v4
+        with:
+          path: data-temp
+
+      - name: Dosyaları Taşı
+        run: |
+          mkdir -p data
+          find data-temp -name "shard-*.json" -exec mv {} data/ \;
+
+      - name: JSON Birleştir
+        run: node scripts/fetch-data.js --merge
+
+      - name: Commit & Push
+        run: |
+          git config --global user.name 'Matrix Bot'
+          git config --global user.email 'bot@noreply.github.com'
+          git add data/all-metrics.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Günlük Veri (Matrix): $(date)" && git push)
