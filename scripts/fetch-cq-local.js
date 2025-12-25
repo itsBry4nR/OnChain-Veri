@@ -2,18 +2,18 @@ const { chromium } = require('playwright');
 const fs = require('fs');
 const path = require('path');
 
+// Ortam değişkenlerinden şifreleri al
+const EMAIL = process.env.CQ_EMAIL;
+const PASSWORD = process.env.CQ_PASSWORD;
+
 // --- HEDEFLER LİSTESİ ---
 const TARGETS = [
     {
-        // 1. MEVCUT ÇALIŞAN (Exchange Netflow)
-        // Buna dokunmuyoruz, genel API yolunu (/live/v4/charts/) bekliyor.
         name: 'cq-exchange-netflow',
         pageUrl: 'https://cryptoquant.com/asset/btc/chart/exchange-flows/exchange-netflow-total',
         matcher: '/live/v4/charts/' 
     },
     {
-        // 2. YENİ EKLENEN (Spent Output Age Bands)
-        // Bu senin verdiğin ID'yi nokta atışı bekleyecek.
         name: 'cq-spent-output-age-bands',
         pageUrl: 'https://cryptoquant.com/asset/btc/chart/market-indicator/spent-output-age-bands',
         matcher: '62186e8661aa6b64f8a948c0' 
@@ -24,12 +24,11 @@ const TARGETS = [
 const DATA_DIR = path.join(__dirname, '..', 'data', 'local');
 const STATIC_DIR = path.join(__dirname, '..', 'data', 'static');
 
-// Klasörleri oluştur
 if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR, { recursive: true });
 if (!fs.existsSync(STATIC_DIR)) fs.mkdirSync(STATIC_DIR, { recursive: true });
 
 async function run() {
-    console.log('🕵️‍♂️ CryptoQuant Ajanı Başlatılıyor (Multi-Target Modu)...');
+    console.log('🕵️‍♂️ CryptoQuant Ajanı Başlatılıyor (Login Modu)...');
 
     const browser = await chromium.launch({
         headless: false, 
@@ -49,7 +48,6 @@ async function run() {
         timezoneId: 'America/New_York'
     });
 
-    // Otomasyon izlerini sil
     await context.addInitScript(() => {
         Object.defineProperty(navigator, 'webdriver', { get: () => undefined });
         window.chrome = { runtime: {} };
@@ -59,102 +57,113 @@ async function run() {
 
     const page = await context.newPage();
 
-    // --- DÖNGÜ BAŞLIYOR ---
+    // --- LOGİN İŞLEMİ (Eğer şifre tanımlıysa) ---
+    if (EMAIL && PASSWORD) {
+        try {
+            console.log('🔑 Giriş yapılıyor...');
+            // Giriş sayfasına git
+            await page.goto('https://cryptoquant.com/sign-in', { waitUntil: 'domcontentloaded' });
+            await page.waitForTimeout(3000);
+
+            // Email yaz (İnsan gibi yavaş yaz)
+            console.log('📧 Email yazılıyor...');
+            await page.fill('input[type="email"]', EMAIL);
+            await page.waitForTimeout(1000);
+
+            // Şifre yaz
+            console.log('🔒 Şifre yazılıyor...');
+            await page.fill('input[type="password"]', PASSWORD);
+            await page.waitForTimeout(1000);
+
+            // Giriş butonuna bas (Genellikle type="submit" olur)
+            console.log('🖱️ Giriş butonuna basılıyor...');
+            await page.click('button[type="submit"]');
+            
+            // Login sonrası yönlendirmeyi bekle (Örn: Profil ikonu görünene kadar)
+            // Sabit bir bekleme yapıyoruz ki site kendine gelsin
+            await page.waitForTimeout(10000); 
+            console.log('✅ Giriş işlemi tamamlandı (veya denendi).');
+
+        } catch (e) {
+            console.warn('⚠️ Giriş sırasında sorun oluştu (Captcha çıkmış olabilir):', e.message);
+        }
+    } else {
+        console.log('ℹ️ Şifre tanımlanmamış, misafir modunda devam ediliyor.');
+    }
+
+    // --- VERİ TOPLAMA DÖNGÜSÜ ---
     for (const target of TARGETS) {
-        console.log(`\n🔵 Hedef İşleniyor: ${target.name}`);
+        console.log(`\n🔵 Hedef: ${target.name}`);
         
         let newData = [];
         let success = false;
 
         try {
-            // --- PUSU KURULUYOR ---
             const responsePromise = page.waitForResponse(response => 
                 response.url().includes(target.matcher) && 
                 response.status() === 200,
-                { timeout: 45000 } // Her biri için 45 sn sabır süresi
+                { timeout: 45000 }
             );
 
             console.log(`🌍 Sayfaya gidiliyor: ${target.pageUrl}`);
             await page.goto(target.pageUrl, { waitUntil: 'domcontentloaded', timeout: 60000 });
 
-            console.log('⏳ Veri bekleniyor (Mouse hareketleri yapılıyor)...');
+            console.log('⏳ Veri bekleniyor...');
             await page.waitForTimeout(2000);
             await page.mouse.move(100, 100);
             await page.waitForTimeout(1000);
             await page.mouse.move(300, 300);
 
-            // Paketi Yakala
             const response = await responsePromise;
-            console.log(`🎯 VURDUK! Paket yakalandı (${target.matcher})`);
+            console.log(`🎯 PAKET YAKALANDI! (${target.matcher})`);
 
             const json = await response.json();
-
-            // Veriyi ayıkla
-            if (json.result && json.result.data) {
-                newData = json.result.data;
-            } else if (json.data) {
-                newData = json.data;
-            }
+            
+            if (json.result && json.result.data) newData = json.result.data;
+            else if (json.data) newData = json.data;
             
             if (newData.length > 0) {
-                console.log(`📥 İndirilen Satır: ${newData.length}`);
+                console.log(`📥 Veri: ${newData.length} satır`);
                 success = true;
             }
 
         } catch (err) {
-            console.warn(`⚠️ ${target.name} otomatik çekilemedi (Login gerekebilir veya ID değişmiş):`, err.message);
+            console.warn(`⚠️ ${target.name} çekilemedi:`, err.message);
         }
 
-        // --- HİBRİT BİRLEŞTİRME (Static History + Yeni Veri) ---
+        // --- HİBRİT BİRLEŞTİRME ---
         const historyFile = path.join(STATIC_DIR, `${target.name}-history.json`);
         const outputFile = path.join(DATA_DIR, `${target.name}.json`);
-        
-        let finalData = newData; // Varsayılan olarak sadece yeni veri
+        let finalData = newData; 
 
-        // Tarihçe dosyası varsa birleştir
         if (fs.existsSync(historyFile)) {
             try {
                 const historyRaw = fs.readFileSync(historyFile, 'utf-8');
                 const historyData = JSON.parse(historyRaw);
                 
                 if (Array.isArray(historyData)) {
-                    console.log(`📜 Tarihsel Veri Okundu: ${historyData.length} satır`);
-                    
                     if (success && newData.length > 0) {
-                        // Birleştir
                         const combined = [...historyData, ...newData];
-                        
-                        // DEDUPLICATION (Çiftleri Temizle)
                         const uniqueMap = new Map();
-                        combined.forEach(item => {
-                            // item[0] = timestamp
-                            if(item && item.length > 0) uniqueMap.set(item[0], item);
-                        });
-                        
-                        // Sırala
+                        combined.forEach(item => { if(item) uniqueMap.set(item[0], item); });
                         finalData = Array.from(uniqueMap.values()).sort((a, b) => a[0] - b[0]);
-                        console.log(`🔗 Birleştirme Başarılı! Toplam: ${finalData.length}`);
+                        console.log('🔗 Tarihçe + Yeni Veri birleştirildi.');
                     } else {
-                        console.log('ℹ️ Yeni veri yok, sadece tarihsel veri kullanılacak.');
+                        console.log('ℹ️ Sadece tarihsel veri kullanılıyor.');
                         finalData = historyData;
                     }
                 }
-            } catch (e) {
-                console.error('❌ Tarih dosyası okuma hatası:', e.message);
-            }
+            } catch (e) { console.error('❌ Tarih okuma hatası:', e.message); }
         }
 
-        // Kaydet
         if (finalData.length > 0) {
             const outputJSON = { result: { data: finalData } };
             fs.writeFileSync(outputFile, JSON.stringify(outputJSON, null, 2));
             console.log(`✅ KAYDEDİLDİ: ${target.name}.json`);
-        } else {
-            console.error(`❌ ${target.name} İÇİN HİÇ VERİ YOK!`);
         }
     }
 
-    console.log('\n👋 Tüm operasyon tamamlandı.');
+    console.log('\n👋 Operasyon bitti.');
     await browser.close();
 }
 
