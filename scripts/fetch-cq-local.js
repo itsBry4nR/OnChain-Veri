@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 // Ortam değişkeninden Cookie'yi al
-const COOKIE_STRING = process.env.CQ_COOKIE;
+const COOKIE_DATA = process.env.CQ_COOKIE;
 
 // Yollar
 const DATA_DIR = path.join(__dirname, '..', 'data', 'local');
@@ -13,7 +13,7 @@ if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR, { recursive: true });
 if (!fs.existsSync(STATIC_DIR)) fs.mkdirSync(STATIC_DIR, { recursive: true });
 
 async function run() {
-    console.log('🕵️‍♂️ CryptoQuant Ajanı Başlatılıyor (Cookie Modu)...');
+    console.log('🕵️‍♂️ CryptoQuant Ajanı Başlatılıyor (Advanced Cookie Modu)...');
 
     const browser = await chromium.launch({
         headless: false,
@@ -33,26 +33,52 @@ async function run() {
         timezoneId: 'America/New_York'
     });
 
-    // === COOKIE AŞILAMA (EN KRİTİK NOKTA) ===
-    if (COOKIE_STRING) {
-        console.log('🍪 Cookie bulundu, tarayıcıya aşılanıyor...');
-        
-        // Cookie stringini parçalayıp objeye çeviriyoruz
-        const cookies = COOKIE_STRING.split(';')
-            .map(c => c.trim())
-            .filter(c => c.includes('='))
-            .map(c => {
-                const parts = c.split('=');
-                return {
-                    name: parts[0],
-                    value: parts.slice(1).join('='), // İçinde = geçen değerler bozulmasın
-                    domain: '.cryptoquant.com',
-                    path: '/'
-                };
-            });
+    // === COOKIE ENJEKSİYONU (JSON DESTEKLİ) ===
+    if (COOKIE_DATA) {
+        try {
+            console.log('🍪 Cookie verisi işleniyor...');
+            let cookies = [];
 
-        await context.addCookies(cookies);
-        console.log(`✅ ${cookies.length} adet çerez yüklendi.`);
+            // JSON formatında mı gelmiş kontrol et (EditThisCookie formatı)
+            if (COOKIE_DATA.trim().startsWith('[')) {
+                const parsedCookies = JSON.parse(COOKIE_DATA);
+                
+                // EditThisCookie bazen domainleri .cryptoquant.com yerine cryptoquant.com verir.
+                // Playwright için domainleri standardize ediyoruz.
+                cookies = parsedCookies.map(c => {
+                    // Gereksiz alanları temizle
+                    const { hostOnly, session, storeId, id, ...rest } = c;
+                    // Domain ayarı
+                    if (!rest.domain) rest.domain = '.cryptoquant.com';
+                    return rest;
+                });
+                console.log(`✅ JSON formatında ${cookies.length} adet çerez algılandı.`);
+            } 
+            // Yoksa eski usul string mi?
+            else {
+                cookies = COOKIE_DATA.split(';')
+                    .map(c => c.trim())
+                    .filter(c => c.includes('='))
+                    .map(c => {
+                        const parts = c.split('=');
+                        return {
+                            name: parts[0],
+                            value: parts.slice(1).join('='),
+                            domain: '.cryptoquant.com',
+                            path: '/'
+                        };
+                    });
+                console.log(`⚠️ String formatında ${cookies.length} adet çerez algılandı.`);
+            }
+
+            // Çerezleri yükle
+            if (cookies.length > 0) {
+                await context.addCookies(cookies);
+                console.log('💉 Çerezler tarayıcıya enjekte edildi.');
+            }
+        } catch (e) {
+            console.error('❌ Cookie ayrıştırma hatası:', e.message);
+        }
     } else {
         console.warn('⚠️ UYARI: Cookie bulunamadı! Misafir modu çalışacak.');
     }
@@ -68,7 +94,7 @@ async function run() {
     const page = await context.newPage();
 
     // ==========================================
-    // 1. GÖREV: NETFLOW (Genel)
+    // 1. GÖREV: NETFLOW
     // ==========================================
     console.log('\n🔵 1. GÖREV: Exchange Netflow');
     await fetchAndSave(page, {
@@ -78,7 +104,7 @@ async function run() {
     });
 
     // ==========================================
-    // 2. GÖREV: SOAB (Cookie ile Erişim)
+    // 2. GÖREV: SOAB (Cookie ile)
     // ==========================================
     console.log('\n🔵 2. GÖREV: Spent Output Age Bands');
     await fetchAndSave(page, {
@@ -105,8 +131,9 @@ async function fetchAndSave(page, target) {
         console.log(`🌍 Sayfaya gidiliyor: ${target.url}`);
         await page.goto(target.url, { waitUntil: 'domcontentloaded', timeout: 60000 });
 
-        // İnsan taklidi
-        await page.waitForTimeout(2000);
+        // Çerezler çalışırsa bu bekleme sırasında veri düşmeli
+        console.log('⏳ Veri bekleniyor...');
+        await page.waitForTimeout(3000);
         await page.mouse.move(100, 200);
 
         const response = await responsePromise;
