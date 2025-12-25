@@ -13,7 +13,7 @@ if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR, { recursive: true });
 if (!fs.existsSync(STATIC_DIR)) fs.mkdirSync(STATIC_DIR, { recursive: true });
 
 async function run() {
-    console.log('🕵️‍♂️ CryptoQuant Ajanı Başlatılıyor (General Matcher Modu)...');
+    console.log('🕵️‍♂️ CryptoQuant Ajanı Başlatılıyor (Debug & Path Fix)...');
 
     const browser = await chromium.launch({
         headless: false,
@@ -44,7 +44,6 @@ async function run() {
                     const { hostOnly, session, storeId, id, expirationDate, sameSite, ...rest } = c;
                     if (!rest.domain) rest.domain = '.cryptoquant.com';
                     
-                    // SameSite Fix
                     if (sameSite === 'no_restriction' || sameSite === 'unspecified') rest.sameSite = 'None';
                     else if (sameSite) {
                         const lower = sameSite.toLowerCase();
@@ -92,7 +91,7 @@ async function run() {
     await fetchAndSave(page, {
         name: 'cq-exchange-netflow',
         url: 'https://cryptoquant.com/asset/btc/chart/exchange-flows/exchange-netflow-total',
-        matcher: '/live/v4/charts/' // GENEL MATCHER
+        matcher: '/live/v4/charts/' 
     });
 
     // ==========================================
@@ -102,7 +101,7 @@ async function run() {
     await fetchAndSave(page, {
         name: 'cq-spent-output-age-bands',
         url: 'https://cryptoquant.com/asset/btc/chart/market-indicator/spent-output-age-bands',
-        matcher: '/live/v4/charts/' // <-- DEĞİŞTİ: ARTIK GENEL MATCHER KULLANIYORUZ
+        matcher: '/live/v4/charts/' 
     });
 
     console.log('\n👋 Operasyon Bitti.');
@@ -114,7 +113,6 @@ async function fetchAndSave(page, target) {
     let success = false;
 
     try {
-        // İsteği bekleme ayarı (Daha esnek)
         const responsePromise = page.waitForResponse(response => 
             response.url().includes(target.matcher) && 
             response.status() === 200,
@@ -125,11 +123,8 @@ async function fetchAndSave(page, target) {
         await page.goto(target.url, { waitUntil: 'domcontentloaded', timeout: 60000 });
 
         console.log('⏳ Veri bekleniyor...');
-        
-        // Biraz daha uzun bekle ve hareket et
         await page.waitForTimeout(5000); 
         await page.mouse.move(100, 200);
-        await page.mouse.move(200, 100);
 
         const response = await responsePromise;
         console.log(`🎯 PAKET YAKALANDI! (${target.name})`);
@@ -143,11 +138,11 @@ async function fetchAndSave(page, target) {
     } catch (err) {
         console.warn(`⚠️ ${target.name} CANLI ÇEKİLEMEDİ: ${err.message}`);
         
-        // HATA ANINDA EKRAN GÖRÜNTÜSÜ AL
-        // Böylece "Giriş Yap" ekranında mı kaldı yoksa grafik mi yüklenmedi görürüz.
-        const screenshotName = `debug-${target.name}.png`;
-        await page.screenshot({ path: screenshotName, fullPage: true });
-        console.log(`📸 Hata fotosu çekildi: ${screenshotName}`);
+        // --- DÜZELTME BURADA ---
+        // Fotoğrafı direkt data/local içine kaydediyoruz ki artifact'e kesin girsin.
+        const screenshotPath = path.join(DATA_DIR, `debug-${target.name}.png`);
+        await page.screenshot({ path: screenshotPath, fullPage: true });
+        console.log(`📸 Hata fotosu çekildi: data/local/debug-${target.name}.png`);
     }
 
     // --- BİRLEŞTİRME ---
