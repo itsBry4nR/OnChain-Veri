@@ -13,7 +13,7 @@ if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR, { recursive: true });
 if (!fs.existsSync(STATIC_DIR)) fs.mkdirSync(STATIC_DIR, { recursive: true });
 
 async function run() {
-    console.log('🕵️‍♂️ CryptoQuant Ajanı Başlatılıyor (Advanced Cookie Modu)...');
+    console.log('🕵️‍♂️ CryptoQuant Ajanı Başlatılıyor (Fixed Cookie Modu)...');
 
     const browser = await chromium.launch({
         headless: false,
@@ -33,29 +33,53 @@ async function run() {
         timezoneId: 'America/New_York'
     });
 
-    // === COOKIE ENJEKSİYONU (JSON DESTEKLİ) ===
+    // === COOKIE ENJEKSİYONU (HATAYI ÇÖZEN KISIM) ===
     if (COOKIE_DATA) {
         try {
             console.log('🍪 Cookie verisi işleniyor...');
             let cookies = [];
 
-            // JSON formatında mı gelmiş kontrol et (EditThisCookie formatı)
             if (COOKIE_DATA.trim().startsWith('[')) {
                 const parsedCookies = JSON.parse(COOKIE_DATA);
                 
-                // EditThisCookie bazen domainleri .cryptoquant.com yerine cryptoquant.com verir.
-                // Playwright için domainleri standardize ediyoruz.
+                // BURADA VERİYİ TEMİZLİYORUZ
                 cookies = parsedCookies.map(c => {
-                    // Gereksiz alanları temizle
-                    const { hostOnly, session, storeId, id, ...rest } = c;
-                    // Domain ayarı
+                    // 1. Playwright'ın sevmediği alanları at
+                    const { hostOnly, session, storeId, id, expirationDate, sameSite, ...rest } = c;
+
+                    // 2. Domain yoksa ekle
                     if (!rest.domain) rest.domain = '.cryptoquant.com';
+
+                    // 3. sameSite Düzeltmesi (HATAYI ÇÖZEN BLOK)
+                    // Gelen veri ne olursa olsun Playwright formatına zorla
+                    if (sameSite === 'no_restriction' || sameSite === 'unspecified') {
+                        rest.sameSite = 'None';
+                    } else if (sameSite) {
+                        // Baş harfi büyük yap (strict -> Strict)
+                        const lower = sameSite.toLowerCase();
+                        if (lower === 'lax') rest.sameSite = 'Lax';
+                        else if (lower === 'strict') rest.sameSite = 'Strict';
+                        else if (lower === 'none') rest.sameSite = 'None';
+                        else rest.sameSite = 'None'; // Bilinmiyorsa None yap
+                    } else {
+                        rest.sameSite = 'None'; // Hiç yoksa None yap
+                    }
+
+                    // 4. Secure ayarı (SameSite None ise Secure true olmalı)
+                    if (rest.sameSite === 'None') rest.secure = true;
+
+                    // 5. Tarih düzeltmesi (Unix Timestamp)
+                    if (expirationDate) rest.expires = expirationDate;
+
+                    // 6. Url yerine Path/Domain kullanımı için url'i siliyoruz (çakışmasın diye)
+                    delete rest.url; 
+
                     return rest;
                 });
-                console.log(`✅ JSON formatında ${cookies.length} adet çerez algılandı.`);
+                console.log(`✅ JSON formatında ${cookies.length} adet çerez düzeltildi ve hazırlandı.`);
             } 
-            // Yoksa eski usul string mi?
             else {
+                // String formatı (Yedek plan)
                 cookies = COOKIE_DATA.split(';')
                     .map(c => c.trim())
                     .filter(c => c.includes('='))
@@ -65,30 +89,27 @@ async function run() {
                             name: parts[0],
                             value: parts.slice(1).join('='),
                             domain: '.cryptoquant.com',
-                            path: '/'
+                            path: '/',
+                            sameSite: 'None',
+                            secure: true
                         };
                     });
-                console.log(`⚠️ String formatında ${cookies.length} adet çerez algılandı.`);
             }
 
-            // Çerezleri yükle
             if (cookies.length > 0) {
                 await context.addCookies(cookies);
-                console.log('💉 Çerezler tarayıcıya enjekte edildi.');
+                console.log('💉 Çerezler başarıyla enjekte edildi.');
             }
         } catch (e) {
-            console.error('❌ Cookie ayrıştırma hatası:', e.message);
+            console.error('❌ Cookie hatası (Hala):', e.message);
         }
     } else {
-        console.warn('⚠️ UYARI: Cookie bulunamadı! Misafir modu çalışacak.');
+        console.warn('⚠️ Cookie yok, misafir modu.');
     }
 
-    // Anti-detect scriptleri
     await context.addInitScript(() => {
         Object.defineProperty(navigator, 'webdriver', { get: () => undefined });
         window.chrome = { runtime: {} };
-        Object.defineProperty(navigator, 'plugins', { get: () => [1, 2, 3, 4, 5] });
-        Object.defineProperty(navigator, 'languages', { get: () => ['en-US', 'en'] });
     });
 
     const page = await context.newPage();
@@ -104,7 +125,7 @@ async function run() {
     });
 
     // ==========================================
-    // 2. GÖREV: SOAB (Cookie ile)
+    // 2. GÖREV: SOAB (Artık Girebilmeli)
     // ==========================================
     console.log('\n🔵 2. GÖREV: Spent Output Age Bands');
     await fetchAndSave(page, {
@@ -131,9 +152,8 @@ async function fetchAndSave(page, target) {
         console.log(`🌍 Sayfaya gidiliyor: ${target.url}`);
         await page.goto(target.url, { waitUntil: 'domcontentloaded', timeout: 60000 });
 
-        // Çerezler çalışırsa bu bekleme sırasında veri düşmeli
         console.log('⏳ Veri bekleniyor...');
-        await page.waitForTimeout(3000);
+        await page.waitForTimeout(4000); // Biraz daha uzun bekle, login oturuyordur
         await page.mouse.move(100, 200);
 
         const response = await responsePromise;
