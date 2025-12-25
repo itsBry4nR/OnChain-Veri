@@ -40,6 +40,7 @@ jobs:
             data/local/cq-exchange-netflow.json
             data/local/cq-spent-output-age-bands.json
             debug-error.png
+            login-fail.png
           retention-days: 1
 
   fetch-shards:
