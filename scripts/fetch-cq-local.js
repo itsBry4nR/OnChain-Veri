@@ -2,10 +2,8 @@ const { chromium } = require('playwright');
 const fs = require('fs');
 const path = require('path');
 
-// Ortam değişkeninden Cookie'yi al
 const COOKIE_DATA = process.env.CQ_COOKIE;
 
-// Yollar
 const DATA_DIR = path.join(__dirname, '..', 'data', 'local');
 const STATIC_DIR = path.join(__dirname, '..', 'data', 'static');
 
@@ -13,7 +11,7 @@ if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR, { recursive: true });
 if (!fs.existsSync(STATIC_DIR)) fs.mkdirSync(STATIC_DIR, { recursive: true });
 
 async function run() {
-    console.log('🕵️‍♂️ CryptoQuant Ajanı Başlatılıyor (Debug & Path Fix)...');
+    console.log('🕵️‍♂️ CryptoQuant Ajanı Başlatılıyor (Force Screenshot Mode)...');
 
     const browser = await chromium.launch({
         headless: false,
@@ -33,10 +31,9 @@ async function run() {
         timezoneId: 'America/New_York'
     });
 
-    // === COOKIE ENJEKSİYONU ===
+    // === COOKIE ===
     if (COOKIE_DATA) {
         try {
-            console.log('🍪 Cookie verisi işleniyor...');
             let cookies = [];
             if (COOKIE_DATA.trim().startsWith('[')) {
                 const parsedCookies = JSON.parse(COOKIE_DATA);
@@ -84,9 +81,7 @@ async function run() {
 
     const page = await context.newPage();
 
-    // ==========================================
     // 1. GÖREV: NETFLOW
-    // ==========================================
     console.log('\n🔵 1. GÖREV: Exchange Netflow');
     await fetchAndSave(page, {
         name: 'cq-exchange-netflow',
@@ -94,9 +89,7 @@ async function run() {
         matcher: '/live/v4/charts/' 
     });
 
-    // ==========================================
     // 2. GÖREV: SOAB
-    // ==========================================
     console.log('\n🔵 2. GÖREV: Spent Output Age Bands');
     await fetchAndSave(page, {
         name: 'cq-spent-output-age-bands',
@@ -122,8 +115,16 @@ async function fetchAndSave(page, target) {
         console.log(`🌍 Sayfaya gidiliyor: ${target.url}`);
         await page.goto(target.url, { waitUntil: 'domcontentloaded', timeout: 60000 });
 
-        console.log('⏳ Veri bekleniyor...');
-        await page.waitForTimeout(5000); 
+        console.log('⏳ Veri bekleniyor (ve FOTOĞRAF ÇEKİLİYOR)...');
+        await page.waitForTimeout(5000); // Sayfanın kendine gelmesi için bekle
+        
+        // --- BURASI YENİ: ZORLA FOTOĞRAF ÇEKİYORUZ ---
+        // Hata olsa da olmasa da burası çalışacak.
+        const forceShotPath = path.join(DATA_DIR, `FORCE-${target.name}.png`);
+        await page.screenshot({ path: forceShotPath, fullPage: true });
+        console.log(`📸 KANIT FOTOSU ÇEKİLDİ: ${forceShotPath}`);
+        // ---------------------------------------------
+
         await page.mouse.move(100, 200);
 
         const response = await responsePromise;
@@ -137,12 +138,6 @@ async function fetchAndSave(page, target) {
 
     } catch (err) {
         console.warn(`⚠️ ${target.name} CANLI ÇEKİLEMEDİ: ${err.message}`);
-        
-        // --- DÜZELTME BURADA ---
-        // Fotoğrafı direkt data/local içine kaydediyoruz ki artifact'e kesin girsin.
-        const screenshotPath = path.join(DATA_DIR, `debug-${target.name}.png`);
-        await page.screenshot({ path: screenshotPath, fullPage: true });
-        console.log(`📸 Hata fotosu çekildi: data/local/debug-${target.name}.png`);
     }
 
     // --- BİRLEŞTİRME ---
@@ -176,4 +171,4 @@ async function fetchAndSave(page, target) {
     }
 }
 
-run();
+run()
