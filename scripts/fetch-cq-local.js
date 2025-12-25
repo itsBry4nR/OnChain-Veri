@@ -13,7 +13,7 @@ if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR, { recursive: true });
 if (!fs.existsSync(STATIC_DIR)) fs.mkdirSync(STATIC_DIR, { recursive: true });
 
 async function run() {
-    console.log('🕵️‍♂️ CryptoQuant Ajanı Başlatılıyor (Fixed Cookie Modu)...');
+    console.log('🕵️‍♂️ CryptoQuant Ajanı Başlatılıyor (General Matcher Modu)...');
 
     const browser = await chromium.launch({
         headless: false,
@@ -33,78 +33,49 @@ async function run() {
         timezoneId: 'America/New_York'
     });
 
-    // === COOKIE ENJEKSİYONU (HATAYI ÇÖZEN KISIM) ===
+    // === COOKIE ENJEKSİYONU ===
     if (COOKIE_DATA) {
         try {
             console.log('🍪 Cookie verisi işleniyor...');
             let cookies = [];
-
             if (COOKIE_DATA.trim().startsWith('[')) {
                 const parsedCookies = JSON.parse(COOKIE_DATA);
-                
-                // BURADA VERİYİ TEMİZLİYORUZ
                 cookies = parsedCookies.map(c => {
-                    // 1. Playwright'ın sevmediği alanları at
                     const { hostOnly, session, storeId, id, expirationDate, sameSite, ...rest } = c;
-
-                    // 2. Domain yoksa ekle
                     if (!rest.domain) rest.domain = '.cryptoquant.com';
-
-                    // 3. sameSite Düzeltmesi (HATAYI ÇÖZEN BLOK)
-                    // Gelen veri ne olursa olsun Playwright formatına zorla
-                    if (sameSite === 'no_restriction' || sameSite === 'unspecified') {
-                        rest.sameSite = 'None';
-                    } else if (sameSite) {
-                        // Baş harfi büyük yap (strict -> Strict)
+                    
+                    // SameSite Fix
+                    if (sameSite === 'no_restriction' || sameSite === 'unspecified') rest.sameSite = 'None';
+                    else if (sameSite) {
                         const lower = sameSite.toLowerCase();
                         if (lower === 'lax') rest.sameSite = 'Lax';
                         else if (lower === 'strict') rest.sameSite = 'Strict';
-                        else if (lower === 'none') rest.sameSite = 'None';
-                        else rest.sameSite = 'None'; // Bilinmiyorsa None yap
-                    } else {
-                        rest.sameSite = 'None'; // Hiç yoksa None yap
-                    }
+                        else rest.sameSite = 'None';
+                    } else rest.sameSite = 'None';
 
-                    // 4. Secure ayarı (SameSite None ise Secure true olmalı)
                     if (rest.sameSite === 'None') rest.secure = true;
-
-                    // 5. Tarih düzeltmesi (Unix Timestamp)
                     if (expirationDate) rest.expires = expirationDate;
-
-                    // 6. Url yerine Path/Domain kullanımı için url'i siliyoruz (çakışmasın diye)
                     delete rest.url; 
-
                     return rest;
                 });
-                console.log(`✅ JSON formatında ${cookies.length} adet çerez düzeltildi ve hazırlandı.`);
-            } 
-            else {
-                // String formatı (Yedek plan)
+            } else {
                 cookies = COOKIE_DATA.split(';')
                     .map(c => c.trim())
                     .filter(c => c.includes('='))
-                    .map(c => {
-                        const parts = c.split('=');
-                        return {
-                            name: parts[0],
-                            value: parts.slice(1).join('='),
-                            domain: '.cryptoquant.com',
-                            path: '/',
-                            sameSite: 'None',
-                            secure: true
-                        };
-                    });
+                    .map(c => ({
+                        name: c.split('=')[0],
+                        value: c.split('=')[1],
+                        domain: '.cryptoquant.com',
+                        path: '/',
+                        sameSite: 'None',
+                        secure: true
+                    }));
             }
-
             if (cookies.length > 0) {
                 await context.addCookies(cookies);
-                console.log('💉 Çerezler başarıyla enjekte edildi.');
+                console.log(`💉 ${cookies.length} çerez enjekte edildi.`);
             }
-        } catch (e) {
-            console.error('❌ Cookie hatası (Hala):', e.message);
-        }
-    } else {
-        console.warn('⚠️ Cookie yok, misafir modu.');
+        } catch (e) { console.error('❌ Cookie hatası:', e.message); }
     }
 
     await context.addInitScript(() => {
@@ -121,17 +92,17 @@ async function run() {
     await fetchAndSave(page, {
         name: 'cq-exchange-netflow',
         url: 'https://cryptoquant.com/asset/btc/chart/exchange-flows/exchange-netflow-total',
-        matcher: '/live/v4/charts/' 
+        matcher: '/live/v4/charts/' // GENEL MATCHER
     });
 
     // ==========================================
-    // 2. GÖREV: SOAB (Artık Girebilmeli)
+    // 2. GÖREV: SOAB
     // ==========================================
     console.log('\n🔵 2. GÖREV: Spent Output Age Bands');
     await fetchAndSave(page, {
         name: 'cq-spent-output-age-bands',
         url: 'https://cryptoquant.com/asset/btc/chart/market-indicator/spent-output-age-bands',
-        matcher: '62186e8661aa6b64f8a948c0' 
+        matcher: '/live/v4/charts/' // <-- DEĞİŞTİ: ARTIK GENEL MATCHER KULLANIYORUZ
     });
 
     console.log('\n👋 Operasyon Bitti.');
@@ -143,18 +114,22 @@ async function fetchAndSave(page, target) {
     let success = false;
 
     try {
+        // İsteği bekleme ayarı (Daha esnek)
         const responsePromise = page.waitForResponse(response => 
             response.url().includes(target.matcher) && 
             response.status() === 200,
-            { timeout: 45000 }
+            { timeout: 35000 }
         );
 
         console.log(`🌍 Sayfaya gidiliyor: ${target.url}`);
         await page.goto(target.url, { waitUntil: 'domcontentloaded', timeout: 60000 });
 
         console.log('⏳ Veri bekleniyor...');
-        await page.waitForTimeout(4000); // Biraz daha uzun bekle, login oturuyordur
+        
+        // Biraz daha uzun bekle ve hareket et
+        await page.waitForTimeout(5000); 
         await page.mouse.move(100, 200);
+        await page.mouse.move(200, 100);
 
         const response = await responsePromise;
         console.log(`🎯 PAKET YAKALANDI! (${target.name})`);
@@ -167,6 +142,12 @@ async function fetchAndSave(page, target) {
 
     } catch (err) {
         console.warn(`⚠️ ${target.name} CANLI ÇEKİLEMEDİ: ${err.message}`);
+        
+        // HATA ANINDA EKRAN GÖRÜNTÜSÜ AL
+        // Böylece "Giriş Yap" ekranında mı kaldı yoksa grafik mi yüklenmedi görürüz.
+        const screenshotName = `debug-${target.name}.png`;
+        await page.screenshot({ path: screenshotName, fullPage: true });
+        console.log(`📸 Hata fotosu çekildi: ${screenshotName}`);
     }
 
     // --- BİRLEŞTİRME ---
@@ -197,8 +178,6 @@ async function fetchAndSave(page, target) {
         const outputJSON = { result: { data: finalData } };
         fs.writeFileSync(outputFile, JSON.stringify(outputJSON, null, 2));
         console.log(`✅ KAYDEDİLDİ: ${target.name}.json`);
-    } else {
-        console.error(`❌ ${target.name} İÇİN HİÇ VERİ YOK!`);
     }
 }
 
