@@ -2,8 +2,10 @@ const { chromium } = require('playwright');
 const fs = require('fs');
 const path = require('path');
 
+// Ortam değişkeninden Cookie'yi al
 const COOKIE_DATA = process.env.CQ_COOKIE;
 
+// Yollar
 const DATA_DIR = path.join(__dirname, '..', 'data', 'local');
 const STATIC_DIR = path.join(__dirname, '..', 'data', 'static');
 
@@ -11,7 +13,7 @@ if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR, { recursive: true });
 if (!fs.existsSync(STATIC_DIR)) fs.mkdirSync(STATIC_DIR, { recursive: true });
 
 async function run() {
-    console.log('🕵️‍♂️ CryptoQuant Ajanı Başlatılıyor (Force Screenshot Mode)...');
+    console.log('🕵️‍♂️ CryptoQuant Ajanı Başlatılıyor (Doğru Link Modu)...');
 
     const browser = await chromium.launch({
         headless: false,
@@ -31,9 +33,10 @@ async function run() {
         timezoneId: 'America/New_York'
     });
 
-    // === COOKIE ===
+    // === COOKIE ENJEKSİYONU ===
     if (COOKIE_DATA) {
         try {
+            console.log('🍪 Cookie verisi işleniyor...');
             let cookies = [];
             if (COOKIE_DATA.trim().startsWith('[')) {
                 const parsedCookies = JSON.parse(COOKIE_DATA);
@@ -81,7 +84,9 @@ async function run() {
 
     const page = await context.newPage();
 
+    // ==========================================
     // 1. GÖREV: NETFLOW
+    // ==========================================
     console.log('\n🔵 1. GÖREV: Exchange Netflow');
     await fetchAndSave(page, {
         name: 'cq-exchange-netflow',
@@ -89,11 +94,14 @@ async function run() {
         matcher: '/live/v4/charts/' 
     });
 
-    // 2. GÖREV: SOAB
+    // ==========================================
+    // 2. GÖREV: SOAB (DOĞRU LİNK İLE)
+    // ==========================================
     console.log('\n🔵 2. GÖREV: Spent Output Age Bands');
     await fetchAndSave(page, {
         name: 'cq-spent-output-age-bands',
-        url: 'https://cryptoquant.com/asset/btc/chart/market-indicator/spent-output-age-bands',
+        // SENİN VERDİĞİN DOĞRU LİNK BURADA 👇
+        url: 'https://cryptoquant.com/asset/btc/chart/network-indicator/spent-output-age-bands?window=DAY&priceScale=log&metricScale=linear',
         matcher: '/live/v4/charts/' 
     });
 
@@ -115,16 +123,13 @@ async function fetchAndSave(page, target) {
         console.log(`🌍 Sayfaya gidiliyor: ${target.url}`);
         await page.goto(target.url, { waitUntil: 'domcontentloaded', timeout: 60000 });
 
-        console.log('⏳ Veri bekleniyor (ve FOTOĞRAF ÇEKİLİYOR)...');
-        await page.waitForTimeout(5000); // Sayfanın kendine gelmesi için bekle
-        
-        // --- BURASI YENİ: ZORLA FOTOĞRAF ÇEKİYORUZ ---
-        // Hata olsa da olmasa da burası çalışacak.
-        const forceShotPath = path.join(DATA_DIR, `FORCE-${target.name}.png`);
-        await page.screenshot({ path: forceShotPath, fullPage: true });
-        console.log(`📸 KANIT FOTOSU ÇEKİLDİ: ${forceShotPath}`);
-        // ---------------------------------------------
+        console.log('⏳ Veri bekleniyor...');
+        await page.waitForTimeout(5000); // Grafik iyice yüklensin
 
+        // Yine de ne olur ne olmaz diye bir debug fotosu çekelim
+        const debugPath = path.join(DATA_DIR, `DEBUG-${target.name}.png`);
+        await page.screenshot({ path: debugPath, fullPage: true });
+        
         await page.mouse.move(100, 200);
 
         const response = await responsePromise;
@@ -171,4 +176,4 @@ async function fetchAndSave(page, target) {
     }
 }
 
-run()
+run();
