@@ -2,24 +2,37 @@ const { chromium } = require('playwright');
 const fs = require('fs');
 const path = require('path');
 
-// Hedef: Grafik Sayfası (Pusu için)
-const CHART_PAGE_URL = 'https://cryptoquant.com/asset/btc/chart/exchange-flows/exchange-netflow-total';
+// --- HEDEFLER LİSTESİ ---
+const TARGETS = [
+    {
+        // 1. MEVCUT ÇALIŞAN (Exchange Netflow)
+        // Buna dokunmuyoruz, genel API yolunu bekliyor.
+        name: 'cq-exchange-netflow',
+        pageUrl: 'https://cryptoquant.com/asset/btc/chart/exchange-flows/exchange-netflow-total',
+        matcher: '/live/v4/charts/' 
+    },
+    {
+        // 2. YENİ EKLENEN (Spent Output Age Bands)
+        // Bu senin verdiğin ID'yi nokta atışı bekleyecek.
+        name: 'cq-spent-output-age-bands',
+        pageUrl: 'https://cryptoquant.com/asset/btc/chart/market-indicator/spent-output-age-bands',
+        matcher: '62186e8661aa6b64f8a948c0' 
+    }
+];
 
 // Yollar
 const DATA_DIR = path.join(__dirname, '..', 'data', 'local');
 const STATIC_DIR = path.join(__dirname, '..', 'data', 'static');
-const HISTORY_FILE = path.join(STATIC_DIR, 'cq-history.json');
-const OUTPUT_FILE = path.join(DATA_DIR, 'cq-exchange-netflow.json');
 
 // Klasörleri oluştur
 if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR, { recursive: true });
 if (!fs.existsSync(STATIC_DIR)) fs.mkdirSync(STATIC_DIR, { recursive: true });
 
 async function run() {
-    console.log('🕵️‍♂️ CryptoQuant Ajanı Başlatılıyor (Tarihçi Modu)...');
+    console.log('🕵️‍♂️ CryptoQuant Ajanı Başlatılıyor (Multi-Target Modu)...');
 
     const browser = await chromium.launch({
-        headless: false, // XVFB (Sanal Ekran) için false kalmalı
+        headless: false, 
         args: [
             '--start-maximized',
             '--disable-blink-features=AutomationControlled',
@@ -36,6 +49,7 @@ async function run() {
         timezoneId: 'America/New_York'
     });
 
+    // Otomasyon izlerini sil
     await context.addInitScript(() => {
         Object.defineProperty(navigator, 'webdriver', { get: () => undefined });
         window.chrome = { runtime: {} };
@@ -45,100 +59,104 @@ async function run() {
 
     const page = await context.newPage();
 
-    // API Yanıtını Bekle
-    const responsePromise = page.waitForResponse(response => 
-        response.url().includes('/live/v4/charts/') && 
-        response.status() === 200,
-        { timeout: 90000 }
-    );
-
-    try {
-        console.log('🌐 Grafik sayfasına gidiliyor...');
-        await page.goto(CHART_PAGE_URL, { waitUntil: 'domcontentloaded', timeout: 60000 });
-
-        console.log('⏳ Veri bekleniyor...');
-        await page.waitForTimeout(3000);
-        await page.mouse.move(200, 200);
-
-        const response = await responsePromise;
-        console.log('🎯 Yeni veri paketi yakalandı!');
-
-        const json = await response.json();
+    // --- DÖNGÜ BAŞLIYOR ---
+    for (const target of TARGETS) {
+        console.log(`\n🔵 Hedef İşleniyor: ${target.name}`);
+        
         let newData = [];
+        let success = false;
 
-        // Yeni veriyi çıkar
-        if (json.result && json.result.data) {
-            newData = json.result.data;
-        } else if (json.data) {
-            newData = json.data;
-        } else {
-            throw new Error('Gelen JSON formatı bilinmiyor!');
+        try {
+            // --- PUSU KURULUYOR ---
+            // Her hedef için özel "matcher" kullanıyoruz.
+            const responsePromise = page.waitForResponse(response => 
+                response.url().includes(target.matcher) && 
+                response.status() === 200,
+                { timeout: 45000 } // Her biri için 45 sn sabır süresi
+            );
+
+            console.log(`🌍 Sayfaya gidiliyor: ${target.pageUrl}`);
+            await page.goto(target.pageUrl, { waitUntil: 'domcontentloaded', timeout: 60000 });
+
+            console.log('⏳ Veri bekleniyor (Mouse hareketleri yapılıyor)...');
+            await page.waitForTimeout(2000);
+            await page.mouse.move(100, 100);
+            await page.waitForTimeout(1000);
+            await page.mouse.move(300, 300);
+
+            // Paketi Yakala
+            const response = await responsePromise;
+            console.log(`🎯 VURDUK! Paket yakalandı (${target.matcher})`);
+
+            const json = await response.json();
+
+            // Veriyi ayıkla
+            if (json.result && json.result.data) {
+                newData = json.result.data;
+            } else if (json.data) {
+                newData = json.data;
+            }
+            
+            if (newData.length > 0) {
+                console.log(`📥 İndirilen Satır: ${newData.length}`);
+                success = true;
+            }
+
+        } catch (err) {
+            console.warn(`⚠️ ${target.name} otomatik çekilemedi:`, err.message);
         }
-        
-        console.log(`📥 Güncel Veri: ${newData.length} satır (CryptoQuant'tan geldi)`);
 
-        // --- BİRLEŞTİRME OPERASYONU ---
+        // --- HİBRİT BİRLEŞTİRME (Static History + Yeni Veri) ---
+        const historyFile = path.join(STATIC_DIR, `${target.name}-history.json`);
+        const outputFile = path.join(DATA_DIR, `${target.name}.json`);
         
-        let finalData = newData;
-        
-        if (fs.existsSync(HISTORY_FILE)) {
+        let finalData = newData; // Varsayılan olarak sadece yeni veri
+
+        // Tarihçe dosyası varsa birleştir
+        if (fs.existsSync(historyFile)) {
             try {
-                const historyRaw = fs.readFileSync(HISTORY_FILE, 'utf-8');
+                const historyRaw = fs.readFileSync(historyFile, 'utf-8');
                 const historyData = JSON.parse(historyRaw);
                 
                 if (Array.isArray(historyData)) {
-                    console.log(`📜 Tarihsel Veri: ${historyData.length} satır (Arşivden okundu)`);
+                    console.log(`📜 Tarihsel Veri Okundu: ${historyData.length} satır`);
                     
-                    // Hepsini bir havuza at
-                    const combined = [...historyData, ...newData];
-                    
-                    // DEDUPLICATION (Çift Kayıt Temizliği)
-                    // Aynı zamana (timestamp) ait veri varsa, YENİ olanı (günceli) koru.
-                    // Map kullanarak zamanı anahtar yapıyoruz.
-                    const uniqueMap = new Map();
-                    
-                    combined.forEach(item => {
-                        // item[0] timestamp, item[1] value varsayıyoruz
-                        const timestamp = item[0];
-                        uniqueMap.set(timestamp, item);
-                    });
-                    
-                    // Map'ten tekrar diziye çevir ve Tarihe Göre Sırala
-                    finalData = Array.from(uniqueMap.values()).sort((a, b) => a[0] - b[0]);
-                    
-                    console.log(`🔗 BİRLEŞTİRME BAŞARILI: Toplam ${finalData.length} satır.`);
-                } else {
-                    console.warn('⚠️ Tarih dosyası var ama dizi formatında değil. Sadece yeni veri kullanılacak.');
+                    if (success && newData.length > 0) {
+                        // Birleştir
+                        const combined = [...historyData, ...newData];
+                        
+                        // DEDUPLICATION (Çiftleri Temizle)
+                        const uniqueMap = new Map();
+                        combined.forEach(item => {
+                            // item[0] = timestamp
+                            if(item && item.length > 0) uniqueMap.set(item[0], item);
+                        });
+                        
+                        // Sırala
+                        finalData = Array.from(uniqueMap.values()).sort((a, b) => a[0] - b[0]);
+                        console.log(`🔗 Birleştirme Başarılı! Toplam: ${finalData.length}`);
+                    } else {
+                        console.log('ℹ️ Yeni veri yok, sadece tarihsel veri kullanılacak.');
+                        finalData = historyData;
+                    }
                 }
             } catch (e) {
                 console.error('❌ Tarih dosyası okuma hatası:', e.message);
             }
-        } else {
-            console.log('ℹ️ Tarihsel veri dosyası (cq-history.json) bulunamadı, sadece yeni veri kaydedilecek.');
         }
 
-        // --- KAYDETME ---
-        // Formatı orijinal CQ yapısında tutuyoruz ki dataManager.js bozulmasın
-        const outputJSON = {
-            result: {
-                data: finalData
-            }
-        };
-
-        fs.writeFileSync(OUTPUT_FILE, JSON.stringify(outputJSON, null, 2));
-        console.log(`✅ DOSYA KAYDEDİLDİ: ${OUTPUT_FILE}`);
-        
-        // Son bir kontrol
-        console.log(`📊 Başlangıç Tarihi: ${new Date(finalData[0][0]).toLocaleDateString()}`);
-        console.log(`📊 Bitiş Tarihi:     ${new Date(finalData[finalData.length-1][0]).toLocaleDateString()}`);
-
-    } catch (err) {
-        console.error('❌ HATA:', err.message);
-        await page.screenshot({ path: 'debug-error.png', fullPage: true });
-        process.exit(1);
-    } finally {
-        await browser.close();
+        // Kaydet
+        if (finalData.length > 0) {
+            const outputJSON = { result: { data: finalData } };
+            fs.writeFileSync(outputFile, JSON.stringify(outputJSON, null, 2));
+            console.log(`✅ KAYDEDİLDİ: ${target.name}.json`);
+        } else {
+            console.error(`❌ ${target.name} İÇİN HİÇ VERİ YOK!`);
+        }
     }
+
+    console.log('\n👋 Tüm operasyon tamamlandı.');
+    await browser.close();
 }
 
 run();
