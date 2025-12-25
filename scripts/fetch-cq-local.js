@@ -2,9 +2,8 @@ const { chromium } = require('playwright');
 const fs = require('fs');
 const path = require('path');
 
-// Ortam değişkenlerinden şifreleri al
-const EMAIL = process.env.CQ_EMAIL;
-const PASSWORD = process.env.CQ_PASSWORD;
+// Ortam değişkeninden Cookie'yi al
+const COOKIE_STRING = process.env.CQ_COOKIE;
 
 // Yollar
 const DATA_DIR = path.join(__dirname, '..', 'data', 'local');
@@ -14,7 +13,7 @@ if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR, { recursive: true });
 if (!fs.existsSync(STATIC_DIR)) fs.mkdirSync(STATIC_DIR, { recursive: true });
 
 async function run() {
-    console.log('🕵️‍♂️ CryptoQuant Ajanı Başlatılıyor...');
+    console.log('🕵️‍♂️ CryptoQuant Ajanı Başlatılıyor (Cookie Modu)...');
 
     const browser = await chromium.launch({
         headless: false,
@@ -23,8 +22,7 @@ async function run() {
             '--disable-blink-features=AutomationControlled',
             '--no-sandbox',
             '--disable-setuid-sandbox',
-            '--disable-infobars',
-            '--window-size=1920,1080' // Pencere boyutunu sabitle
+            '--disable-infobars'
         ]
     });
 
@@ -35,6 +33,31 @@ async function run() {
         timezoneId: 'America/New_York'
     });
 
+    // === COOKIE AŞILAMA (EN KRİTİK NOKTA) ===
+    if (COOKIE_STRING) {
+        console.log('🍪 Cookie bulundu, tarayıcıya aşılanıyor...');
+        
+        // Cookie stringini parçalayıp objeye çeviriyoruz
+        const cookies = COOKIE_STRING.split(';')
+            .map(c => c.trim())
+            .filter(c => c.includes('='))
+            .map(c => {
+                const parts = c.split('=');
+                return {
+                    name: parts[0],
+                    value: parts.slice(1).join('='), // İçinde = geçen değerler bozulmasın
+                    domain: '.cryptoquant.com',
+                    path: '/'
+                };
+            });
+
+        await context.addCookies(cookies);
+        console.log(`✅ ${cookies.length} adet çerez yüklendi.`);
+    } else {
+        console.warn('⚠️ UYARI: Cookie bulunamadı! Misafir modu çalışacak.');
+    }
+
+    // Anti-detect scriptleri
     await context.addInitScript(() => {
         Object.defineProperty(navigator, 'webdriver', { get: () => undefined });
         window.chrome = { runtime: {} };
@@ -45,75 +68,26 @@ async function run() {
     const page = await context.newPage();
 
     // ==========================================
-    // 1. BÖLÜM: NETFLOW (Misafir Modu - Garanti)
+    // 1. GÖREV: NETFLOW (Genel)
     // ==========================================
-    console.log('\n🔵 1. GÖREV: Exchange Netflow (Misafir Modu)');
-    const netflowTarget = {
+    console.log('\n🔵 1. GÖREV: Exchange Netflow');
+    await fetchAndSave(page, {
         name: 'cq-exchange-netflow',
         url: 'https://cryptoquant.com/asset/btc/chart/exchange-flows/exchange-netflow-total',
         matcher: '/live/v4/charts/' 
-    };
-    await fetchAndSave(page, netflowTarget); 
+    });
 
     // ==========================================
-    // 2. BÖLÜM: GİRİŞ DENEMESİ
+    // 2. GÖREV: SOAB (Cookie ile Erişim)
     // ==========================================
-    console.log('\n🔑 2. GÖREV: Giriş Yapılıyor...');
-    
-    if (EMAIL && PASSWORD) {
-        try {
-            // Taktik: Önce anasayfaya git, cookieleri ısıt
-            await page.goto('https://cryptoquant.com', { waitUntil: 'domcontentloaded' });
-            await page.waitForTimeout(2000);
-            
-            console.log('🌍 Giriş sayfasına yöneliniyor...');
-            await page.goto('https://cryptoquant.com/sign-in', { waitUntil: 'domcontentloaded' });
-            
-            // Cloudflare kontrolü için biraz bekle
-            console.log('⏳ Sayfa yükleniyor (Cloudflare engeli var mı?)...');
-            await page.waitForTimeout(5000);
-
-            // Email kutusunu bekle (Çoklu deneme)
-            // type="email" veya name="email" veya placeholder içinde Email geçen
-            const emailInput = await page.waitForSelector('input[type="email"], input[name="email"]', { timeout: 15000 });
-            
-            if (emailInput) {
-                console.log('📧 Email yazılıyor...');
-                await emailInput.fill(EMAIL);
-                await page.waitForTimeout(1000);
-
-                console.log('🔒 Şifre yazılıyor...');
-                await page.fill('input[type="password"]', PASSWORD);
-                await page.waitForTimeout(1000);
-
-                console.log('🖱️ Giriş butonuna basılıyor...');
-                await page.click('button[type="submit"]');
-                await page.waitForTimeout(5000);
-                console.log('✅ Giriş işlemi tamamlandı (Butona basıldı).');
-            }
-
-        } catch (e) {
-            console.warn('⚠️ Giriş BAŞARISIZ:', e.message);
-            // HATA ANINDA FOTOĞRAF ÇEK!
-            await page.screenshot({ path: 'login-fail.png', fullPage: true });
-            console.log('📸 Hata ekran görüntüsü alındı: login-fail.png');
-        }
-    } else {
-        console.log('ℹ️ Şifre yok, giriş atlanıyor.');
-    }
-
-    // ==========================================
-    // 3. BÖLÜM: SPENT OUTPUT AGE BANDS
-    // ==========================================
-    console.log('\n🔵 3. GÖREV: Spent Output Age Bands (Login Sonrası)');
-    const soabTarget = {
+    console.log('\n🔵 2. GÖREV: Spent Output Age Bands');
+    await fetchAndSave(page, {
         name: 'cq-spent-output-age-bands',
         url: 'https://cryptoquant.com/asset/btc/chart/market-indicator/spent-output-age-bands',
         matcher: '62186e8661aa6b64f8a948c0' 
-    };
-    await fetchAndSave(page, soabTarget);
+    });
 
-    console.log('\n👋 Tüm Operasyon Bitti.');
+    console.log('\n👋 Operasyon Bitti.');
     await browser.close();
 }
 
@@ -131,11 +105,9 @@ async function fetchAndSave(page, target) {
         console.log(`🌍 Sayfaya gidiliyor: ${target.url}`);
         await page.goto(target.url, { waitUntil: 'domcontentloaded', timeout: 60000 });
 
-        console.log('⏳ Veri bekleniyor...');
+        // İnsan taklidi
         await page.waitForTimeout(2000);
-        await page.mouse.move(150, 150);
-        await page.waitForTimeout(1000);
-        await page.mouse.move(300, 300);
+        await page.mouse.move(100, 200);
 
         const response = await responsePromise;
         console.log(`🎯 PAKET YAKALANDI! (${target.name})`);
@@ -147,7 +119,7 @@ async function fetchAndSave(page, target) {
         if (newData.length > 0) success = true;
 
     } catch (err) {
-        console.warn(`⚠️ ${target.name} CANLI ÇEKİLEMEDİ:`, err.message);
+        console.warn(`⚠️ ${target.name} CANLI ÇEKİLEMEDİ: ${err.message}`);
     }
 
     // --- BİRLEŞTİRME ---
@@ -171,7 +143,7 @@ async function fetchAndSave(page, target) {
                     finalData = historyData;
                 }
             }
-        } catch (e) { console.error('❌ Tarihçe hatası:', e.message); }
+        } catch (e) {}
     }
 
     if (finalData.length > 0) {
