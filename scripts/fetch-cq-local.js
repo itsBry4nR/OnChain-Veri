@@ -6,7 +6,7 @@ const path = require('path');
 const TARGETS = [
     {
         // 1. MEVCUT ÇALIŞAN (Exchange Netflow)
-        // Buna dokunmuyoruz, genel API yolunu bekliyor.
+        // Buna dokunmuyoruz, genel API yolunu (/live/v4/charts/) bekliyor.
         name: 'cq-exchange-netflow',
         pageUrl: 'https://cryptoquant.com/asset/btc/chart/exchange-flows/exchange-netflow-total',
         matcher: '/live/v4/charts/' 
@@ -68,7 +68,6 @@ async function run() {
 
         try {
             // --- PUSU KURULUYOR ---
-            // Her hedef için özel "matcher" kullanıyoruz.
             const responsePromise = page.waitForResponse(response => 
                 response.url().includes(target.matcher) && 
                 response.status() === 200,
@@ -103,7 +102,7 @@ async function run() {
             }
 
         } catch (err) {
-            console.warn(`⚠️ ${target.name} otomatik çekilemedi:`, err.message);
+            console.warn(`⚠️ ${target.name} otomatik çekilemedi (Login gerekebilir veya ID değişmiş):`, err.message);
         }
 
         // --- HİBRİT BİRLEŞTİRME (Static History + Yeni Veri) ---
