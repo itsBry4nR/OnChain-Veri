@@ -38,6 +38,7 @@ jobs:
           path: |
             data/local/cq-exchange-netflow.json
             data/local/cq-spent-output-age-bands.json
+            data/local/*.png  # <-- Artık PNG'ler de burada olacak
             debug-*.png  # <-- debug ile başlayan tüm resimleri al dedik
           retention-days: 1
 
