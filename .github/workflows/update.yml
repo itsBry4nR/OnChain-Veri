@@ -31,6 +31,12 @@ jobs:
           export NODE_PATH=$(npm root -g)
           xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" node scripts/fetch-cq-local.js
 
+          # --- YENİ ADIM: DOSYALARI LİSTELE ---
+      - name: List Generated Files
+        run: |
+          echo "📂 DATA KLASÖRÜ İÇERİĞİ:"
+          ls -R data/local
+
       - name: Upload CQ Data
         uses: actions/upload-artifact@v4
         with:
@@ -38,8 +44,7 @@ jobs:
           path: |
             data/local/cq-exchange-netflow.json
             data/local/cq-spent-output-age-bands.json
-            data/local/*.png  # <-- Artık PNG'ler de burada olacak
-            debug-*.png  # <-- debug ile başlayan tüm resimleri al dedik
+            data/local/FORCE-*.png
           retention-days: 1
 
   fetch-shards:
