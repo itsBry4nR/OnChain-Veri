@@ -2,7 +2,7 @@ name: Matrix Data Fetcher
 
 on:
   schedule:
-    - cron: '30 9 * * *'
+    - cron: '30 9 * * *' # UTC 09:30 (TSİ 12:30)
   workflow_dispatch:
 
 jobs:
@@ -35,6 +35,7 @@ jobs:
           name: data-cq
           path: |
             data/local/cq-exchange-netflow.json
+            data/local/cq-spent-output-age-bands.json
             debug-error.png
           retention-days: 1
 
@@ -86,8 +87,9 @@ jobs:
           # 1. Shardları taşı (all-metrics oluşumu için)
           find all-data-temp -name "shard-*.json" -exec mv {} data/ \;
           
-          # 2. CQ verisini taşı (Sadece dosya olarak dursun)
+          # 2. CQ verilerini taşı (Netflow + SOAB)
           find all-data-temp -name "cq-exchange-netflow.json" -exec mv {} data/local/ \; || true
+          find all-data-temp -name "cq-spent-output-age-bands.json" -exec mv {} data/local/ \; || true
 
       - name: JSON Birleştir (Sadece Bitcoin-Data)
         run: node scripts/fetch-data.js --merge
@@ -97,9 +99,10 @@ jobs:
           git config --global user.name 'Matrix Bot'
           git config --global user.email 'bot@noreply.github.com'
           
-          # İki dosyayı da ayrı ayrı ekle
+          # Dosyaları repoya ekle
           git add data/all-metrics.json
           git add data/local/cq-exchange-netflow.json
+          git add data/local/cq-spent-output-age-bands.json
           
           if [ -n "$(git status --porcelain)" ]; then
             git commit -m "Günlük Rapor: Veriler Güncellendi $(date)"
