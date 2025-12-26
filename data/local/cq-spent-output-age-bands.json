@@ -1,5 +1,21 @@
 {
   "result": {
+    "dataKeys": [
+      "datetime",
+      "range_0d_1d",
+      "range_1d_1w",
+      "range_1w_1m",
+      "range_1m_3m",
+      "range_3m_6m",
+      "range_6m_12m",
+      "range_12m_18m",
+      "range_18m_2y",
+      "range_2y_3y",
+      "range_3y_5y",
+      "range_5y_7y",
+      "range_7y_10y",
+      "range_10y_inf"
+    ],
     "data": [
       [
         1230940800000,
