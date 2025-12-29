@@ -77,8 +77,11 @@ const ALL_ENDPOINTS = {
     'realizedLossLth': 'https://bitcoin-data.com/v1/realized_loss_lth',
     'realizedLossSth': 'https://bitcoin-data.com/v1/realized_loss_sth',
 
-    // --- Stablecoin Supply 39.api ---
-    'stablecoin-supply': 'https://bitcoin-data.com/v1/stablecoin-supply'
+    // --- Stablecoin Supply ---
+    'stablecoin-supply': 'https://bitcoin-data.com/v1/stablecoin-supply',
+
+    // --- Asol 40.api ---
+    'asol': 'https://bitcoin-data.com/v1/asol'
 };
 
 const DATA_DIR = path.join(__dirname, '..', 'data');
