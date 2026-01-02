@@ -44,6 +44,7 @@ jobs:
           path: |
             data/local/cq-exchange-netflow.json
             data/local/cq-spent-output-age-bands.json
+            data/local/cq-exchange-whale-ratio.json
             data/local/FORCE-*.png
           retention-days: 1
 
