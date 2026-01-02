@@ -1,81 +1,4 @@
-{
-    "metric": {
-        "asset": {
-            "id": "61712eb35a176168a02409e8",
-            "path": "btc",
-            "name": {
-                "en": "Bitcoin",
-                "ko": "비트코인"
-            },
-            "symbol": "BTC",
-            "price": true
-        },
-        "category": {
-            "id": "62206c39d7579c1dfe1eaf17",
-            "path": "flow-indicator",
-            "name": {
-                "en": "Flow Indicator",
-                "ko": "자금 흐름 지표"
-            }
-        },
-        "fields": [
-            {
-                "id": "617634e6142904287d6a8090",
-                "key": "exchange_whale_ratio",
-                "name": {
-                    "en": "Exchange Whale Ratio",
-                    "ko": "거래소 고래 비율 (Exchange Whale Ratio)"
-                }
-            }
-        ],
-        "metricOption": {
-            "metricChartType": "EX",
-            "chartStyle": "LINE",
-            "priceScale": "LOG",
-            "metricScale": "LINEAR",
-            "combineYaxis": false,
-            "metricType": "NORMAL"
-        },
-        "id": "617635b5142904287d6a8094",
-        "title": {
-            "en": "Exchange Whale Ratio",
-            "ko": "거래소 고래 비율 (Exchange Whale Ratio)"
-        },
-        "description": {
-            "en": "The ratio of the top 10 inflows to the total inflows of the exchange.<br>High values indicate whales are using the exchanges in large amount.<br>[Learn more](https://userguide.cryptoquant.com/cryptoquant-metrics/market/exchange-whale-ratio)",
-            "ko": "거래소의 전체 코인 입금량 대비 상위 10건의 입금량으로, 값이 높을 경우 고래 투자자들이 거래소를 많이 이용하고 있다고 해석할 수 있습니다.<br>[더 알아보기](https://userguide.cryptoquant.com/cryptoquant-metrics/market/exchange-whale-ratio)"
-        },
-        "path": "exchange-whale-ratio",
-        "apiDocsUrl": "https://cryptoquant.com/docs#operation/getExchangeWhaleRatio",
-        "proChart": true,
-        "alert": true,
-        "csv": true,
-        "minimumPlanType": null,
-        "createdAt": "2021-10-25T04:42:29.302Z"
-    },
-    "chart": {
-        "exchange": {
-            "name": {
-                "en": "All Exchanges",
-                "ko": "전체 거래소"
-            },
-            "key": "all_exchange"
-        },
-        "id": "61a6017c45de34521f1dcc28",
-        "title": {
-            "en": "Bitcoin: Exchange Whale Ratio - All Exchanges",
-            "ko": "비트코인: 거래소 고래 비율 (Exchange Whale Ratio) - 전체 거래소"
-        },
-        "alertMetricFieldIds": [
-            "617634e6142904287d6a8090"
-        ]
-    },
-    "dataKeys": [
-        "datetime",
-        "exchange_whale_ratio"
-    ],
-    "result": {
-        "data": [
+          [
             [
                 1333324800000,
                 1.0
@@ -15783,4 +15706,5 @@
             [
                 1672531200000,
                 0.63756013
-            ],
+            ]
+          ]
