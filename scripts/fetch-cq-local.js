@@ -96,6 +96,16 @@ async function run() {
         matcher: '/live/v4/charts/' 
     });
 
+    // ==========================================
+    // 3. GÖREV: Exchange Whale Ratio
+    // ==========================================
+    console.log('\n🔵 3. GÖREV: Exchange Whale Ratio');
+    await fetchAndSave(page, {
+        name: 'cq-exchange-whale-ratio',
+        url: 'https://cryptoquant.com/asset/btc/chart/flow-indicator/exchange-whale-ratio?exchange=all_exchange&window=DAY&sma=0&ema=0&priceScale=log&metricScale=linear&chartStyle=line',
+        matcher: '/live/v4/charts/' // Genel matcher, ID değişse de yakalar
+    });
+
     console.log('\n👋 Operasyon Bitti.');
     await browser.close();
 }
