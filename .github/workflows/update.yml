@@ -31,7 +31,6 @@ jobs:
           export NODE_PATH=$(npm root -g)
           xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" node scripts/fetch-cq-local.js
 
-          # --- YENİ ADIM: DOSYALARI LİSTELE ---
       - name: List Generated Files
         run: |
           echo "📂 DATA KLASÖRÜ İÇERİĞİ:"
@@ -96,9 +95,11 @@ jobs:
           # 1. Shardları taşı (all-metrics oluşumu için)
           find all-data-temp -name "shard-*.json" -exec mv {} data/ \;
           
-          # 2. CQ verilerini taşı (Netflow + SOAB)
+          # 2. CQ verilerini taşı (Netflow + SOAB + WHALE RATIO)
           find all-data-temp -name "cq-exchange-netflow.json" -exec mv {} data/local/ \; || true
           find all-data-temp -name "cq-spent-output-age-bands.json" -exec mv {} data/local/ \; || true
+          # 👇👇👇 EKLENEN SATIR 👇👇👇
+          find all-data-temp -name "cq-exchange-whale-ratio.json" -exec mv {} data/local/ \; || true
 
       - name: JSON Birleştir (Sadece Bitcoin-Data)
         run: node scripts/fetch-data.js --merge
@@ -112,6 +113,8 @@ jobs:
           git add data/all-metrics.json
           git add data/local/cq-exchange-netflow.json
           git add data/local/cq-spent-output-age-bands.json
+          # 👇👇👇 EKLENEN SATIR 👇👇👇
+          git add data/local/cq-exchange-whale-ratio.json
           
           if [ -n "$(git status --porcelain)" ]; then
             git commit -m "Günlük Rapor: Veriler Güncellendi $(date)"
