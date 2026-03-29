@@ -1,0 +1,312 @@
+name: Matrix Data Fetcher
+
+on:
+  schedule:
+    - cron: '0 4 * * *' # UTC 04:00 (TRT 07:00)
+    - cron: '0 10 * * *' # UTC 10:00 (TRT 13:00)
+    - cron: '30 4 * * 1' # Weekly harden pass (Monday)
+    - cron: '0 3 1 1,7 *' # Semiannual full history rebuild (Jan 1 / Jul 1)
+  workflow_dispatch:
+
+concurrency:
+  group: matrix-data-fetcher
+  cancel-in-progress: false
+
+jobs:
+  # --- 1. CRYPTOQUANT GÃ–REVÄ° ---
+  fetch-cq:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 20
+
+      - name: Install Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y xvfb libgbm-dev
+          npm install playwright playwright-extra puppeteer-extra-plugin-stealth
+          npx playwright install --with-deps chromium
+
+      - name: Run CryptoQuant Agent
+        continue-on-error: true
+        timeout-minutes: 10
+        env:
+          CQ_COOKIE: ${{ secrets.CQ_COOKIE }}
+          HEADLESS: "0"
+        run: |
+          export NODE_PATH=$(npm root -g)
+          xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" node scripts/fetch-cq-local.js
+
+      - name: Hata Fotograflarini Yukle
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: hata-ekran-cq
+          path: data/local/HATA-*.png
+          retention-days: 1
+
+      - name: Upload CQ Data
+        uses: actions/upload-artifact@v6
+        with:
+          name: data-cq
+          path: data/local/cq-*.json
+          retention-days: 1
+
+  # --- 2. BITCOIN MAGAZINE PRO GÃ–REVÄ° (YENÄ°) ---
+  fetch-bmp:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 20
+
+      - name: Install Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y xvfb libgbm-dev
+          npm install playwright playwright-extra puppeteer-extra-plugin-stealth
+          npx playwright install --with-deps chromium
+
+      - name: Run BMP Agent
+        continue-on-error: true
+        timeout-minutes: 5
+        env:
+          HEADLESS: "0" # Gizli mod kapalÄ±, gerÃ§ek kullanÄ±cÄ± gibi
+        run: |
+          export NODE_PATH=$(npm root -g)
+          xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" node scripts/fetch-bmp.js
+
+      - name: Hata Fotograflarini Yukle
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: hata-ekran-bmp
+          path: data/local/HATA-*.png
+          retention-days: 1
+
+      - name: Upload BMP Data
+        uses: actions/upload-artifact@v6
+        with:
+          name: data-bmp
+          path: data/local/bmp-rhodl-ratio.json
+          retention-days: 1
+
+  # --- 2b. BITCOIN MAGAZINE PRO (REALIZED CAP HODL WAVES) ---
+  fetch-bmp-rchw:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 20
+
+      - name: Install Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y xvfb libgbm-dev
+          npm install playwright playwright-extra puppeteer-extra-plugin-stealth
+          npx playwright install --with-deps chromium
+
+      - name: Run BMP RCHW Agent
+        continue-on-error: true
+        timeout-minutes: 5
+        env:
+          HEADLESS: "0"
+        run: |
+          export NODE_PATH=$(npm root -g)
+          xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" node scripts/fetch-bm-realized-cap-hodl-waves.js
+
+      - name: Hata Fotograflarini Yukle
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: hata-ekran-bmp-rchw
+          path: data/local/HATA-bm-realized-cap-hodl-waves.png
+          retention-days: 1
+
+      - name: Upload BMP RCHW Data
+        uses: actions/upload-artifact@v6
+        with:
+          name: data-bmp-rchw
+          path: data/local/bm-realized-cap-hodl-waves.json
+          retention-days: 1
+
+  # --- 3. BITCOIN-DATA API (SHARDS) ---
+  fetch-shards:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        group: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 20
+
+      - name: Download Data Shard
+        run: node scripts/fetch-data.js --group ${{ matrix.group }} --total 11
+
+      - name: Upload Shard Artifact
+        uses: actions/upload-artifact@v6
+        with:
+          name: data-shard-${{ matrix.group }}
+          path: data/shard-${{ matrix.group }}.json
+          retention-days: 1
+
+  # --- 4. UNCHAINED HODL WAVES ---
+  fetch-unchained:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 20
+
+      - name: Install Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y xvfb libgbm-dev
+          npm install playwright playwright-extra puppeteer-extra-plugin-stealth
+          npx playwright install --with-deps chromium
+
+      - name: Run Unchained Agent
+        continue-on-error: true
+        timeout-minutes: 5
+        env:
+          HEADLESS: "0"
+          UNCHAINED_PAGE_URL: "https://www.unchained.com/hodlwaves"
+          UNCHAINED_MATCHER: "hodl_waves?a=BTC&i=24h"
+        run: |
+          export NODE_PATH=$(npm root -g)
+          xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" node scripts/fetch-unchained-hodl-waves.js
+
+      - name: Hata Fotograflarini Yukle
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: hata-ekran-unchained
+          path: data/local/HATA-unchained-hodl-waves.png
+          retention-days: 1
+
+      - name: Upload Unchained Data
+        uses: actions/upload-artifact@v6
+        with:
+          name: data-unchained
+          path: data/local/unchained-hodl-waves.json
+          retention-days: 1
+
+  # --- 5. COMBINE AND PUSH ---
+  combine-and-push:
+    if: ${{ always() }}
+    needs: [fetch-cq, fetch-bmp, fetch-bmp-rchw, fetch-shards, fetch-unchained] # Hepsini bekle
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          ref: ${{ github.ref_name }}
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 20
+
+      - name: TÃ¼m Verileri Ä°ndir
+        uses: actions/download-artifact@v7
+        with:
+          path: all-data-temp
+
+      - name: DosyalarÄ± YerleÅŸtir
+        run: |
+          mkdir -p data/local
+          
+          # 1. ShardlarÄ± taÅŸÄ±
+          find all-data-temp -name "shard-*.json" -exec mv {} data/ \; || true
+          
+          # 2. DiÄŸer tÃ¼m json verilerini (CQ ve BMP) local'e taÅŸÄ±
+          find all-data-temp -name "*.json" -not -name "shard-*.json" -exec mv {} data/local/ \; || true
+
+      - name: JSON BirleÅŸtir (Sadece Bitcoin-Data)
+        run: node scripts/fetch-data.js --merge
+
+      - name: Refresh Histories (All Sources)
+        run: node scripts/refresh-histories.js
+
+      - name: Semiannual Full History Rebuild
+        if: ${{ github.event_name == 'schedule' && github.event.schedule == '0 3 1 1,7 *' }}
+        run: node scripts/refresh-histories.js --full-rebuild
+
+      - name: Commit & Push
+        run: |
+          git config --global user.name 'Matrix Bot'
+          git config --global user.email 'bot@noreply.github.com'
+          
+          # Add updated files
+          git add data/all-metrics.json || true
+          git add data/local/*.json || true
+          git add data/static/*.json || true
+          
+          if [ -n "$(git status --porcelain)" ]; then
+            git commit -m "Daily Report: Data Updated $(date)"
+            # Rebase latest remote changes to avoid non-fast-forward failures.
+            git pull --rebase origin "${GITHUB_REF_NAME}"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          else
+            echo "No changes."
+          fi
+
+  # --- 6. CLEAN OLD WORKFLOW RUNS ---
+  cleanup-runs:
+    if: ${{ always() }}
+    needs: [combine-and-push]
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write
+      contents: read
+
+    steps:
+      - name: Keep only latest run when run count >= 10
+        uses: actions/github-script@v8
+        with:
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const workflow_id = "update.yml";
+
+            const list = await github.rest.actions.listWorkflowRuns({
+              owner,
+              repo,
+              workflow_id,
+              per_page: 100
+            });
+
+            const runs = list.data.workflow_runs || [];
+            core.info(`Total runs for ${workflow_id}: ${runs.length}`);
+
+            if (runs.length < 10) {
+              core.info("Run count is below 10, skipping cleanup.");
+              return;
+            }
+
+            const sorted = runs.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+            const toDelete = sorted.slice(1);
+            core.info(`Deleting ${toDelete.length} old runs, keeping run_id=${sorted[0].id}`);
+
+            for (const run of toDelete) {
+              await github.rest.actions.deleteWorkflowRun({
+                owner,
+                repo,
+                run_id: run.id
+              });
+            }
