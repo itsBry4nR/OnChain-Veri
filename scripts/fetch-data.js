@@ -147,10 +147,10 @@ const ALL_ENDPOINTS = {
     'vdd-multiple': 'https://bitcoin-data.com/v1/vdd-multiple',
 
     // --- Realized Profit/Loss Ratio ---
-    'realizedLossSthUsd': 'https://bitcoin-data.com/v1/realized_loss_sth_usd',
-    'realizedLossLthUsd': 'https://bitcoin-data.com/v1/realized_loss_lth_usd',
-    'realizedProfitSthUsd': 'https://bitcoin-data.com/v1/realized_profit_sth_usd',
-    'realizedProfitLthUsd': 'https://bitcoin-data.com/v1/realized_profit_lth_usd',
+    'realizedLossSthUsd': 'https://api.bitcoin-data.com/v1/realized-loss-sth-usd',
+    'realizedLossLthUsd': 'https://api.bitcoin-data.com/v1/realized-loss-lth-usd',
+    'realizedProfitSthUsd': 'https://api.bitcoin-data.com/v1/realized-profit-sth-usd',
+    'realizedProfitLthUsd': 'https://api.bitcoin-data.com/v1/realized-profit-lth-usd',
 
     // --- Stablecoin Supply ---
     'stablecoin-supply': 'https://bitcoin-data.com/v1/stablecoin-supply',
