@@ -104,7 +104,7 @@ const ALL_ENDPOINTS = {
     'lth-nupl':   'https://bitcoin-data.com/v1/nupl-lth',   
 
     // --- Realized Price Ailesi ve Delta Price İçin gerekli apiler
-    'market-cap':     'https://bitcoin-data.com/v1/market-cap',
+    'market-cap':     'https://api.bitcoin-data.com/v1/marketcap-crypto-usd',
     'cap-real-usd':   'https://bitcoin-data.com/v1/cap-real-usd',
     'realized-price': 'https://bitcoin-data.com/v1/realized-price',
     'sth-realized-price':  'https://bitcoin-data.com/v1/sth-realized-price',
