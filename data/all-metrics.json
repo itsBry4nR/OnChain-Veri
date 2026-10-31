@@ -1,5 +1,5 @@
 {
-  "lastUpdated": 1793378725643,
+  "lastUpdated": 1793442392164,
   "metrics": {
     "asol": [
       {
@@ -27081,6 +27081,11 @@
         "d": "2026-10-29",
         "unixTs": 1793232000,
         "asol": 212.47
+      },
+      {
+        "d": "2026-10-30",
+        "unixTs": 1793318400,
+        "asol": 256.94
       }
     ],
     "averageDormancy": [
@@ -58328,6 +58333,11 @@
         "d": "2026-10-29",
         "unixTs": 1793232000,
         "averageDormancy": 18.6953
+      },
+      {
+        "d": "2026-10-30",
+        "unixTs": 1793318400,
+        "averageDormancy": 13.4815
       }
     ],
     "btc-ohlc": [
@@ -109900,6 +109910,15 @@
         "low": 77910,
         "close": 77991.89,
         "volume": 23832.18
+      },
+      {
+        "d": "2026-10-30 00:00:00",
+        "unixTs": "1793318400",
+        "open": 77991.89,
+        "high": 78804.01,
+        "low": 76325.98,
+        "close": 77368.77,
+        "volume": 24295.95
       }
     ],
     "btc-price": [
@@ -142397,6 +142416,11 @@
         "d": "2026-10-29",
         "unixTs": "1793232000",
         "btcPrice": "78193.4264043074"
+      },
+      {
+        "d": "2026-10-30",
+        "unixTs": "1793318400",
+        "btcPrice": "77109.5907473057"
       }
     ],
     "cap-real-usd": [
@@ -174918,32 +174942,37 @@
       {
         "theDay": "2026-10-24",
         "unixTs": "1792800000",
-        "capRealUSD": "1089969385123.42"
+        "capRealUSD": "1073861463175.78"
       },
       {
         "theDay": "2026-10-25",
         "unixTs": "1792886400",
-        "capRealUSD": "1090016345616.59"
+        "capRealUSD": "1073907729671.52"
       },
       {
         "theDay": "2026-10-26",
         "unixTs": "1792972800",
-        "capRealUSD": "1090401393467.36"
+        "capRealUSD": "1074287087159.96"
       },
       {
         "theDay": "2026-10-27",
         "unixTs": "1793059200",
-        "capRealUSD": "1089747684858.44"
+        "capRealUSD": "1073643039269.4"
       },
       {
         "theDay": "2026-10-28",
         "unixTs": "1793145600",
-        "capRealUSD": "1090988352383.28"
+        "capRealUSD": "1074865371806.19"
       },
       {
         "theDay": "2026-10-29",
         "unixTs": "1793232000",
-        "capRealUSD": "1088614599322.18"
+        "capRealUSD": "1072526698839.59"
+      },
+      {
+        "theDay": "2026-10-30",
+        "unixTs": "1793318400",
+        "capRealUSD": "1085109429767.76"
       }
     ],
     "cdd": [
@@ -237828,6 +237857,13 @@
         "sma_30": 1031083134.2,
         "sma_60": 995919063.88,
         "hashribbons": "Up"
+      },
+      {
+        "d": "2026-10-30",
+        "unixTs": 1793318400,
+        "sma_30": 1035626711.93,
+        "sma_60": 996803231.11,
+        "hashribbons": "Up"
       }
     ],
     "lth": [
@@ -266585,6 +266621,41 @@
         "d": "2026-10-23",
         "unixTs": 1792713600,
         "lthMvrv": 1.6659
+      },
+      {
+        "d": "2026-10-24",
+        "unixTs": 1792800000,
+        "lthMvrv": 1.6654
+      },
+      {
+        "d": "2026-10-25",
+        "unixTs": 1792886400,
+        "lthMvrv": 1.6457
+      },
+      {
+        "d": "2026-10-26",
+        "unixTs": 1792972800,
+        "lthMvrv": 1.6493
+      },
+      {
+        "d": "2026-10-27",
+        "unixTs": 1793059200,
+        "lthMvrv": 1.6657
+      },
+      {
+        "d": "2026-10-28",
+        "unixTs": 1793145600,
+        "lthMvrv": 1.6736
+      },
+      {
+        "d": "2026-10-29",
+        "unixTs": 1793232000,
+        "lthMvrv": 1.61
+      },
+      {
+        "d": "2026-10-30",
+        "unixTs": 1793318400,
+        "lthMvrv": 1.5809
       }
     ],
     "lth-nupl": [
@@ -291807,6 +291878,41 @@
         "d": "2026-10-23",
         "unixTs": 1792713600,
         "nuplLth": 0.3997
+      },
+      {
+        "d": "2026-10-24",
+        "unixTs": 1792800000,
+        "nuplLth": 0.3996
+      },
+      {
+        "d": "2026-10-25",
+        "unixTs": 1792886400,
+        "nuplLth": 0.3924
+      },
+      {
+        "d": "2026-10-26",
+        "unixTs": 1792972800,
+        "nuplLth": 0.3937
+      },
+      {
+        "d": "2026-10-27",
+        "unixTs": 1793059200,
+        "nuplLth": 0.3997
+      },
+      {
+        "d": "2026-10-28",
+        "unixTs": 1793145600,
+        "nuplLth": 0.4025
+      },
+      {
+        "d": "2026-10-29",
+        "unixTs": 1793232000,
+        "nuplLth": 0.3789
+      },
+      {
+        "d": "2026-10-30",
+        "unixTs": 1793318400,
+        "nuplLth": 0.3675
       }
     ],
     "lth-realized-price": [
@@ -318859,6 +318965,11 @@
         "d": "2026-10-23",
         "unixTs": "1792713600",
         "lthRealizedPrice": "48583.92"
+      },
+      {
+        "d": "2026-10-24",
+        "unixTs": "1792800000",
+        "lthRealizedPrice": "48591.22"
       }
     ],
     "lth-sopr": [
@@ -346575,12 +346686,12 @@
       {
         "d": "2025-10-20",
         "unixTs": 1760918400,
-        "lthSopr": 1.0003
+        "lthSopr": 1.6913
       },
       {
         "d": "2025-10-21",
         "unixTs": 1761004800,
-        "lthSopr": 0.9995
+        "lthSopr": 1.553
       },
       {
         "d": "2025-10-22",
@@ -348416,6 +348527,41 @@
         "d": "2026-10-23",
         "unixTs": 1792713600,
         "lthSopr": 1.0759
+      },
+      {
+        "d": "2026-10-24",
+        "unixTs": 1792800000,
+        "lthSopr": 1.3128
+      },
+      {
+        "d": "2026-10-25",
+        "unixTs": 1792886400,
+        "lthSopr": 1.2472
+      },
+      {
+        "d": "2026-10-26",
+        "unixTs": 1792972800,
+        "lthSopr": 1.1579
+      },
+      {
+        "d": "2026-10-27",
+        "unixTs": 1793059200,
+        "lthSopr": 1.0007
+      },
+      {
+        "d": "2026-10-28",
+        "unixTs": 1793145600,
+        "lthSopr": 1.1366
+      },
+      {
+        "d": "2026-10-29",
+        "unixTs": 1793232000,
+        "lthSopr": 0.838
+      },
+      {
+        "d": "2026-10-30",
+        "unixTs": 1793318400,
+        "lthSopr": 0.9824
       }
     ],
     "market-cap": [
@@ -398090,6 +398236,23 @@
         "ada": 7734318107.14,
         "hype": 19296523598.52,
         "dot": 1727296756.13
+      },
+      {
+        "d": "2026-10-30",
+        "unixTs": 1793318400,
+        "btc": 1564977778014.27,
+        "eth": 274825612487.19,
+        "usdt": 180702834302.14,
+        "xrp": 78280676312.97,
+        "bnb": 91677297021.23,
+        "usdc": 71153307367.21,
+        "sol": 56328624017.78,
+        "trx": 33454002937.6,
+        "doge": 11759845034.34,
+        "bch": 5498347460.43,
+        "ada": 7145980512.57,
+        "hype": 21285433832.15,
+        "dot": 1552975717.4
       }
     ],
     "mvrv-ratio": [
@@ -425142,6 +425305,41 @@
         "d": "2026-10-23",
         "unixTs": 1792713600,
         "mvrv": 1.5071
+      },
+      {
+        "d": "2026-10-24",
+        "unixTs": 1792800000,
+        "mvrv": 1.5068
+      },
+      {
+        "d": "2026-10-25",
+        "unixTs": 1792886400,
+        "mvrv": 1.4891
+      },
+      {
+        "d": "2026-10-26",
+        "unixTs": 1792972800,
+        "mvrv": 1.4919
+      },
+      {
+        "d": "2026-10-27",
+        "unixTs": 1793059200,
+        "mvrv": 1.5064
+      },
+      {
+        "d": "2026-10-28",
+        "unixTs": 1793145600,
+        "mvrv": 1.5126
+      },
+      {
+        "d": "2026-10-29",
+        "unixTs": 1793232000,
+        "mvrv": 1.4551
+      },
+      {
+        "d": "2026-10-30",
+        "unixTs": 1793318400,
+        "mvrv": 1.4321
       }
     ],
     "mvrvZscore": [
@@ -455873,1792 +456071,1827 @@
       {
         "d": "2025-10-31",
         "unixTs": 1761868800,
-        "mvrvZscore": 1.929
+        "mvrvZscore": 1.9006
       },
       {
         "d": "2025-11-01",
         "unixTs": 1761955200,
-        "mvrvZscore": 1.941
+        "mvrvZscore": 1.9124
       },
       {
         "d": "2025-11-02",
         "unixTs": 1762041600,
-        "mvrvZscore": 1.962
+        "mvrvZscore": 1.9332
       },
       {
         "d": "2025-11-03",
         "unixTs": 1762128000,
-        "mvrvZscore": 1.8138
+        "mvrvZscore": 1.7872
       },
       {
         "d": "2025-11-04",
         "unixTs": 1762214400,
-        "mvrvZscore": 1.6245
+        "mvrvZscore": 1.6008
       },
       {
         "d": "2025-11-05",
         "unixTs": 1762300800,
-        "mvrvZscore": 1.7177
+        "mvrvZscore": 1.6927
       },
       {
         "d": "2025-11-06",
         "unixTs": 1762387200,
-        "mvrvZscore": 1.6266
+        "mvrvZscore": 1.6029
       },
       {
         "d": "2025-11-07",
         "unixTs": 1762473600,
-        "mvrvZscore": 1.6931
+        "mvrvZscore": 1.6684
       },
       {
         "d": "2025-11-08",
         "unixTs": 1762560000,
-        "mvrvZscore": 1.6571
+        "mvrvZscore": 1.633
       },
       {
         "d": "2025-11-09",
         "unixTs": 1762646400,
-        "mvrvZscore": 1.7319
+        "mvrvZscore": 1.7068
       },
       {
         "d": "2025-11-10",
         "unixTs": 1762732800,
-        "mvrvZscore": 1.7865
+        "mvrvZscore": 1.7607
       },
       {
         "d": "2025-11-11",
         "unixTs": 1762819200,
-        "mvrvZscore": 1.6707
+        "mvrvZscore": 1.6466
       },
       {
         "d": "2025-11-12",
         "unixTs": 1762905600,
-        "mvrvZscore": 1.6183
+        "mvrvZscore": 1.595
       },
       {
         "d": "2025-11-13",
         "unixTs": 1762992000,
-        "mvrvZscore": 1.5795
+        "mvrvZscore": 1.5568
       },
       {
         "d": "2025-11-14",
         "unixTs": 1763078400,
-        "mvrvZscore": 1.3649
+        "mvrvZscore": 1.3453
       },
       {
         "d": "2025-11-15",
         "unixTs": 1763164800,
-        "mvrvZscore": 1.4096
+        "mvrvZscore": 1.3894
       },
       {
         "d": "2025-11-16",
         "unixTs": 1763251200,
-        "mvrvZscore": 1.3629
+        "mvrvZscore": 1.3434
       },
       {
         "d": "2025-11-17",
         "unixTs": 1763337600,
-        "mvrvZscore": 1.2901
+        "mvrvZscore": 1.2717
       },
       {
         "d": "2025-11-18",
         "unixTs": 1763424000,
-        "mvrvZscore": 1.312
+        "mvrvZscore": 1.2933
       },
       {
         "d": "2025-11-19",
         "unixTs": 1763510400,
-        "mvrvZscore": 1.2682
+        "mvrvZscore": 1.2501
       },
       {
         "d": "2025-11-20",
         "unixTs": 1763596800,
-        "mvrvZscore": 1.0929
+        "mvrvZscore": 1.0773
       },
       {
         "d": "2025-11-21",
         "unixTs": 1763683200,
-        "mvrvZscore": 1.0484
+        "mvrvZscore": 1.0335
       },
       {
         "d": "2025-11-22",
         "unixTs": 1763769600,
-        "mvrvZscore": 1.0282
+        "mvrvZscore": 1.0136
       },
       {
         "d": "2025-11-23",
         "unixTs": 1763856000,
-        "mvrvZscore": 1.0922
+        "mvrvZscore": 1.0767
       },
       {
         "d": "2025-11-24",
         "unixTs": 1763942400,
-        "mvrvZscore": 1.1375
+        "mvrvZscore": 1.1214
       },
       {
         "d": "2025-11-25",
         "unixTs": 1764028800,
-        "mvrvZscore": 1.1082
+        "mvrvZscore": 1.0925
       },
       {
         "d": "2025-11-26",
         "unixTs": 1764115200,
-        "mvrvZscore": 1.2078
+        "mvrvZscore": 1.1907
       },
       {
         "d": "2025-11-27",
         "unixTs": 1764201600,
-        "mvrvZscore": 1.2398
+        "mvrvZscore": 1.2223
       },
       {
         "d": "2025-11-28",
         "unixTs": 1764288000,
-        "mvrvZscore": 1.2271
+        "mvrvZscore": 1.2098
       },
       {
         "d": "2025-11-29",
         "unixTs": 1764374400,
-        "mvrvZscore": 1.2229
+        "mvrvZscore": 1.2057
       },
       {
         "d": "2025-11-30",
         "unixTs": 1764460800,
-        "mvrvZscore": 1.2099
+        "mvrvZscore": 1.1929
       },
       {
         "d": "2025-12-01",
         "unixTs": 1764547200,
-        "mvrvZscore": 1.0664
+        "mvrvZscore": 1.0514
       },
       {
         "d": "2025-12-02",
         "unixTs": 1764633600,
-        "mvrvZscore": 1.2403
+        "mvrvZscore": 1.2229
       },
       {
         "d": "2025-12-03",
         "unixTs": 1764720000,
-        "mvrvZscore": 1.3189
+        "mvrvZscore": 1.3005
       },
       {
         "d": "2025-12-04",
         "unixTs": 1764806400,
-        "mvrvZscore": 1.2667
+        "mvrvZscore": 1.249
       },
       {
         "d": "2025-12-05",
         "unixTs": 1764892800,
-        "mvrvZscore": 1.1704
+        "mvrvZscore": 1.1541
       },
       {
         "d": "2025-12-06",
         "unixTs": 1764979200,
-        "mvrvZscore": 1.1582
+        "mvrvZscore": 1.1421
       },
       {
         "d": "2025-12-07",
         "unixTs": 1765065600,
-        "mvrvZscore": 1.1987
+        "mvrvZscore": 1.182
       },
       {
         "d": "2025-12-08",
         "unixTs": 1765152000,
-        "mvrvZscore": 1.2137
+        "mvrvZscore": 1.1968
       },
       {
         "d": "2025-12-09",
         "unixTs": 1765238400,
-        "mvrvZscore": 1.2884
+        "mvrvZscore": 1.2705
       },
       {
         "d": "2025-12-10",
         "unixTs": 1765324800,
-        "mvrvZscore": 1.2593
+        "mvrvZscore": 1.2418
       },
       {
         "d": "2025-12-11",
         "unixTs": 1765411200,
-        "mvrvZscore": 1.2755
+        "mvrvZscore": 1.2579
       },
       {
         "d": "2025-12-12",
         "unixTs": 1765497600,
-        "mvrvZscore": 1.1994
+        "mvrvZscore": 1.1828
       },
       {
         "d": "2025-12-13",
         "unixTs": 1765584000,
-        "mvrvZscore": 1.1972
+        "mvrvZscore": 1.1807
       },
       {
         "d": "2025-12-14",
         "unixTs": 1765670400,
-        "mvrvZscore": 1.1256
+        "mvrvZscore": 1.1101
       },
       {
         "d": "2025-12-15",
         "unixTs": 1765756800,
-        "mvrvZscore": 1.0643
+        "mvrvZscore": 1.0497
       },
       {
         "d": "2025-12-16",
         "unixTs": 1765843200,
-        "mvrvZscore": 1.1101
+        "mvrvZscore": 1.0949
       },
       {
         "d": "2025-12-17",
         "unixTs": 1765929600,
-        "mvrvZscore": 1.0541
+        "mvrvZscore": 1.0396
       },
       {
         "d": "2025-12-18",
         "unixTs": 1766016000,
-        "mvrvZscore": 1.032
+        "mvrvZscore": 1.0178
       },
       {
         "d": "2025-12-19",
         "unixTs": 1766102400,
-        "mvrvZscore": 1.127
+        "mvrvZscore": 1.1116
       },
       {
         "d": "2025-12-20",
         "unixTs": 1766188800,
-        "mvrvZscore": 1.1338
+        "mvrvZscore": 1.1183
       },
       {
         "d": "2025-12-21",
         "unixTs": 1766275200,
-        "mvrvZscore": 1.1379
+        "mvrvZscore": 1.1224
       },
       {
         "d": "2025-12-22",
         "unixTs": 1766361600,
-        "mvrvZscore": 1.1362
+        "mvrvZscore": 1.1207
       },
       {
         "d": "2025-12-23",
         "unixTs": 1766448000,
-        "mvrvZscore": 1.0986
+        "mvrvZscore": 1.0837
       },
       {
         "d": "2025-12-24",
         "unixTs": 1766534400,
-        "mvrvZscore": 1.1074
+        "mvrvZscore": 1.0923
       },
       {
         "d": "2025-12-25",
         "unixTs": 1766620800,
-        "mvrvZscore": 1.0938
+        "mvrvZscore": 1.079
       },
       {
         "d": "2025-12-26",
         "unixTs": 1766707200,
-        "mvrvZscore": 1.0964
+        "mvrvZscore": 1.0815
       },
       {
         "d": "2025-12-27",
         "unixTs": 1766793600,
-        "mvrvZscore": 1.114
+        "mvrvZscore": 1.0989
       },
       {
         "d": "2025-12-28",
         "unixTs": 1766880000,
-        "mvrvZscore": 1.1155
+        "mvrvZscore": 1.1004
       },
       {
         "d": "2025-12-29",
         "unixTs": 1766966400,
-        "mvrvZscore": 1.0911
+        "mvrvZscore": 1.0764
       },
       {
         "d": "2025-12-30",
         "unixTs": 1767052800,
-        "mvrvZscore": 1.1366
+        "mvrvZscore": 1.1212
       },
       {
         "d": "2025-12-31",
         "unixTs": 1767139200,
-        "mvrvZscore": 1.1064
+        "mvrvZscore": 1.0915
       },
       {
         "d": "2026-01-01",
         "unixTs": 1767225600,
-        "mvrvZscore": 1.1476
+        "mvrvZscore": 1.1322
       },
       {
         "d": "2026-01-02",
         "unixTs": 1767312000,
-        "mvrvZscore": 1.1839
+        "mvrvZscore": 1.1679
       },
       {
         "d": "2026-01-03",
         "unixTs": 1767398400,
-        "mvrvZscore": 1.208
+        "mvrvZscore": 1.1917
       },
       {
         "d": "2026-01-04",
         "unixTs": 1767484800,
-        "mvrvZscore": 1.2346
+        "mvrvZscore": 1.218
       },
       {
         "d": "2026-01-05",
         "unixTs": 1767571200,
-        "mvrvZscore": 1.3209
+        "mvrvZscore": 1.3032
       },
       {
         "d": "2026-01-06",
         "unixTs": 1767657600,
-        "mvrvZscore": 1.3062
+        "mvrvZscore": 1.2887
       },
       {
         "d": "2026-01-07",
         "unixTs": 1767744000,
-        "mvrvZscore": 1.2291
+        "mvrvZscore": 1.2127
       },
       {
         "d": "2026-01-08",
         "unixTs": 1767830400,
-        "mvrvZscore": 1.2194
+        "mvrvZscore": 1.2031
       },
       {
         "d": "2026-01-09",
         "unixTs": 1767916800,
-        "mvrvZscore": 1.2042
+        "mvrvZscore": 1.1881
       },
       {
         "d": "2026-01-10",
         "unixTs": 1768003200,
-        "mvrvZscore": 1.1986
+        "mvrvZscore": 1.1827
       },
       {
         "d": "2026-01-11",
         "unixTs": 1768089600,
-        "mvrvZscore": 1.2134
+        "mvrvZscore": 1.1972
       },
       {
         "d": "2026-01-12",
         "unixTs": 1768176000,
-        "mvrvZscore": 1.2231
+        "mvrvZscore": 1.2069
       },
       {
         "d": "2026-01-13",
         "unixTs": 1768262400,
-        "mvrvZscore": 1.3539
+        "mvrvZscore": 1.336
       },
       {
         "d": "2026-01-14",
         "unixTs": 1768348800,
-        "mvrvZscore": 1.4164
+        "mvrvZscore": 1.3976
       },
       {
         "d": "2026-01-15",
         "unixTs": 1768435200,
-        "mvrvZscore": 1.3682
+        "mvrvZscore": 1.3501
       },
       {
         "d": "2026-01-16",
         "unixTs": 1768521600,
-        "mvrvZscore": 1.361
+        "mvrvZscore": 1.343
       },
       {
         "d": "2026-01-17",
         "unixTs": 1768608000,
-        "mvrvZscore": 1.3476
+        "mvrvZscore": 1.3299
       },
       {
         "d": "2026-01-18",
         "unixTs": 1768694400,
-        "mvrvZscore": 1.3268
+        "mvrvZscore": 1.3093
       },
       {
         "d": "2026-01-19",
         "unixTs": 1768780800,
-        "mvrvZscore": 1.2589
+        "mvrvZscore": 1.2424
       },
       {
         "d": "2026-01-20",
         "unixTs": 1768867200,
-        "mvrvZscore": 1.1133
+        "mvrvZscore": 1.0987
       },
       {
         "d": "2026-01-21",
         "unixTs": 1768953600,
-        "mvrvZscore": 1.1513
+        "mvrvZscore": 1.1362
       },
       {
         "d": "2026-01-22",
         "unixTs": 1769040000,
-        "mvrvZscore": 1.1562
+        "mvrvZscore": 1.141
       },
       {
         "d": "2026-01-23",
         "unixTs": 1769126400,
-        "mvrvZscore": 1.1644
+        "mvrvZscore": 1.1492
       },
       {
         "d": "2026-01-24",
         "unixTs": 1769212800,
-        "mvrvZscore": 1.157
+        "mvrvZscore": 1.1419
       },
       {
         "d": "2026-01-25",
         "unixTs": 1769299200,
-        "mvrvZscore": 1.0594
+        "mvrvZscore": 1.0456
       },
       {
         "d": "2026-01-26",
         "unixTs": 1769385600,
-        "mvrvZscore": 1.1278
+        "mvrvZscore": 1.1131
       },
       {
         "d": "2026-01-27",
         "unixTs": 1769472000,
-        "mvrvZscore": 1.1577
+        "mvrvZscore": 1.1426
       },
       {
         "d": "2026-01-28",
         "unixTs": 1769558400,
-        "mvrvZscore": 1.154
+        "mvrvZscore": 1.139
       },
       {
         "d": "2026-01-29",
         "unixTs": 1769644800,
-        "mvrvZscore": 0.9977
+        "mvrvZscore": 0.9848
       },
       {
         "d": "2026-01-30",
         "unixTs": 1769731200,
-        "mvrvZscore": 0.9841
+        "mvrvZscore": 0.9714
       },
       {
         "d": "2026-01-31",
         "unixTs": 1769817600,
-        "mvrvZscore": 0.7979
+        "mvrvZscore": 0.7876
       },
       {
         "d": "2026-02-01",
         "unixTs": 1769904000,
-        "mvrvZscore": 0.7506
+        "mvrvZscore": 0.7409
       },
       {
         "d": "2026-02-02",
         "unixTs": 1769990400,
-        "mvrvZscore": 0.8051
+        "mvrvZscore": 0.7947
       },
       {
         "d": "2026-02-03",
         "unixTs": 1770076800,
-        "mvrvZscore": 0.701
+        "mvrvZscore": 0.692
       },
       {
         "d": "2026-02-04",
         "unixTs": 1770163200,
-        "mvrvZscore": 0.6168
+        "mvrvZscore": 0.6088
       },
       {
         "d": "2026-02-05",
         "unixTs": 1770249600,
-        "mvrvZscore": 0.3219
+        "mvrvZscore": 0.3177
       },
       {
         "d": "2026-02-06",
         "unixTs": 1770336000,
-        "mvrvZscore": 0.5424
+        "mvrvZscore": 0.5354
       },
       {
         "d": "2026-02-07",
         "unixTs": 1770422400,
-        "mvrvZscore": 0.4977
+        "mvrvZscore": 0.4913
       },
       {
         "d": "2026-02-08",
         "unixTs": 1770508800,
-        "mvrvZscore": 0.5342
+        "mvrvZscore": 0.5273
       },
       {
         "d": "2026-02-09",
         "unixTs": 1770595200,
-        "mvrvZscore": 0.5333
+        "mvrvZscore": 0.5264
       },
       {
         "d": "2026-02-10",
         "unixTs": 1770681600,
-        "mvrvZscore": 0.4844
+        "mvrvZscore": 0.4782
       },
       {
         "d": "2026-02-11",
         "unixTs": 1770768000,
-        "mvrvZscore": 0.4282
+        "mvrvZscore": 0.4227
       },
       {
         "d": "2026-02-12",
         "unixTs": 1770854400,
-        "mvrvZscore": 0.4036
+        "mvrvZscore": 0.3984
       },
       {
         "d": "2026-02-13",
         "unixTs": 1770940800,
-        "mvrvZscore": 0.4931
+        "mvrvZscore": 0.4868
       },
       {
         "d": "2026-02-14",
         "unixTs": 1771027200,
-        "mvrvZscore": 0.5243
+        "mvrvZscore": 0.5176
       },
       {
         "d": "2026-02-15",
         "unixTs": 1771113600,
-        "mvrvZscore": 0.4824
+        "mvrvZscore": 0.4762
       },
       {
         "d": "2026-02-16",
         "unixTs": 1771200000,
-        "mvrvZscore": 0.496
+        "mvrvZscore": 0.4897
       },
       {
         "d": "2026-02-17",
         "unixTs": 1771286400,
-        "mvrvZscore": 0.4491
+        "mvrvZscore": 0.4434
       },
       {
         "d": "2026-02-18",
         "unixTs": 1771372800,
-        "mvrvZscore": 0.4144
+        "mvrvZscore": 0.4091
       },
       {
         "d": "2026-02-19",
         "unixTs": 1771459200,
-        "mvrvZscore": 0.4319
+        "mvrvZscore": 0.4264
       },
       {
         "d": "2026-02-20",
         "unixTs": 1771545600,
-        "mvrvZscore": 0.4685
+        "mvrvZscore": 0.4625
       },
       {
         "d": "2026-02-21",
         "unixTs": 1771632000,
-        "mvrvZscore": 0.4713
+        "mvrvZscore": 0.4653
       },
       {
         "d": "2026-02-22",
         "unixTs": 1771718400,
-        "mvrvZscore": 0.4567
+        "mvrvZscore": 0.4509
       },
       {
         "d": "2026-02-23",
         "unixTs": 1771804800,
-        "mvrvZscore": 0.355
+        "mvrvZscore": 0.3505
       },
       {
         "d": "2026-02-24",
         "unixTs": 1771891200,
-        "mvrvZscore": 0.3376
+        "mvrvZscore": 0.3333
       },
       {
         "d": "2026-02-25",
         "unixTs": 1771977600,
-        "mvrvZscore": 0.4713
+        "mvrvZscore": 0.4653
       },
       {
         "d": "2026-02-26",
         "unixTs": 1772064000,
-        "mvrvZscore": 0.4549
+        "mvrvZscore": 0.4491
       },
       {
         "d": "2026-02-27",
         "unixTs": 1772150400,
-        "mvrvZscore": 0.4022
+        "mvrvZscore": 0.3971
       },
       {
         "d": "2026-02-28",
         "unixTs": 1772236800,
-        "mvrvZscore": 0.4348
+        "mvrvZscore": 0.4293
       },
       {
         "d": "2026-03-01",
         "unixTs": 1772323200,
-        "mvrvZscore": 0.397
+        "mvrvZscore": 0.392
       },
       {
         "d": "2026-03-02",
         "unixTs": 1772409600,
-        "mvrvZscore": 0.502
+        "mvrvZscore": 0.4956
       },
       {
         "d": "2026-03-03",
         "unixTs": 1772496000,
-        "mvrvZscore": 0.4894
+        "mvrvZscore": 0.4832
       },
       {
         "d": "2026-03-04",
         "unixTs": 1772582400,
-        "mvrvZscore": 0.622
+        "mvrvZscore": 0.6141
       },
       {
         "d": "2026-03-05",
         "unixTs": 1772668800,
-        "mvrvZscore": 0.5745
+        "mvrvZscore": 0.5672
       },
       {
         "d": "2026-03-06",
         "unixTs": 1772755200,
-        "mvrvZscore": 0.4828
+        "mvrvZscore": 0.4767
       },
       {
         "d": "2026-03-07",
         "unixTs": 1772841600,
-        "mvrvZscore": 0.4517
+        "mvrvZscore": 0.4459
       },
       {
         "d": "2026-03-08",
         "unixTs": 1772928000,
-        "mvrvZscore": 0.4104
+        "mvrvZscore": 0.4052
       },
       {
         "d": "2026-03-09",
         "unixTs": 1773014400,
-        "mvrvZscore": 0.4901
+        "mvrvZscore": 0.4839
       },
       {
         "d": "2026-03-10",
         "unixTs": 1773100800,
-        "mvrvZscore": 0.5398
+        "mvrvZscore": 0.533
       },
       {
         "d": "2026-03-11",
         "unixTs": 1773187200,
-        "mvrvZscore": 0.5522
+        "mvrvZscore": 0.5452
       },
       {
         "d": "2026-03-12",
         "unixTs": 1773273600,
-        "mvrvZscore": 0.565
+        "mvrvZscore": 0.5579
       },
       {
         "d": "2026-03-13",
         "unixTs": 1773360000,
-        "mvrvZscore": 0.5778
+        "mvrvZscore": 0.5705
       },
       {
         "d": "2026-03-14",
         "unixTs": 1773446400,
-        "mvrvZscore": 0.5858
+        "mvrvZscore": 0.5784
       },
       {
         "d": "2026-03-15",
         "unixTs": 1773532800,
-        "mvrvZscore": 0.6395
+        "mvrvZscore": 0.6315
       },
       {
         "d": "2026-03-16",
         "unixTs": 1773619200,
-        "mvrvZscore": 0.701
+        "mvrvZscore": 0.6922
       },
       {
         "d": "2026-03-17",
         "unixTs": 1773705600,
-        "mvrvZscore": 0.6768
+        "mvrvZscore": 0.6683
       },
       {
         "d": "2026-03-18",
         "unixTs": 1773792000,
-        "mvrvZscore": 0.5914
+        "mvrvZscore": 0.584
       },
       {
         "d": "2026-03-19",
         "unixTs": 1773878400,
-        "mvrvZscore": 0.5446
+        "mvrvZscore": 0.5378
       },
       {
         "d": "2026-03-20",
         "unixTs": 1773964800,
-        "mvrvZscore": 0.5639
+        "mvrvZscore": 0.5568
       },
       {
         "d": "2026-03-21",
         "unixTs": 1774051200,
-        "mvrvZscore": 0.5523
+        "mvrvZscore": 0.5454
       },
       {
         "d": "2026-03-22",
         "unixTs": 1774137600,
-        "mvrvZscore": 0.4794
+        "mvrvZscore": 0.4734
       },
       {
         "d": "2026-03-23",
         "unixTs": 1774224000,
-        "mvrvZscore": 0.5774
+        "mvrvZscore": 0.5702
       },
       {
         "d": "2026-03-24",
         "unixTs": 1774310400,
-        "mvrvZscore": 0.5672
+        "mvrvZscore": 0.5601
       },
       {
         "d": "2026-03-25",
         "unixTs": 1774396800,
-        "mvrvZscore": 0.59
+        "mvrvZscore": 0.5826
       },
       {
         "d": "2026-03-26",
         "unixTs": 1774483200,
-        "mvrvZscore": 0.5086
+        "mvrvZscore": 0.5023
       },
       {
         "d": "2026-03-27",
         "unixTs": 1774569600,
-        "mvrvZscore": 0.4216
+        "mvrvZscore": 0.4164
       },
       {
         "d": "2026-03-28",
         "unixTs": 1774656000,
-        "mvrvZscore": 0.4311
+        "mvrvZscore": 0.4257
       },
       {
         "d": "2026-03-29",
         "unixTs": 1774742400,
-        "mvrvZscore": 0.4131
+        "mvrvZscore": 0.408
       },
       {
         "d": "2026-03-30",
         "unixTs": 1774828800,
-        "mvrvZscore": 0.4423
+        "mvrvZscore": 0.4368
       },
       {
         "d": "2026-03-31",
         "unixTs": 1774915200,
-        "mvrvZscore": 0.4924
+        "mvrvZscore": 0.4863
       },
       {
         "d": "2026-04-01",
         "unixTs": 1775001600,
-        "mvrvZscore": 0.4892
+        "mvrvZscore": 0.4831
       },
       {
         "d": "2026-04-02",
         "unixTs": 1775088000,
-        "mvrvZscore": 0.4481
+        "mvrvZscore": 0.4425
       },
       {
         "d": "2026-04-03",
         "unixTs": 1775174400,
-        "mvrvZscore": 0.4504
+        "mvrvZscore": 0.4448
       },
       {
         "d": "2026-04-04",
         "unixTs": 1775260800,
-        "mvrvZscore": 0.4622
+        "mvrvZscore": 0.4565
       },
       {
         "d": "2026-04-05",
         "unixTs": 1775347200,
-        "mvrvZscore": 0.5184
+        "mvrvZscore": 0.512
       },
       {
         "d": "2026-04-06",
         "unixTs": 1775433600,
-        "mvrvZscore": 0.5154
+        "mvrvZscore": 0.5091
       },
       {
         "d": "2026-04-07",
         "unixTs": 1775520000,
-        "mvrvZscore": 0.6184
+        "mvrvZscore": 0.6107
       },
       {
         "d": "2026-04-08",
         "unixTs": 1775606400,
-        "mvrvZscore": 0.5899
+        "mvrvZscore": 0.5826
       },
       {
         "d": "2026-04-09",
         "unixTs": 1775692800,
-        "mvrvZscore": 0.6122
+        "mvrvZscore": 0.6046
       },
       {
         "d": "2026-04-10",
         "unixTs": 1775779200,
-        "mvrvZscore": 0.6474
+        "mvrvZscore": 0.6394
       },
       {
         "d": "2026-04-11",
         "unixTs": 1775865600,
-        "mvrvZscore": 0.6538
+        "mvrvZscore": 0.6457
       },
       {
         "d": "2026-04-12",
         "unixTs": 1775952000,
-        "mvrvZscore": 0.5766
+        "mvrvZscore": 0.5695
       },
       {
         "d": "2026-04-13",
         "unixTs": 1776038400,
-        "mvrvZscore": 0.7036
+        "mvrvZscore": 0.6949
       },
       {
         "d": "2026-04-14",
         "unixTs": 1776124800,
-        "mvrvZscore": 0.6901
+        "mvrvZscore": 0.6816
       },
       {
         "d": "2026-04-15",
         "unixTs": 1776211200,
-        "mvrvZscore": 0.708
+        "mvrvZscore": 0.6993
       },
       {
         "d": "2026-04-16",
         "unixTs": 1776297600,
-        "mvrvZscore": 0.7214
+        "mvrvZscore": 0.7125
       },
       {
         "d": "2026-04-17",
         "unixTs": 1776384000,
-        "mvrvZscore": 0.7881
+        "mvrvZscore": 0.7784
       },
       {
         "d": "2026-04-18",
         "unixTs": 1776470400,
-        "mvrvZscore": 0.7408
+        "mvrvZscore": 0.7317
       },
       {
         "d": "2026-04-19",
         "unixTs": 1776556800,
-        "mvrvZscore": 0.6825
+        "mvrvZscore": 0.6742
       },
       {
         "d": "2026-04-20",
         "unixTs": 1776643200,
-        "mvrvZscore": 0.7456
+        "mvrvZscore": 0.7365
       },
       {
         "d": "2026-04-21",
         "unixTs": 1776729600,
-        "mvrvZscore": 0.762
+        "mvrvZscore": 0.7526
       },
       {
         "d": "2026-04-22",
         "unixTs": 1776816000,
-        "mvrvZscore": 0.824
+        "mvrvZscore": 0.8139
       },
       {
         "d": "2026-04-23",
         "unixTs": 1776902400,
-        "mvrvZscore": 0.8254
+        "mvrvZscore": 0.8154
       },
       {
         "d": "2026-04-24",
         "unixTs": 1776988800,
-        "mvrvZscore": 0.8009
+        "mvrvZscore": 0.7912
       },
       {
         "d": "2026-04-25",
         "unixTs": 1777075200,
-        "mvrvZscore": 0.8072
+        "mvrvZscore": 0.7973
       },
       {
         "d": "2026-04-26",
         "unixTs": 1777161600,
-        "mvrvZscore": 0.8327
+        "mvrvZscore": 0.8226
       },
       {
         "d": "2026-04-27",
         "unixTs": 1777248000,
-        "mvrvZscore": 0.7952
+        "mvrvZscore": 0.7855
       },
       {
         "d": "2026-04-28",
         "unixTs": 1777334400,
-        "mvrvZscore": 0.7624
+        "mvrvZscore": 0.7531
       },
       {
         "d": "2026-04-29",
         "unixTs": 1777420800,
-        "mvrvZscore": 0.7476
+        "mvrvZscore": 0.7385
       },
       {
         "d": "2026-04-30",
         "unixTs": 1777507200,
-        "mvrvZscore": 0.7634
+        "mvrvZscore": 0.7541
       },
       {
         "d": "2026-05-01",
         "unixTs": 1777593600,
-        "mvrvZscore": 0.8227
+        "mvrvZscore": 0.8127
       },
       {
         "d": "2026-05-02",
         "unixTs": 1777680000,
-        "mvrvZscore": 0.8432
+        "mvrvZscore": 0.833
       },
       {
         "d": "2026-05-03",
         "unixTs": 1777766400,
-        "mvrvZscore": 0.8362
+        "mvrvZscore": 0.8261
       },
       {
         "d": "2026-05-04",
         "unixTs": 1777852800,
-        "mvrvZscore": 0.8753
+        "mvrvZscore": 0.8647
       },
       {
         "d": "2026-05-05",
         "unixTs": 1777939200,
-        "mvrvZscore": 0.9117
+        "mvrvZscore": 0.9007
       },
       {
         "d": "2026-05-06",
         "unixTs": 1778025600,
-        "mvrvZscore": 0.925
+        "mvrvZscore": 0.9139
       },
       {
         "d": "2026-05-07",
         "unixTs": 1778112000,
-        "mvrvZscore": 0.8836
+        "mvrvZscore": 0.8729
       },
       {
         "d": "2026-05-08",
         "unixTs": 1778198400,
-        "mvrvZscore": 0.8857
+        "mvrvZscore": 0.875
       },
       {
         "d": "2026-05-09",
         "unixTs": 1778284800,
-        "mvrvZscore": 0.9025
+        "mvrvZscore": 0.8916
       },
       {
         "d": "2026-05-10",
         "unixTs": 1778371200,
-        "mvrvZscore": 0.9575
+        "mvrvZscore": 0.946
       },
       {
         "d": "2026-05-11",
         "unixTs": 1778457600,
-        "mvrvZscore": 0.9338
+        "mvrvZscore": 0.9225
       },
       {
         "d": "2026-05-12",
         "unixTs": 1778544000,
-        "mvrvZscore": 0.8938
+        "mvrvZscore": 0.883
       },
       {
         "d": "2026-05-13",
         "unixTs": 1778630400,
-        "mvrvZscore": 0.8539
+        "mvrvZscore": 0.8437
       },
       {
         "d": "2026-05-14",
         "unixTs": 1778716800,
-        "mvrvZscore": 0.9132
+        "mvrvZscore": 0.9023
       },
       {
         "d": "2026-05-15",
         "unixTs": 1778803200,
-        "mvrvZscore": 0.8479
+        "mvrvZscore": 0.8377
       },
       {
         "d": "2026-05-16",
         "unixTs": 1778889600,
-        "mvrvZscore": 0.8177
+        "mvrvZscore": 0.8079
       },
       {
         "d": "2026-05-17",
         "unixTs": 1778976000,
-        "mvrvZscore": 0.8019
+        "mvrvZscore": 0.7924
       },
       {
         "d": "2026-05-18",
         "unixTs": 1779062400,
-        "mvrvZscore": 0.7759
+        "mvrvZscore": 0.7666
       },
       {
         "d": "2026-05-19",
         "unixTs": 1779148800,
-        "mvrvZscore": 0.7722
+        "mvrvZscore": 0.763
       },
       {
         "d": "2026-05-20",
         "unixTs": 1779235200,
-        "mvrvZscore": 0.7931
+        "mvrvZscore": 0.7836
       },
       {
         "d": "2026-05-21",
         "unixTs": 1779321600,
-        "mvrvZscore": 0.7997
+        "mvrvZscore": 0.7902
       },
       {
         "d": "2026-05-22",
         "unixTs": 1779408000,
-        "mvrvZscore": 0.728
+        "mvrvZscore": 0.7193
       },
       {
         "d": "2026-05-23",
         "unixTs": 1779494400,
-        "mvrvZscore": 0.7682
+        "mvrvZscore": 0.7591
       },
       {
         "d": "2026-05-24",
         "unixTs": 1779580800,
-        "mvrvZscore": 0.7806
+        "mvrvZscore": 0.7713
       },
       {
         "d": "2026-05-25",
         "unixTs": 1779667200,
-        "mvrvZscore": 0.7886
+        "mvrvZscore": 0.7792
       },
       {
         "d": "2026-05-26",
         "unixTs": 1779753600,
-        "mvrvZscore": 0.742
+        "mvrvZscore": 0.7332
       },
       {
         "d": "2026-05-27",
         "unixTs": 1779840000,
-        "mvrvZscore": 0.6893
+        "mvrvZscore": 0.6811
       },
       {
         "d": "2026-05-28",
         "unixTs": 1779926400,
-        "mvrvZscore": 0.6645
+        "mvrvZscore": 0.6566
       },
       {
         "d": "2026-05-29",
         "unixTs": 1780012800,
-        "mvrvZscore": 0.6631
+        "mvrvZscore": 0.6552
       },
       {
         "d": "2026-05-30",
         "unixTs": 1780099200,
-        "mvrvZscore": 0.6766
+        "mvrvZscore": 0.6686
       },
       {
         "d": "2026-05-31",
         "unixTs": 1780185600,
-        "mvrvZscore": 0.6694
+        "mvrvZscore": 0.6615
       },
       {
         "d": "2026-06-01",
         "unixTs": 1780272000,
-        "mvrvZscore": 0.597
+        "mvrvZscore": 0.59
       },
       {
         "d": "2026-06-02",
         "unixTs": 1780358400,
-        "mvrvZscore": 0.4441
+        "mvrvZscore": 0.4389
       },
       {
         "d": "2026-06-03",
         "unixTs": 1780444800,
-        "mvrvZscore": 0.3659
+        "mvrvZscore": 0.3616
       },
       {
         "d": "2026-06-04",
         "unixTs": 1780531200,
-        "mvrvZscore": 0.3399
+        "mvrvZscore": 0.3359
       },
       {
         "d": "2026-06-05",
         "unixTs": 1780617600,
-        "mvrvZscore": 0.2498
+        "mvrvZscore": 0.2468
       },
       {
         "d": "2026-06-06",
         "unixTs": 1780704000,
-        "mvrvZscore": 0.2576
+        "mvrvZscore": 0.2546
       },
       {
         "d": "2026-06-07",
         "unixTs": 1780790400,
-        "mvrvZscore": 0.3375
+        "mvrvZscore": 0.3335
       },
       {
         "d": "2026-06-08",
         "unixTs": 1780876800,
-        "mvrvZscore": 0.3335
+        "mvrvZscore": 0.3296
       },
       {
         "d": "2026-06-09",
         "unixTs": 1780963200,
-        "mvrvZscore": 0.2905
+        "mvrvZscore": 0.2871
       },
       {
         "d": "2026-06-10",
         "unixTs": 1781049600,
-        "mvrvZscore": 0.2808
+        "mvrvZscore": 0.2775
       },
       {
         "d": "2026-06-11",
         "unixTs": 1781136000,
-        "mvrvZscore": 0.3512
+        "mvrvZscore": 0.347
       },
       {
         "d": "2026-06-12",
         "unixTs": 1781222400,
-        "mvrvZscore": 0.351
+        "mvrvZscore": 0.3469
       },
       {
         "d": "2026-06-13",
         "unixTs": 1781308800,
-        "mvrvZscore": 0.3786
+        "mvrvZscore": 0.3741
       },
       {
         "d": "2026-06-14",
         "unixTs": 1781395200,
-        "mvrvZscore": 0.4178
+        "mvrvZscore": 0.4129
       },
       {
         "d": "2026-06-15",
         "unixTs": 1781481600,
-        "mvrvZscore": 0.444
+        "mvrvZscore": 0.4388
       },
       {
         "d": "2026-06-16",
         "unixTs": 1781568000,
-        "mvrvZscore": 0.4234
+        "mvrvZscore": 0.4184
       },
       {
         "d": "2026-06-17",
         "unixTs": 1781654400,
-        "mvrvZscore": 0.3826
+        "mvrvZscore": 0.3781
       },
       {
         "d": "2026-06-18",
         "unixTs": 1781740800,
-        "mvrvZscore": 0.333
+        "mvrvZscore": 0.3291
       },
       {
         "d": "2026-06-19",
         "unixTs": 1781827200,
-        "mvrvZscore": 0.3536
+        "mvrvZscore": 0.3495
       },
       {
         "d": "2026-06-20",
         "unixTs": 1781913600,
-        "mvrvZscore": 0.3782
+        "mvrvZscore": 0.3738
       },
       {
         "d": "2026-06-21",
         "unixTs": 1782000000,
-        "mvrvZscore": 0.344
+        "mvrvZscore": 0.34
       },
       {
         "d": "2026-06-22",
         "unixTs": 1782086400,
-        "mvrvZscore": 0.3673
+        "mvrvZscore": 0.363
       },
       {
         "d": "2026-06-23",
         "unixTs": 1782172800,
-        "mvrvZscore": 0.3257
+        "mvrvZscore": 0.3219
       },
       {
         "d": "2026-06-24",
         "unixTs": 1782259200,
-        "mvrvZscore": 0.2678
+        "mvrvZscore": 0.2647
       },
       {
         "d": "2026-06-25",
         "unixTs": 1782345600,
-        "mvrvZscore": 0.232
+        "mvrvZscore": 0.2293
       },
       {
         "d": "2026-06-26",
         "unixTs": 1782432000,
-        "mvrvZscore": 0.2406
+        "mvrvZscore": 0.2378
       },
       {
         "d": "2026-06-27",
         "unixTs": 1782518400,
-        "mvrvZscore": 0.2399
+        "mvrvZscore": 0.2372
       },
       {
         "d": "2026-06-28",
         "unixTs": 1782604800,
-        "mvrvZscore": 0.2284
+        "mvrvZscore": 0.2257
       },
       {
         "d": "2026-06-29",
         "unixTs": 1782691200,
-        "mvrvZscore": 0.2511
+        "mvrvZscore": 0.2482
       },
       {
         "d": "2026-06-30",
         "unixTs": 1782777600,
-        "mvrvZscore": 0.1987
+        "mvrvZscore": 0.1964
       },
       {
         "d": "2026-07-01",
         "unixTs": 1782864000,
-        "mvrvZscore": 0.2467
+        "mvrvZscore": 0.2438
       },
       {
         "d": "2026-07-02",
         "unixTs": 1782950400,
-        "mvrvZscore": 0.2976
+        "mvrvZscore": 0.2941
       },
       {
         "d": "2026-07-03",
         "unixTs": 1783036800,
-        "mvrvZscore": 0.3315
+        "mvrvZscore": 0.3276
       },
       {
         "d": "2026-07-04",
         "unixTs": 1783123200,
-        "mvrvZscore": 0.35
+        "mvrvZscore": 0.3459
       },
       {
         "d": "2026-07-05",
         "unixTs": 1783209600,
-        "mvrvZscore": 0.3657
+        "mvrvZscore": 0.3614
       },
       {
         "d": "2026-07-06",
         "unixTs": 1783296000,
-        "mvrvZscore": 0.3801
+        "mvrvZscore": 0.3757
       },
       {
         "d": "2026-07-07",
         "unixTs": 1783382400,
-        "mvrvZscore": 0.3569
+        "mvrvZscore": 0.3528
       },
       {
         "d": "2026-07-08",
         "unixTs": 1783468800,
-        "mvrvZscore": 0.3199
+        "mvrvZscore": 0.3162
       },
       {
         "d": "2026-07-09",
         "unixTs": 1783555200,
-        "mvrvZscore": 0.3538
+        "mvrvZscore": 0.3497
       },
       {
         "d": "2026-07-10",
         "unixTs": 1783641600,
-        "mvrvZscore": 0.3854
+        "mvrvZscore": 0.3809
       },
       {
         "d": "2026-07-11",
         "unixTs": 1783728000,
-        "mvrvZscore": 0.3741
+        "mvrvZscore": 0.3698
       },
       {
         "d": "2026-07-12",
         "unixTs": 1783814400,
-        "mvrvZscore": 0.373
+        "mvrvZscore": 0.3687
       },
       {
         "d": "2026-07-13",
         "unixTs": 1783900800,
-        "mvrvZscore": 0.3275
+        "mvrvZscore": 0.3238
       },
       {
         "d": "2026-07-14",
         "unixTs": 1783987200,
-        "mvrvZscore": 0.414
+        "mvrvZscore": 0.4092
       },
       {
         "d": "2026-07-15",
         "unixTs": 1784073600,
-        "mvrvZscore": 0.4093
+        "mvrvZscore": 0.4045
       },
       {
         "d": "2026-07-16",
         "unixTs": 1784160000,
-        "mvrvZscore": 0.3799
+        "mvrvZscore": 0.3755
       },
       {
         "d": "2026-07-17",
         "unixTs": 1784246400,
-        "mvrvZscore": 0.3845
+        "mvrvZscore": 0.38
       },
       {
         "d": "2026-07-18",
         "unixTs": 1784332800,
-        "mvrvZscore": 0.4121
+        "mvrvZscore": 0.4074
       },
       {
         "d": "2026-07-19",
         "unixTs": 1784419200,
-        "mvrvZscore": 0.4071
+        "mvrvZscore": 0.4024
       },
       {
         "d": "2026-07-20",
         "unixTs": 1784505600,
-        "mvrvZscore": 0.4243
+        "mvrvZscore": 0.4194
       },
       {
         "d": "2026-07-21",
         "unixTs": 1784592000,
-        "mvrvZscore": 0.4682
+        "mvrvZscore": 0.4628
       },
       {
         "d": "2026-07-22",
         "unixTs": 1784678400,
-        "mvrvZscore": 0.4506
+        "mvrvZscore": 0.4454
       },
       {
         "d": "2026-07-23",
         "unixTs": 1784764800,
-        "mvrvZscore": 0.4218
+        "mvrvZscore": 0.417
       },
       {
         "d": "2026-07-24",
         "unixTs": 1784851200,
-        "mvrvZscore": 0.3894
+        "mvrvZscore": 0.3849
       },
       {
         "d": "2026-07-25",
         "unixTs": 1784937600,
-        "mvrvZscore": 0.3954
+        "mvrvZscore": 0.3909
       },
       {
         "d": "2026-07-26",
         "unixTs": 1785024000,
-        "mvrvZscore": 0.4299
+        "mvrvZscore": 0.4249
       },
       {
         "d": "2026-07-27",
         "unixTs": 1785110400,
-        "mvrvZscore": 0.381
+        "mvrvZscore": 0.3766
       },
       {
         "d": "2026-07-28",
         "unixTs": 1785196800,
-        "mvrvZscore": 0.3818
+        "mvrvZscore": 0.3774
       },
       {
         "d": "2026-07-29",
         "unixTs": 1785283200,
-        "mvrvZscore": 0.3833
+        "mvrvZscore": 0.3789
       },
       {
         "d": "2026-07-30",
         "unixTs": 1785369600,
-        "mvrvZscore": 0.4093
+        "mvrvZscore": 0.4046
       },
       {
         "d": "2026-07-31",
         "unixTs": 1785456000,
-        "mvrvZscore": 0.3471
+        "mvrvZscore": 0.3431
       },
       {
         "d": "2026-08-01",
         "unixTs": 1785542400,
-        "mvrvZscore": 0.3469
+        "mvrvZscore": 0.3429
       },
       {
         "d": "2026-08-02",
         "unixTs": 1785628800,
-        "mvrvZscore": 0.3705
+        "mvrvZscore": 0.3663
       },
       {
         "d": "2026-08-03",
         "unixTs": 1785715200,
-        "mvrvZscore": 0.3714
+        "mvrvZscore": 0.3671
       },
       {
         "d": "2026-08-04",
         "unixTs": 1785801600,
-        "mvrvZscore": 0.3918
+        "mvrvZscore": 0.3874
       },
       {
         "d": "2026-08-05",
         "unixTs": 1785888000,
-        "mvrvZscore": 0.4103
+        "mvrvZscore": 0.4056
       },
       {
         "d": "2026-08-06",
         "unixTs": 1785974400,
-        "mvrvZscore": 0.3984
+        "mvrvZscore": 0.3939
       },
       {
         "d": "2026-08-07",
         "unixTs": 1786060800,
-        "mvrvZscore": 0.4184
+        "mvrvZscore": 0.4136
       },
       {
         "d": "2026-08-08",
         "unixTs": 1786147200,
-        "mvrvZscore": 0.4202
+        "mvrvZscore": 0.4154
       },
       {
         "d": "2026-08-09",
         "unixTs": 1786233600,
-        "mvrvZscore": 0.4177
+        "mvrvZscore": 0.4129
       },
       {
         "d": "2026-08-10",
         "unixTs": 1786320000,
-        "mvrvZscore": 0.3873
+        "mvrvZscore": 0.3828
       },
       {
         "d": "2026-08-11",
         "unixTs": 1786406400,
-        "mvrvZscore": 0.3772
+        "mvrvZscore": 0.3729
       },
       {
         "d": "2026-08-12",
         "unixTs": 1786492800,
-        "mvrvZscore": 0.3699
+        "mvrvZscore": 0.3657
       },
       {
         "d": "2026-08-13",
         "unixTs": 1786579200,
-        "mvrvZscore": 0.3697
+        "mvrvZscore": 0.3655
       },
       {
         "d": "2026-08-14",
         "unixTs": 1786665600,
-        "mvrvZscore": 0.3577
+        "mvrvZscore": 0.3536
       },
       {
         "d": "2026-08-15",
         "unixTs": 1786752000,
-        "mvrvZscore": 0.3592
+        "mvrvZscore": 0.3551
       },
       {
         "d": "2026-08-16",
         "unixTs": 1786838400,
-        "mvrvZscore": 0.3541
+        "mvrvZscore": 0.3501
       },
       {
         "d": "2026-08-17",
         "unixTs": 1786924800,
-        "mvrvZscore": 0.407
+        "mvrvZscore": 0.4024
       },
       {
         "d": "2026-08-18",
         "unixTs": 1787011200,
-        "mvrvZscore": 0.4146
+        "mvrvZscore": 0.4099
       },
       {
         "d": "2026-08-19",
         "unixTs": 1787097600,
-        "mvrvZscore": 0.5638
+        "mvrvZscore": 0.5574
       },
       {
         "d": "2026-08-20",
         "unixTs": 1787184000,
-        "mvrvZscore": 0.6907
+        "mvrvZscore": 0.6828
       },
       {
         "d": "2026-08-21",
         "unixTs": 1787270400,
-        "mvrvZscore": 0.8611
+        "mvrvZscore": 0.8513
       },
       {
         "d": "2026-08-22",
         "unixTs": 1787356800,
-        "mvrvZscore": 0.8143
+        "mvrvZscore": 0.8051
       },
       {
         "d": "2026-08-23",
         "unixTs": 1787443200,
-        "mvrvZscore": 0.8334
+        "mvrvZscore": 0.824
       },
       {
         "d": "2026-08-24",
         "unixTs": 1787529600,
-        "mvrvZscore": 0.8757
+        "mvrvZscore": 0.8658
       },
       {
         "d": "2026-08-25",
         "unixTs": 1787616000,
-        "mvrvZscore": 0.8592
+        "mvrvZscore": 0.8495
       },
       {
         "d": "2026-08-26",
         "unixTs": 1787702400,
-        "mvrvZscore": 0.8728
+        "mvrvZscore": 0.863
       },
       {
         "d": "2026-08-27",
         "unixTs": 1787788800,
-        "mvrvZscore": 0.9163
+        "mvrvZscore": 0.906
       },
       {
         "d": "2026-08-28",
         "unixTs": 1787875200,
-        "mvrvZscore": 0.8292
+        "mvrvZscore": 0.8198
       },
       {
         "d": "2026-08-29",
         "unixTs": 1787961600,
-        "mvrvZscore": 0.8486
+        "mvrvZscore": 0.839
       },
       {
         "d": "2026-08-30",
         "unixTs": 1788048000,
-        "mvrvZscore": 0.8514
+        "mvrvZscore": 0.8418
       },
       {
         "d": "2026-08-31",
         "unixTs": 1788134400,
-        "mvrvZscore": 0.8577
+        "mvrvZscore": 0.8481
       },
       {
         "d": "2026-09-01",
         "unixTs": 1788220800,
-        "mvrvZscore": 0.8197
+        "mvrvZscore": 0.8105
       },
       {
         "d": "2026-09-02",
         "unixTs": 1788307200,
-        "mvrvZscore": 0.8098
+        "mvrvZscore": 0.8007
       },
       {
         "d": "2026-09-03",
         "unixTs": 1788393600,
-        "mvrvZscore": 0.9454
+        "mvrvZscore": 0.9348
       },
       {
         "d": "2026-09-04",
         "unixTs": 1788480000,
-        "mvrvZscore": 0.8941
+        "mvrvZscore": 0.8841
       },
       {
         "d": "2026-09-05",
         "unixTs": 1788566400,
-        "mvrvZscore": 0.8969
+        "mvrvZscore": 0.8869
       },
       {
         "d": "2026-09-06",
         "unixTs": 1788652800,
-        "mvrvZscore": 0.9116
+        "mvrvZscore": 0.9014
       },
       {
         "d": "2026-09-07",
         "unixTs": 1788739200,
-        "mvrvZscore": 0.8725
+        "mvrvZscore": 0.8628
       },
       {
         "d": "2026-09-08",
         "unixTs": 1788825600,
-        "mvrvZscore": 0.8495
+        "mvrvZscore": 0.8401
       },
       {
         "d": "2026-09-09",
         "unixTs": 1788912000,
-        "mvrvZscore": 0.8394
+        "mvrvZscore": 0.8301
       },
       {
         "d": "2026-09-10",
         "unixTs": 1788998400,
-        "mvrvZscore": 0.7902
+        "mvrvZscore": 0.7814
       },
       {
         "d": "2026-09-11",
         "unixTs": 1789084800,
-        "mvrvZscore": 0.8061
+        "mvrvZscore": 0.7971
       },
       {
         "d": "2026-09-12",
         "unixTs": 1789171200,
-        "mvrvZscore": 0.8088
+        "mvrvZscore": 0.7998
       },
       {
         "d": "2026-09-13",
         "unixTs": 1789257600,
-        "mvrvZscore": 0.7931
+        "mvrvZscore": 0.7842
       },
       {
         "d": "2026-09-14",
         "unixTs": 1789344000,
-        "mvrvZscore": 0.8422
+        "mvrvZscore": 0.8328
       },
       {
         "d": "2026-09-15",
         "unixTs": 1789430400,
-        "mvrvZscore": 0.7545
+        "mvrvZscore": 0.7462
       },
       {
         "d": "2026-09-16",
         "unixTs": 1789516800,
-        "mvrvZscore": 0.7689
+        "mvrvZscore": 0.7604
       },
       {
         "d": "2026-09-17",
         "unixTs": 1789603200,
-        "mvrvZscore": 0.78
+        "mvrvZscore": 0.7714
       },
       {
         "d": "2026-09-18",
         "unixTs": 1789689600,
-        "mvrvZscore": 0.9259
+        "mvrvZscore": 0.9156
       },
       {
         "d": "2026-09-19",
         "unixTs": 1789776000,
-        "mvrvZscore": 0.9372
+        "mvrvZscore": 0.9268
       },
       {
         "d": "2026-09-20",
         "unixTs": 1789862400,
-        "mvrvZscore": 0.9336
+        "mvrvZscore": 0.9233
       },
       {
         "d": "2026-09-21",
         "unixTs": 1789948800,
-        "mvrvZscore": 1.11
+        "mvrvZscore": 1.0978
       },
       {
         "d": "2026-09-22",
         "unixTs": 1790035200,
-        "mvrvZscore": 1.0948
+        "mvrvZscore": 1.0827
       },
       {
         "d": "2026-09-23",
         "unixTs": 1790121600,
-        "mvrvZscore": 1.0328
+        "mvrvZscore": 1.0214
       },
       {
         "d": "2026-09-24",
         "unixTs": 1790208000,
-        "mvrvZscore": 1.0332
+        "mvrvZscore": 1.0219
       },
       {
         "d": "2026-09-25",
         "unixTs": 1790294400,
-        "mvrvZscore": 1.0198
+        "mvrvZscore": 1.0086
       },
       {
         "d": "2026-09-26",
         "unixTs": 1790380800,
-        "mvrvZscore": 1.0281
+        "mvrvZscore": 1.0168
       },
       {
         "d": "2026-09-27",
         "unixTs": 1790467200,
-        "mvrvZscore": 1.0316
+        "mvrvZscore": 1.0203
       },
       {
         "d": "2026-09-28",
         "unixTs": 1790553600,
-        "mvrvZscore": 0.9998
+        "mvrvZscore": 0.9888
       },
       {
         "d": "2026-09-29",
         "unixTs": 1790640000,
-        "mvrvZscore": 1.0021
+        "mvrvZscore": 0.9912
       },
       {
         "d": "2026-09-30",
         "unixTs": 1790726400,
-        "mvrvZscore": 1.0001
+        "mvrvZscore": 0.9892
       },
       {
         "d": "2026-10-01",
         "unixTs": 1790812800,
-        "mvrvZscore": 1.0383
+        "mvrvZscore": 1.027
       },
       {
         "d": "2026-10-02",
         "unixTs": 1790899200,
-        "mvrvZscore": 1.0288
+        "mvrvZscore": 1.0176
       },
       {
         "d": "2026-10-03",
         "unixTs": 1790985600,
-        "mvrvZscore": 1.0339
+        "mvrvZscore": 1.0227
       },
       {
         "d": "2026-10-04",
         "unixTs": 1791072000,
-        "mvrvZscore": 1.0926
+        "mvrvZscore": 1.0807
       },
       {
         "d": "2026-10-05",
         "unixTs": 1791158400,
-        "mvrvZscore": 1.0651
+        "mvrvZscore": 1.0535
       },
       {
         "d": "2026-10-06",
         "unixTs": 1791244800,
-        "mvrvZscore": 1.0611
+        "mvrvZscore": 1.0496
       },
       {
         "d": "2026-10-07",
         "unixTs": 1791331200,
-        "mvrvZscore": 0.9824
+        "mvrvZscore": 0.9717
       },
       {
         "d": "2026-10-08",
         "unixTs": 1791417600,
-        "mvrvZscore": 0.9304
+        "mvrvZscore": 0.9203
       },
       {
         "d": "2026-10-09",
         "unixTs": 1791504000,
-        "mvrvZscore": 0.9588
+        "mvrvZscore": 0.9485
       },
       {
         "d": "2026-10-10",
         "unixTs": 1791590400,
-        "mvrvZscore": 0.9714
+        "mvrvZscore": 0.9609
       },
       {
         "d": "2026-10-11",
         "unixTs": 1791676800,
-        "mvrvZscore": 0.9949
+        "mvrvZscore": 0.9841
       },
       {
         "d": "2026-10-12",
         "unixTs": 1791763200,
-        "mvrvZscore": 0.9331
+        "mvrvZscore": 0.923
       },
       {
         "d": "2026-10-13",
         "unixTs": 1791849600,
-        "mvrvZscore": 0.9731
+        "mvrvZscore": 0.9626
       },
       {
         "d": "2026-10-14",
         "unixTs": 1791936000,
-        "mvrvZscore": 0.9213
+        "mvrvZscore": 0.9114
       },
       {
         "d": "2026-10-15",
         "unixTs": 1792022400,
-        "mvrvZscore": 0.9432
+        "mvrvZscore": 0.933
       },
       {
         "d": "2026-10-16",
         "unixTs": 1792108800,
-        "mvrvZscore": 0.9227
+        "mvrvZscore": 0.9127
       },
       {
         "d": "2026-10-17",
         "unixTs": 1792195200,
-        "mvrvZscore": 0.9178
+        "mvrvZscore": 0.9079
       },
       {
         "d": "2026-10-18",
         "unixTs": 1792281600,
-        "mvrvZscore": 0.935
+        "mvrvZscore": 0.9249
       },
       {
         "d": "2026-10-19",
         "unixTs": 1792368000,
-        "mvrvZscore": 0.9321
+        "mvrvZscore": 0.9221
       },
       {
         "d": "2026-10-20",
         "unixTs": 1792454400,
-        "mvrvZscore": 0.9665
+        "mvrvZscore": 0.9561
       },
       {
         "d": "2026-10-21",
         "unixTs": 1792540800,
-        "mvrvZscore": 1.0065
+        "mvrvZscore": 0.9957
       },
       {
         "d": "2026-10-22",
         "unixTs": 1792627200,
-        "mvrvZscore": 0.9074
+        "mvrvZscore": 0.8977
       },
       {
         "d": "2026-10-23",
         "unixTs": 1792713600,
-        "mvrvZscore": 0.8918
+        "mvrvZscore": 0.8822
+      },
+      {
+        "d": "2026-10-24",
+        "unixTs": 1792800000,
+        "mvrvZscore": 0.8816
+      },
+      {
+        "d": "2026-10-25",
+        "unixTs": 1792886400,
+        "mvrvZscore": 0.8506
+      },
+      {
+        "d": "2026-10-26",
+        "unixTs": 1792972800,
+        "mvrvZscore": 0.8556
+      },
+      {
+        "d": "2026-10-27",
+        "unixTs": 1793059200,
+        "mvrvZscore": 0.8802
+      },
+      {
+        "d": "2026-10-28",
+        "unixTs": 1793145600,
+        "mvrvZscore": 0.8917
+      },
+      {
+        "d": "2026-10-29",
+        "unixTs": 1793232000,
+        "mvrvZscore": 0.7898
+      },
+      {
+        "d": "2026-10-30",
+        "unixTs": 1793318400,
+        "mvrvZscore": 0.7585
       }
     ],
     "nrpl-btc": [
@@ -488651,6 +488884,11 @@
         "d": "2026-10-23",
         "unixTs": 1792713600,
         "nrplBtc": 2296.10370838
+      },
+      {
+        "d": "2026-10-24",
+        "unixTs": 1792800000,
+        "nrplBtc": -393.09703079
       }
     ],
     "nrpl-usd": [
@@ -519643,6 +519881,11 @@
         "d": "2026-10-23",
         "unixTs": 1792713600,
         "nrplUsd": 187071613.11
+      },
+      {
+        "d": "2026-10-24",
+        "unixTs": 1792800000,
+        "nrplUsd": -31547178.07
       }
     ],
     "nupl": [
@@ -544865,6 +545108,41 @@
         "d": "2026-10-23",
         "unixTs": 1792713600,
         "nupl": 0.3365
+      },
+      {
+        "d": "2026-10-24",
+        "unixTs": 1792800000,
+        "nupl": 0.3364
+      },
+      {
+        "d": "2026-10-25",
+        "unixTs": 1792886400,
+        "nupl": 0.3284
+      },
+      {
+        "d": "2026-10-26",
+        "unixTs": 1792972800,
+        "nupl": 0.3297
+      },
+      {
+        "d": "2026-10-27",
+        "unixTs": 1793059200,
+        "nupl": 0.3362
+      },
+      {
+        "d": "2026-10-28",
+        "unixTs": 1793145600,
+        "nupl": 0.3389
+      },
+      {
+        "d": "2026-10-29",
+        "unixTs": 1793232000,
+        "nupl": 0.3128
+      },
+      {
+        "d": "2026-10-30",
+        "unixTs": 1793318400,
+        "nupl": 0.3017
       }
     ],
     "nvts": [
@@ -571472,6 +571750,11 @@
         "d": "2026-10-23",
         "unixTs": 1792713600,
         "nvts": 97.89
+      },
+      {
+        "d": "2026-10-24",
+        "unixTs": 1792800000,
+        "nvts": 96.21
       }
     ],
     "puell-multiple": [
@@ -597879,6 +598162,11 @@
         "d": "2026-10-23",
         "unixTs": 1792713600,
         "puellMultiple": 1.2705
+      },
+      {
+        "d": "2026-10-24",
+        "unixTs": 1792800000,
+        "puellMultiple": 1.0547
       }
     ],
     "realized-price": [
@@ -630396,6 +630684,11 @@
         "d": "2026-10-23",
         "unixTs": 1792713600,
         "realizedPrice": 53703.92
+      },
+      {
+        "d": "2026-10-24",
+        "unixTs": 1792800000,
+        "realizedPrice": 53705
       }
     ],
     "realizedLossLthUsd": [
@@ -660033,6 +660326,11 @@
         "d": "2026-10-29",
         "unixTs": 1793232000,
         "realizedLossLthUsd": -568101141.71
+      },
+      {
+        "d": "2026-10-30",
+        "unixTs": 1793318400,
+        "realizedLossLthUsd": -243680364.69
       }
     ],
     "realizedLossSthUsd": [
@@ -689670,6 +689968,11 @@
         "d": "2026-10-29",
         "unixTs": 1793232000,
         "realizedLossSthUsd": -327341843.82
+      },
+      {
+        "d": "2026-10-30",
+        "unixTs": 1793318400,
+        "realizedLossSthUsd": -891556721.08
       }
     ],
     "realizedProfitLthUsd": [
@@ -719307,6 +719610,11 @@
         "d": "2026-10-29",
         "unixTs": 1793232000,
         "realizedProfitLthUsd": 172191448.63
+      },
+      {
+        "d": "2026-10-30",
+        "unixTs": 1793318400,
+        "realizedProfitLthUsd": 202535102.74
       }
     ],
     "realizedProfitSthUsd": [
@@ -748944,6 +749252,11 @@
         "d": "2026-10-29",
         "unixTs": 1793232000,
         "realizedProfitSthUsd": 245552329.53
+      },
+      {
+        "d": "2026-10-30",
+        "unixTs": 1793318400,
+        "realizedProfitSthUsd": 237578518.29
       }
     ],
     "sopr": [
@@ -774415,257 +774728,257 @@
       {
         "d": "2024-07-28",
         "unixTs": 1722124800,
-        "sopr": 1.0156
+        "sopr": 1.0149
       },
       {
         "d": "2024-07-29",
         "unixTs": 1722211200,
-        "sopr": 1.0031
+        "sopr": 1.0156
       },
       {
         "d": "2024-07-30",
         "unixTs": 1722297600,
-        "sopr": 1.0017
+        "sopr": 1.0031
       },
       {
         "d": "2024-07-31",
         "unixTs": 1722384000,
-        "sopr": 1.0054
+        "sopr": 1.0017
       },
       {
         "d": "2024-08-01",
         "unixTs": 1722470400,
-        "sopr": 0.9991
+        "sopr": 1.0054
       },
       {
         "d": "2024-08-02",
         "unixTs": 1722556800,
-        "sopr": 1.0023
+        "sopr": 0.9991
       },
       {
         "d": "2024-08-03",
         "unixTs": 1722643200,
-        "sopr": 0.9957
+        "sopr": 1.0023
       },
       {
         "d": "2024-08-04",
         "unixTs": 1722729600,
-        "sopr": 0.9752
+        "sopr": 0.9957
       },
       {
         "d": "2024-08-05",
         "unixTs": 1722816000,
-        "sopr": 0.9938
+        "sopr": 0.9752
       },
       {
         "d": "2024-08-06",
         "unixTs": 1722902400,
-        "sopr": 1.0018
+        "sopr": 0.9938
       },
       {
         "d": "2024-08-07",
         "unixTs": 1722988800,
-        "sopr": 1.0129
+        "sopr": 1.0018
       },
       {
         "d": "2024-08-08",
         "unixTs": 1723075200,
-        "sopr": 1.0093
+        "sopr": 1.0129
       },
       {
         "d": "2024-08-09",
         "unixTs": 1723161600,
-        "sopr": 1.026
+        "sopr": 1.0093
       },
       {
         "d": "2024-08-10",
         "unixTs": 1723248000,
-        "sopr": 0.9986
+        "sopr": 1.026
       },
       {
         "d": "2024-08-11",
         "unixTs": 1723334400,
-        "sopr": 1.0017
+        "sopr": 0.9986
       },
       {
         "d": "2024-08-12",
         "unixTs": 1723420800,
-        "sopr": 0.9976
+        "sopr": 1.0017
       },
       {
         "d": "2024-08-13",
         "unixTs": 1723507200,
-        "sopr": 0.9983
+        "sopr": 0.9976
       },
       {
         "d": "2024-08-14",
         "unixTs": 1723593600,
-        "sopr": 0.9967
+        "sopr": 0.9983
       },
       {
         "d": "2024-08-15",
         "unixTs": 1723680000,
-        "sopr": 1.0001
+        "sopr": 0.9967
       },
       {
         "d": "2024-08-16",
         "unixTs": 1723766400,
-        "sopr": 1.0006
+        "sopr": 1.0001
       },
       {
         "d": "2024-08-17",
         "unixTs": 1723852800,
-        "sopr": 1.0019
+        "sopr": 1.0006
       },
       {
         "d": "2024-08-18",
         "unixTs": 1723939200,
-        "sopr": 0.9992
+        "sopr": 1.0019
       },
       {
         "d": "2024-08-19",
         "unixTs": 1724025600,
-        "sopr": 1.0013
+        "sopr": 0.9992
       },
       {
         "d": "2024-08-20",
         "unixTs": 1724112000,
-        "sopr": 1.0046
+        "sopr": 1.0013
       },
       {
         "d": "2024-08-21",
         "unixTs": 1724198400,
-        "sopr": 1.0054
+        "sopr": 1.0046
       },
       {
         "d": "2024-08-22",
         "unixTs": 1724284800,
-        "sopr": 1.0121
+        "sopr": 1.0054
       },
       {
         "d": "2024-08-23",
         "unixTs": 1724371200,
-        "sopr": 1.0123
+        "sopr": 1.0121
       },
       {
         "d": "2024-08-24",
         "unixTs": 1724457600,
-        "sopr": 1.0043
+        "sopr": 1.0123
       },
       {
         "d": "2024-08-25",
         "unixTs": 1724544000,
-        "sopr": 1.006
+        "sopr": 1.0043
       },
       {
         "d": "2024-08-26",
         "unixTs": 1724630400,
-        "sopr": 0.9981
+        "sopr": 1.006
       },
       {
         "d": "2024-08-27",
         "unixTs": 1724716800,
-        "sopr": 1.0079
+        "sopr": 0.9981
       },
       {
         "d": "2024-08-28",
         "unixTs": 1724803200,
-        "sopr": 1
+        "sopr": 1.0079
       },
       {
         "d": "2024-08-29",
         "unixTs": 1724889600,
-        "sopr": 0.9998
+        "sopr": 1
       },
       {
         "d": "2024-08-30",
         "unixTs": 1724976000,
-        "sopr": 1.0053
+        "sopr": 0.9998
       },
       {
         "d": "2024-08-31",
         "unixTs": 1725062400,
-        "sopr": 0.9969
+        "sopr": 1.0053
       },
       {
         "d": "2024-09-01",
         "unixTs": 1725148800,
-        "sopr": 0.9987
+        "sopr": 0.9969
       },
       {
         "d": "2024-09-02",
         "unixTs": 1725235200,
-        "sopr": 0.997
+        "sopr": 0.9987
       },
       {
         "d": "2024-09-03",
         "unixTs": 1725321600,
-        "sopr": 1
+        "sopr": 0.997
       },
       {
         "d": "2024-09-04",
         "unixTs": 1725408000,
-        "sopr": 0.9948
+        "sopr": 1
       },
       {
         "d": "2024-09-05",
         "unixTs": 1725494400,
-        "sopr": 0.9942
+        "sopr": 0.9948
       },
       {
         "d": "2024-09-06",
         "unixTs": 1725580800,
-        "sopr": 0.9964
+        "sopr": 0.9942
       },
       {
         "d": "2024-09-07",
         "unixTs": 1725667200,
-        "sopr": 0.998
+        "sopr": 0.9964
       },
       {
         "d": "2024-09-08",
         "unixTs": 1725753600,
-        "sopr": 1.0081
+        "sopr": 0.998
       },
       {
         "d": "2024-09-09",
         "unixTs": 1725840000,
-        "sopr": 0.9989
+        "sopr": 1.0081
       },
       {
         "d": "2024-09-10",
         "unixTs": 1725926400,
-        "sopr": 0.999
+        "sopr": 0.9989
       },
       {
         "d": "2024-09-11",
         "unixTs": 1726012800,
-        "sopr": 1.0038
+        "sopr": 0.999
       },
       {
         "d": "2024-09-12",
         "unixTs": 1726099200,
-        "sopr": 1.0105
+        "sopr": 1.0038
       },
       {
         "d": "2024-09-13",
         "unixTs": 1726185600,
-        "sopr": 1.0032
+        "sopr": 1.0105
       },
       {
         "d": "2024-09-14",
         "unixTs": 1726272000,
-        "sopr": 1.0025
+        "sopr": 1.0032
       },
       {
         "d": "2024-09-15",
         "unixTs": 1726358400,
-        "sopr": 1.0024
+        "sopr": 1.0025
       },
       {
         "d": "2024-09-16",
         "unixTs": 1726444800,
-        "sopr": 1.0085
+        "sopr": 1.0024
       },
       {
         "d": "2024-09-17",
@@ -774675,1037 +774988,1037 @@
       {
         "d": "2024-09-18",
         "unixTs": 1726617600,
-        "sopr": 1.0158
+        "sopr": 1.0085
       },
       {
         "d": "2024-09-19",
         "unixTs": 1726704000,
-        "sopr": 1.0168
+        "sopr": 1.0158
       },
       {
         "d": "2024-09-20",
         "unixTs": 1726790400,
-        "sopr": 1.0085
+        "sopr": 1.0168
       },
       {
         "d": "2024-09-21",
         "unixTs": 1726876800,
-        "sopr": 1.0059
+        "sopr": 1.0085
       },
       {
         "d": "2024-09-22",
         "unixTs": 1726963200,
-        "sopr": 1.0173
+        "sopr": 1.0059
       },
       {
         "d": "2024-09-23",
         "unixTs": 1727049600,
-        "sopr": 1.0072
+        "sopr": 1.0173
       },
       {
         "d": "2024-09-24",
         "unixTs": 1727136000,
-        "sopr": 1.016
+        "sopr": 1.0072
       },
       {
         "d": "2024-09-25",
         "unixTs": 1727222400,
-        "sopr": 1.0139
+        "sopr": 1.016
       },
       {
         "d": "2024-09-26",
         "unixTs": 1727308800,
-        "sopr": 1.0126
+        "sopr": 1.0139
       },
       {
         "d": "2024-09-27",
         "unixTs": 1727395200,
-        "sopr": 1.0159
+        "sopr": 1.0126
       },
       {
         "d": "2024-09-28",
         "unixTs": 1727481600,
-        "sopr": 1.0053
+        "sopr": 1.0159
       },
       {
         "d": "2024-09-29",
         "unixTs": 1727568000,
-        "sopr": 1.0015
+        "sopr": 1.0053
       },
       {
         "d": "2024-09-30",
         "unixTs": 1727654400,
-        "sopr": 0.9991
+        "sopr": 1.0015
       },
       {
         "d": "2024-10-01",
         "unixTs": 1727740800,
-        "sopr": 0.9966
+        "sopr": 0.9991
       },
       {
         "d": "2024-10-02",
         "unixTs": 1727827200,
-        "sopr": 0.9981
+        "sopr": 0.9966
       },
       {
         "d": "2024-10-03",
         "unixTs": 1727913600,
-        "sopr": 1.0075
+        "sopr": 0.9981
       },
       {
         "d": "2024-10-04",
         "unixTs": 1728000000,
-        "sopr": 1.0041
+        "sopr": 1.0075
       },
       {
         "d": "2024-10-05",
         "unixTs": 1728086400,
-        "sopr": 1.0037
+        "sopr": 1.0041
       },
       {
         "d": "2024-10-06",
         "unixTs": 1728172800,
-        "sopr": 1.0056
+        "sopr": 1.0037
       },
       {
         "d": "2024-10-07",
         "unixTs": 1728259200,
-        "sopr": 1.0834
+        "sopr": 1.0056
       },
       {
         "d": "2024-10-08",
         "unixTs": 1728345600,
-        "sopr": 1.0005
+        "sopr": 1.0834
       },
       {
         "d": "2024-10-09",
         "unixTs": 1728432000,
-        "sopr": 0.9928
+        "sopr": 1.0005
       },
       {
         "d": "2024-10-10",
         "unixTs": 1728518400,
-        "sopr": 1.05
+        "sopr": 0.9928
       },
       {
         "d": "2024-10-11",
         "unixTs": 1728604800,
-        "sopr": 1.0103
+        "sopr": 1.05
       },
       {
         "d": "2024-10-12",
         "unixTs": 1728691200,
-        "sopr": 1.0079
+        "sopr": 1.0103
       },
       {
         "d": "2024-10-13",
         "unixTs": 1728777600,
-        "sopr": 1.019
+        "sopr": 1.0079
       },
       {
         "d": "2024-10-14",
         "unixTs": 1728864000,
-        "sopr": 1.0289
+        "sopr": 1.019
       },
       {
         "d": "2024-10-15",
         "unixTs": 1728950400,
-        "sopr": 1.0189
+        "sopr": 1.0289
       },
       {
         "d": "2024-10-16",
         "unixTs": 1729036800,
-        "sopr": 1.0166
+        "sopr": 1.0189
       },
       {
         "d": "2024-10-17",
         "unixTs": 1729123200,
-        "sopr": 1.0164
+        "sopr": 1.0166
       },
       {
         "d": "2024-10-18",
         "unixTs": 1729209600,
-        "sopr": 1.0174
+        "sopr": 1.0164
       },
       {
         "d": "2024-10-19",
         "unixTs": 1729296000,
-        "sopr": 1.0597
+        "sopr": 1.0174
       },
       {
         "d": "2024-10-20",
         "unixTs": 1729382400,
-        "sopr": 1.04
+        "sopr": 1.0597
       },
       {
         "d": "2024-10-21",
         "unixTs": 1729468800,
-        "sopr": 1.0103
+        "sopr": 1.04
       },
       {
         "d": "2024-10-22",
         "unixTs": 1729555200,
-        "sopr": 1.0079
+        "sopr": 1.0103
       },
       {
         "d": "2024-10-23",
         "unixTs": 1729641600,
-        "sopr": 1.0127
+        "sopr": 1.0079
       },
       {
         "d": "2024-10-24",
         "unixTs": 1729728000,
-        "sopr": 1.0117
+        "sopr": 1.0127
       },
       {
         "d": "2024-10-25",
         "unixTs": 1729814400,
-        "sopr": 1.0075
+        "sopr": 1.0117
       },
       {
         "d": "2024-10-26",
         "unixTs": 1729900800,
-        "sopr": 1.0109
+        "sopr": 1.0075
       },
       {
         "d": "2024-10-27",
         "unixTs": 1729987200,
-        "sopr": 1.0165
+        "sopr": 1.0109
       },
       {
         "d": "2024-10-28",
         "unixTs": 1730073600,
-        "sopr": 1.0281
+        "sopr": 1.0165
       },
       {
         "d": "2024-10-29",
         "unixTs": 1730160000,
-        "sopr": 1.0139
+        "sopr": 1.0281
       },
       {
         "d": "2024-10-30",
         "unixTs": 1730246400,
-        "sopr": 1.0098
+        "sopr": 1.0139
       },
       {
         "d": "2024-10-31",
         "unixTs": 1730332800,
-        "sopr": 1.0109
+        "sopr": 1.0098
       },
       {
         "d": "2024-11-01",
         "unixTs": 1730419200,
-        "sopr": 1.0128
+        "sopr": 1.0109
       },
       {
         "d": "2024-11-02",
         "unixTs": 1730505600,
-        "sopr": 1.004
+        "sopr": 1.0128
       },
       {
         "d": "2024-11-03",
         "unixTs": 1730592000,
-        "sopr": 1.0124
+        "sopr": 1.004
       },
       {
         "d": "2024-11-04",
         "unixTs": 1730678400,
-        "sopr": 1.01
+        "sopr": 1.0124
       },
       {
         "d": "2024-11-05",
         "unixTs": 1730764800,
-        "sopr": 1.0371
+        "sopr": 1.01
       },
       {
         "d": "2024-11-06",
         "unixTs": 1730851200,
-        "sopr": 1.0244
+        "sopr": 1.0371
       },
       {
         "d": "2024-11-07",
         "unixTs": 1730937600,
-        "sopr": 1.0221
+        "sopr": 1.0244
       },
       {
         "d": "2024-11-08",
         "unixTs": 1731024000,
-        "sopr": 1.0114
+        "sopr": 1.0221
       },
       {
         "d": "2024-11-09",
         "unixTs": 1731110400,
-        "sopr": 1.0275
+        "sopr": 1.0114
       },
       {
         "d": "2024-11-10",
         "unixTs": 1731196800,
-        "sopr": 1.0461
+        "sopr": 1.0275
       },
       {
         "d": "2024-11-11",
         "unixTs": 1731283200,
-        "sopr": 1.0411
+        "sopr": 1.0461
       },
       {
         "d": "2024-11-12",
         "unixTs": 1731369600,
-        "sopr": 1.0454
+        "sopr": 1.0411
       },
       {
         "d": "2024-11-13",
         "unixTs": 1731456000,
-        "sopr": 1.0541
+        "sopr": 1.0454
       },
       {
         "d": "2024-11-14",
         "unixTs": 1731542400,
-        "sopr": 1.0404
+        "sopr": 1.0541
       },
       {
         "d": "2024-11-15",
         "unixTs": 1731628800,
-        "sopr": 1.0234
+        "sopr": 1.0404
       },
       {
         "d": "2024-11-16",
         "unixTs": 1731715200,
-        "sopr": 1.0179
+        "sopr": 1.0234
       },
       {
         "d": "2024-11-17",
         "unixTs": 1731801600,
-        "sopr": 1.0304
+        "sopr": 1.0179
       },
       {
         "d": "2024-11-18",
         "unixTs": 1731888000,
-        "sopr": 1.0565
+        "sopr": 1.0304
       },
       {
         "d": "2024-11-19",
         "unixTs": 1731974400,
-        "sopr": 1.0448
+        "sopr": 1.0565
       },
       {
         "d": "2024-11-20",
         "unixTs": 1732060800,
-        "sopr": 1.0829
+        "sopr": 1.0448
       },
       {
         "d": "2024-11-21",
         "unixTs": 1732147200,
-        "sopr": 1.0513
+        "sopr": 1.0829
       },
       {
         "d": "2024-11-22",
         "unixTs": 1732233600,
-        "sopr": 1.0454
+        "sopr": 1.0513
       },
       {
         "d": "2024-11-23",
         "unixTs": 1732320000,
-        "sopr": 1.0282
+        "sopr": 1.0454
       },
       {
         "d": "2024-11-24",
         "unixTs": 1732406400,
-        "sopr": 1.0248
+        "sopr": 1.0282
       },
       {
         "d": "2024-11-25",
         "unixTs": 1732492800,
-        "sopr": 1.0232
+        "sopr": 1.0248
       },
       {
         "d": "2024-11-26",
         "unixTs": 1732579200,
-        "sopr": 1.0333
+        "sopr": 1.0232
       },
       {
         "d": "2024-11-27",
         "unixTs": 1732665600,
-        "sopr": 1.0313
+        "sopr": 1.0333
       },
       {
         "d": "2024-11-28",
         "unixTs": 1732752000,
-        "sopr": 1.0322
+        "sopr": 1.0313
       },
       {
         "d": "2024-11-29",
         "unixTs": 1732838400,
-        "sopr": 1.0138
+        "sopr": 1.0322
       },
       {
         "d": "2024-11-30",
         "unixTs": 1732924800,
-        "sopr": 1.0197
+        "sopr": 1.0138
       },
       {
         "d": "2024-12-01",
         "unixTs": 1733011200,
-        "sopr": 1.0269
+        "sopr": 1.0197
       },
       {
         "d": "2024-12-02",
         "unixTs": 1733097600,
-        "sopr": 1.0301
+        "sopr": 1.0269
       },
       {
         "d": "2024-12-03",
         "unixTs": 1733184000,
-        "sopr": 1.0355
+        "sopr": 1.0301
       },
       {
         "d": "2024-12-04",
         "unixTs": 1733270400,
-        "sopr": 1.0621
+        "sopr": 1.0355
       },
       {
         "d": "2024-12-05",
         "unixTs": 1733356800,
-        "sopr": 1.0564
+        "sopr": 1.0621
       },
       {
         "d": "2024-12-06",
         "unixTs": 1733443200,
-        "sopr": 1.0181
+        "sopr": 1.0564
       },
       {
         "d": "2024-12-07",
         "unixTs": 1733529600,
-        "sopr": 1.0177
+        "sopr": 1.0181
       },
       {
         "d": "2024-12-08",
         "unixTs": 1733616000,
-        "sopr": 1.0649
+        "sopr": 1.0177
       },
       {
         "d": "2024-12-09",
         "unixTs": 1733702400,
-        "sopr": 1.0363
+        "sopr": 1.0649
       },
       {
         "d": "2024-12-10",
         "unixTs": 1733788800,
-        "sopr": 1.0362
+        "sopr": 1.0363
       },
       {
         "d": "2024-12-11",
         "unixTs": 1733875200,
-        "sopr": 1.0213
+        "sopr": 1.0362
       },
       {
         "d": "2024-12-12",
         "unixTs": 1733961600,
-        "sopr": 1.0258
+        "sopr": 1.0213
       },
       {
         "d": "2024-12-13",
         "unixTs": 1734048000,
-        "sopr": 1.0187
+        "sopr": 1.0258
       },
       {
         "d": "2024-12-14",
         "unixTs": 1734134400,
-        "sopr": 1.0327
+        "sopr": 1.0187
       },
       {
         "d": "2024-12-15",
         "unixTs": 1734220800,
-        "sopr": 1.0426
+        "sopr": 1.0327
       },
       {
         "d": "2024-12-16",
         "unixTs": 1734307200,
-        "sopr": 1.0489
+        "sopr": 1.0426
       },
       {
         "d": "2024-12-17",
         "unixTs": 1734393600,
-        "sopr": 1.0274
+        "sopr": 1.0489
       },
       {
         "d": "2024-12-18",
         "unixTs": 1734480000,
-        "sopr": 1.0583
+        "sopr": 1.0274
       },
       {
         "d": "2024-12-19",
         "unixTs": 1734566400,
-        "sopr": 1.0227
+        "sopr": 1.0583
       },
       {
         "d": "2024-12-20",
         "unixTs": 1734652800,
-        "sopr": 1.0102
+        "sopr": 1.0227
       },
       {
         "d": "2024-12-21",
         "unixTs": 1734739200,
-        "sopr": 1.0674
+        "sopr": 1.0102
       },
       {
         "d": "2024-12-22",
         "unixTs": 1734825600,
-        "sopr": 1.0533
+        "sopr": 1.0674
       },
       {
         "d": "2024-12-23",
         "unixTs": 1734912000,
-        "sopr": 1.0417
+        "sopr": 1.0533
       },
       {
         "d": "2024-12-24",
         "unixTs": 1734998400,
-        "sopr": 1.0106
+        "sopr": 1.0417
       },
       {
         "d": "2024-12-25",
         "unixTs": 1735084800,
-        "sopr": 1.0153
+        "sopr": 1.0106
       },
       {
         "d": "2024-12-26",
         "unixTs": 1735171200,
-        "sopr": 1.0229
+        "sopr": 1.0153
       },
       {
         "d": "2024-12-27",
         "unixTs": 1735257600,
-        "sopr": 1.011
+        "sopr": 1.0229
       },
       {
         "d": "2024-12-28",
         "unixTs": 1735344000,
-        "sopr": 1.0169
+        "sopr": 1.011
       },
       {
         "d": "2024-12-29",
         "unixTs": 1735430400,
-        "sopr": 1.0327
+        "sopr": 1.0169
       },
       {
         "d": "2024-12-30",
         "unixTs": 1735516800,
-        "sopr": 1.0238
+        "sopr": 1.0327
       },
       {
         "d": "2024-12-31",
         "unixTs": 1735603200,
-        "sopr": 1.0244
+        "sopr": 1.0238
       },
       {
         "d": "2025-01-01",
         "unixTs": 1735689600,
-        "sopr": 1.0194
+        "sopr": 1.0244
       },
       {
         "d": "2025-01-02",
         "unixTs": 1735776000,
-        "sopr": 1.0112
+        "sopr": 1.0194
       },
       {
         "d": "2025-01-03",
         "unixTs": 1735862400,
-        "sopr": 1.0103
+        "sopr": 1.0112
       },
       {
         "d": "2025-01-04",
         "unixTs": 1735948800,
-        "sopr": 1.0072
+        "sopr": 1.0103
       },
       {
         "d": "2025-01-05",
         "unixTs": 1736035200,
-        "sopr": 1.0203
+        "sopr": 1.0072
       },
       {
         "d": "2025-01-06",
         "unixTs": 1736121600,
-        "sopr": 1.0243
+        "sopr": 1.0203
       },
       {
         "d": "2025-01-07",
         "unixTs": 1736208000,
-        "sopr": 1.0036
+        "sopr": 1.0243
       },
       {
         "d": "2025-01-08",
         "unixTs": 1736294400,
-        "sopr": 0.9988
+        "sopr": 1.0036
       },
       {
         "d": "2025-01-09",
         "unixTs": 1736380800,
-        "sopr": 1.0051
+        "sopr": 0.9988
       },
       {
         "d": "2025-01-10",
         "unixTs": 1736467200,
-        "sopr": 1.0071
+        "sopr": 1.0051
       },
       {
         "d": "2025-01-11",
         "unixTs": 1736553600,
-        "sopr": 1.0062
+        "sopr": 1.0071
       },
       {
         "d": "2025-01-12",
         "unixTs": 1736640000,
-        "sopr": 1.0031
+        "sopr": 1.0062
       },
       {
         "d": "2025-01-13",
         "unixTs": 1736726400,
-        "sopr": 1.012
+        "sopr": 1.0031
       },
       {
         "d": "2025-01-14",
         "unixTs": 1736812800,
-        "sopr": 1.02
+        "sopr": 1.012
       },
       {
         "d": "2025-01-15",
         "unixTs": 1736899200,
-        "sopr": 1.0233
+        "sopr": 1.02
       },
       {
         "d": "2025-01-16",
         "unixTs": 1736985600,
-        "sopr": 1.0235
+        "sopr": 1.0233
       },
       {
         "d": "2025-01-17",
         "unixTs": 1737072000,
-        "sopr": 1.0147
+        "sopr": 1.0235
       },
       {
         "d": "2025-01-18",
         "unixTs": 1737158400,
-        "sopr": 1.0126
+        "sopr": 1.0147
       },
       {
         "d": "2025-01-19",
         "unixTs": 1737244800,
-        "sopr": 1.0209
+        "sopr": 1.0126
       },
       {
         "d": "2025-01-20",
         "unixTs": 1737331200,
-        "sopr": 1.0221
+        "sopr": 1.0209
       },
       {
         "d": "2025-01-21",
         "unixTs": 1737417600,
-        "sopr": 1.0323
+        "sopr": 1.0221
       },
       {
         "d": "2025-01-22",
         "unixTs": 1737504000,
-        "sopr": 1.0495
+        "sopr": 1.0323
       },
       {
         "d": "2025-01-23",
         "unixTs": 1737590400,
-        "sopr": 1.0152
+        "sopr": 1.0495
       },
       {
         "d": "2025-01-24",
         "unixTs": 1737676800,
-        "sopr": 1.0101
+        "sopr": 1.0152
       },
       {
         "d": "2025-01-25",
         "unixTs": 1737763200,
-        "sopr": 1.0084
+        "sopr": 1.0101
       },
       {
         "d": "2025-01-26",
         "unixTs": 1737849600,
-        "sopr": 1.0119
+        "sopr": 1.0084
       },
       {
         "d": "2025-01-27",
         "unixTs": 1737936000,
-        "sopr": 1.0169
+        "sopr": 1.0119
       },
       {
         "d": "2025-01-28",
         "unixTs": 1738022400,
-        "sopr": 1.0084
+        "sopr": 1.0169
       },
       {
         "d": "2025-01-29",
         "unixTs": 1738108800,
-        "sopr": 1.0201
+        "sopr": 1.0084
       },
       {
         "d": "2025-01-30",
         "unixTs": 1738195200,
-        "sopr": 1.0095
+        "sopr": 1.0201
       },
       {
         "d": "2025-01-31",
         "unixTs": 1738281600,
-        "sopr": 1.005
+        "sopr": 1.0095
       },
       {
         "d": "2025-02-01",
         "unixTs": 1738368000,
-        "sopr": 1.0009
+        "sopr": 1.005
       },
       {
         "d": "2025-02-02",
         "unixTs": 1738454400,
-        "sopr": 1.0079
+        "sopr": 1.0009
       },
       {
         "d": "2025-02-03",
         "unixTs": 1738540800,
-        "sopr": 1.027
+        "sopr": 1.0079
       },
       {
         "d": "2025-02-04",
         "unixTs": 1738627200,
-        "sopr": 1.0263
+        "sopr": 1.027
       },
       {
         "d": "2025-02-05",
         "unixTs": 1738713600,
-        "sopr": 1.0191
+        "sopr": 1.0263
       },
       {
         "d": "2025-02-06",
         "unixTs": 1738800000,
-        "sopr": 1.0062
+        "sopr": 1.0191
       },
       {
         "d": "2025-02-07",
         "unixTs": 1738886400,
-        "sopr": 1.0072
+        "sopr": 1.0062
       },
       {
         "d": "2025-02-08",
         "unixTs": 1738972800,
-        "sopr": 1.0362
+        "sopr": 1.0072
       },
       {
         "d": "2025-02-09",
         "unixTs": 1739059200,
-        "sopr": 1.0078
+        "sopr": 1.0362
       },
       {
         "d": "2025-02-10",
         "unixTs": 1739145600,
-        "sopr": 1.015
+        "sopr": 1.0078
       },
       {
         "d": "2025-02-11",
         "unixTs": 1739232000,
-        "sopr": 1.0052
+        "sopr": 1.015
       },
       {
         "d": "2025-02-12",
         "unixTs": 1739318400,
-        "sopr": 1.0035
+        "sopr": 1.0052
       },
       {
         "d": "2025-02-13",
         "unixTs": 1739404800,
-        "sopr": 1.0076
+        "sopr": 1.0035
       },
       {
         "d": "2025-02-14",
         "unixTs": 1739491200,
-        "sopr": 1.0068
+        "sopr": 1.0076
       },
       {
         "d": "2025-02-15",
         "unixTs": 1739577600,
-        "sopr": 1.0021
+        "sopr": 1.0068
       },
       {
         "d": "2025-02-16",
         "unixTs": 1739664000,
-        "sopr": 1.0027
+        "sopr": 1.0021
       },
       {
         "d": "2025-02-17",
         "unixTs": 1739750400,
-        "sopr": 1.005
+        "sopr": 1.0027
       },
       {
         "d": "2025-02-18",
         "unixTs": 1739836800,
-        "sopr": 1.0045
+        "sopr": 1.005
       },
       {
         "d": "2025-02-19",
         "unixTs": 1739923200,
-        "sopr": 1.007
+        "sopr": 1.0045
       },
       {
         "d": "2025-02-20",
         "unixTs": 1740009600,
-        "sopr": 1.0064
+        "sopr": 1.007
       },
       {
         "d": "2025-02-21",
         "unixTs": 1740096000,
-        "sopr": 1.0081
+        "sopr": 1.0064
       },
       {
         "d": "2025-02-22",
         "unixTs": 1740182400,
-        "sopr": 1.003
+        "sopr": 1.0081
       },
       {
         "d": "2025-02-23",
         "unixTs": 1740268800,
-        "sopr": 1.0034
+        "sopr": 1.003
       },
       {
         "d": "2025-02-24",
         "unixTs": 1740355200,
-        "sopr": 0.9984
+        "sopr": 1.0034
       },
       {
         "d": "2025-02-25",
         "unixTs": 1740441600,
-        "sopr": 0.9946
+        "sopr": 0.9984
       },
       {
         "d": "2025-02-26",
         "unixTs": 1740528000,
-        "sopr": 1.0018
+        "sopr": 0.9946
       },
       {
         "d": "2025-02-27",
         "unixTs": 1740614400,
-        "sopr": 0.9918
+        "sopr": 1.0018
       },
       {
         "d": "2025-02-28",
         "unixTs": 1740700800,
-        "sopr": 0.9994
+        "sopr": 0.9918
       },
       {
         "d": "2025-03-01",
         "unixTs": 1740787200,
-        "sopr": 1.0121
+        "sopr": 0.9994
       },
       {
         "d": "2025-03-02",
         "unixTs": 1740873600,
-        "sopr": 1.0057
+        "sopr": 1.0121
       },
       {
         "d": "2025-03-03",
         "unixTs": 1740960000,
-        "sopr": 0.9939
+        "sopr": 1.0057
       },
       {
         "d": "2025-03-04",
         "unixTs": 1741046400,
-        "sopr": 1.0146
+        "sopr": 0.9939
       },
       {
         "d": "2025-03-05",
         "unixTs": 1741132800,
-        "sopr": 1.0125
+        "sopr": 1.0146
       },
       {
         "d": "2025-03-06",
         "unixTs": 1741219200,
-        "sopr": 1.0011
+        "sopr": 1.0125
       },
       {
         "d": "2025-03-07",
         "unixTs": 1741305600,
-        "sopr": 0.9999
+        "sopr": 1.0011
       },
       {
         "d": "2025-03-08",
         "unixTs": 1741392000,
-        "sopr": 0.9954
+        "sopr": 0.9999
       },
       {
         "d": "2025-03-09",
         "unixTs": 1741478400,
-        "sopr": 0.9965
+        "sopr": 0.9954
       },
       {
         "d": "2025-03-10",
         "unixTs": 1741564800,
-        "sopr": 1.002
+        "sopr": 0.9965
       },
       {
         "d": "2025-03-11",
         "unixTs": 1741651200,
-        "sopr": 1.0062
+        "sopr": 1.002
       },
       {
         "d": "2025-03-12",
         "unixTs": 1741737600,
-        "sopr": 0.9992
+        "sopr": 1.0062
       },
       {
         "d": "2025-03-13",
         "unixTs": 1741824000,
-        "sopr": 1.0094
+        "sopr": 0.9992
       },
       {
         "d": "2025-03-14",
         "unixTs": 1741910400,
-        "sopr": 1.0025
+        "sopr": 1.0094
       },
       {
         "d": "2025-03-15",
         "unixTs": 1741996800,
-        "sopr": 1.0007
+        "sopr": 1.0025
       },
       {
         "d": "2025-03-16",
         "unixTs": 1742083200,
-        "sopr": 1.0003
+        "sopr": 1.0007
       },
       {
         "d": "2025-03-17",
         "unixTs": 1742169600,
-        "sopr": 0.9996
+        "sopr": 1.0003
       },
       {
         "d": "2025-03-18",
         "unixTs": 1742256000,
-        "sopr": 1.0101
+        "sopr": 0.9996
       },
       {
         "d": "2025-03-19",
         "unixTs": 1742342400,
-        "sopr": 1.0084
+        "sopr": 1.0101
       },
       {
         "d": "2025-03-20",
         "unixTs": 1742428800,
-        "sopr": 1.004
+        "sopr": 1.0084
       },
       {
         "d": "2025-03-21",
         "unixTs": 1742515200,
-        "sopr": 1.0017
+        "sopr": 1.004
       },
       {
         "d": "2025-03-22",
         "unixTs": 1742601600,
-        "sopr": 1.0058
+        "sopr": 1.0017
       },
       {
         "d": "2025-03-23",
         "unixTs": 1742688000,
-        "sopr": 1.0122
+        "sopr": 1.0058
       },
       {
         "d": "2025-03-24",
         "unixTs": 1742774400,
-        "sopr": 1.0021
+        "sopr": 1.0122
       },
       {
         "d": "2025-03-25",
         "unixTs": 1742860800,
-        "sopr": 1.0066
+        "sopr": 1.0021
       },
       {
         "d": "2025-03-26",
         "unixTs": 1742947200,
-        "sopr": 1.0029
+        "sopr": 1.0066
       },
       {
         "d": "2025-03-27",
         "unixTs": 1743033600,
-        "sopr": 1.0154
+        "sopr": 1.0029
       },
       {
         "d": "2025-03-28",
         "unixTs": 1743120000,
-        "sopr": 0.9958
+        "sopr": 1.0154
       },
       {
         "d": "2025-03-29",
         "unixTs": 1743206400,
-        "sopr": 0.9954
+        "sopr": 0.9958
       },
       {
         "d": "2025-03-30",
         "unixTs": 1743292800,
-        "sopr": 0.9972
+        "sopr": 0.9954
       },
       {
         "d": "2025-03-31",
         "unixTs": 1743379200,
-        "sopr": 0.9991
+        "sopr": 0.9972
       },
       {
         "d": "2025-04-01",
         "unixTs": 1743465600,
-        "sopr": 1.0131
+        "sopr": 0.9991
       },
       {
         "d": "2025-04-02",
         "unixTs": 1743552000,
-        "sopr": 1.0211
+        "sopr": 1.0131
       },
       {
         "d": "2025-04-03",
         "unixTs": 1743638400,
-        "sopr": 1.0044
+        "sopr": 1.0211
       },
       {
         "d": "2025-04-04",
         "unixTs": 1743724800,
-        "sopr": 1.0025
+        "sopr": 1.0044
       },
       {
         "d": "2025-04-05",
         "unixTs": 1743811200,
-        "sopr": 0.9958
+        "sopr": 1.0025
       },
       {
         "d": "2025-04-06",
         "unixTs": 1743897600,
-        "sopr": 1.0013
+        "sopr": 0.9958
       },
       {
         "d": "2025-04-07",
         "unixTs": 1743984000,
-        "sopr": 0.9941
+        "sopr": 1.0013
       },
       {
         "d": "2025-04-08",
         "unixTs": 1744070400,
-        "sopr": 1.0061
+        "sopr": 0.9941
       },
       {
         "d": "2025-04-09",
         "unixTs": 1744156800,
-        "sopr": 1.0093
+        "sopr": 1.0061
       },
       {
         "d": "2025-04-10",
         "unixTs": 1744243200,
-        "sopr": 1.0035
+        "sopr": 1.0093
       },
       {
         "d": "2025-04-11",
         "unixTs": 1744329600,
-        "sopr": 1.0076
+        "sopr": 1.0035
       },
       {
         "d": "2025-04-12",
         "unixTs": 1744416000,
-        "sopr": 1.0105
+        "sopr": 1.0076
       },
       {
         "d": "2025-04-13",
@@ -775715,652 +776028,652 @@
       {
         "d": "2025-04-14",
         "unixTs": 1744588800,
-        "sopr": 1.0093
+        "sopr": 1.0105
       },
       {
         "d": "2025-04-15",
         "unixTs": 1744675200,
-        "sopr": 1.0065
+        "sopr": 1.0093
       },
       {
         "d": "2025-04-16",
         "unixTs": 1744761600,
-        "sopr": 0.9703
+        "sopr": 1.0065
       },
       {
         "d": "2025-04-17",
         "unixTs": 1744848000,
-        "sopr": 1.0037
+        "sopr": 0.9703
       },
       {
         "d": "2025-04-18",
         "unixTs": 1744934400,
-        "sopr": 1.001
+        "sopr": 1.0037
       },
       {
         "d": "2025-04-19",
         "unixTs": 1745020800,
-        "sopr": 1.0036
+        "sopr": 1.001
       },
       {
         "d": "2025-04-20",
         "unixTs": 1745107200,
-        "sopr": 1.0117
+        "sopr": 1.0036
       },
       {
         "d": "2025-04-21",
         "unixTs": 1745193600,
-        "sopr": 1.0183
+        "sopr": 1.0117
       },
       {
         "d": "2025-04-22",
         "unixTs": 1745280000,
-        "sopr": 1.033
+        "sopr": 1.0183
       },
       {
         "d": "2025-04-23",
         "unixTs": 1745366400,
-        "sopr": 1.02
+        "sopr": 1.033
       },
       {
         "d": "2025-04-24",
         "unixTs": 1745452800,
-        "sopr": 1.0412
+        "sopr": 1.02
       },
       {
         "d": "2025-04-25",
         "unixTs": 1745539200,
-        "sopr": 1.0122
+        "sopr": 1.0412
       },
       {
         "d": "2025-04-26",
         "unixTs": 1745625600,
-        "sopr": 1.0077
+        "sopr": 1.0122
       },
       {
         "d": "2025-04-27",
         "unixTs": 1745712000,
-        "sopr": 1.0181
+        "sopr": 1.0077
       },
       {
         "d": "2025-04-28",
         "unixTs": 1745798400,
-        "sopr": 1.0219
+        "sopr": 1.0181
       },
       {
         "d": "2025-04-29",
         "unixTs": 1745884800,
-        "sopr": 1.0123
+        "sopr": 1.0219
       },
       {
         "d": "2025-04-30",
         "unixTs": 1745971200,
-        "sopr": 1.0166
+        "sopr": 1.0123
       },
       {
         "d": "2025-05-01",
         "unixTs": 1746057600,
-        "sopr": 1.0174
+        "sopr": 1.0166
       },
       {
         "d": "2025-05-02",
         "unixTs": 1746144000,
-        "sopr": 1.0096
+        "sopr": 1.0174
       },
       {
         "d": "2025-05-03",
         "unixTs": 1746230400,
-        "sopr": 1.0017
+        "sopr": 1.0096
       },
       {
         "d": "2025-05-04",
         "unixTs": 1746316800,
-        "sopr": 1.0238
+        "sopr": 1.0017
       },
       {
         "d": "2025-05-05",
         "unixTs": 1746403200,
-        "sopr": 1.0202
+        "sopr": 1.0238
       },
       {
         "d": "2025-05-06",
         "unixTs": 1746489600,
-        "sopr": 1.0165
+        "sopr": 1.0202
       },
       {
         "d": "2025-05-07",
         "unixTs": 1746576000,
-        "sopr": 1.0252
+        "sopr": 1.0165
       },
       {
         "d": "2025-05-08",
         "unixTs": 1746662400,
-        "sopr": 1.0263
+        "sopr": 1.0252
       },
       {
         "d": "2025-05-09",
         "unixTs": 1746748800,
-        "sopr": 1.0093
+        "sopr": 1.0263
       },
       {
         "d": "2025-05-10",
         "unixTs": 1746835200,
-        "sopr": 1.0112
+        "sopr": 1.0093
       },
       {
         "d": "2025-05-11",
         "unixTs": 1746921600,
-        "sopr": 1.0187
+        "sopr": 1.0112
       },
       {
         "d": "2025-05-12",
         "unixTs": 1747008000,
-        "sopr": 1.0332
+        "sopr": 1.0187
       },
       {
         "d": "2025-05-13",
         "unixTs": 1747094400,
-        "sopr": 1.0152
+        "sopr": 1.0332
       },
       {
         "d": "2025-05-14",
         "unixTs": 1747180800,
-        "sopr": 1.0256
+        "sopr": 1.0152
       },
       {
         "d": "2025-05-15",
         "unixTs": 1747267200,
-        "sopr": 1.0197
+        "sopr": 1.0256
       },
       {
         "d": "2025-05-16",
         "unixTs": 1747353600,
-        "sopr": 1.007
+        "sopr": 1.0197
       },
       {
         "d": "2025-05-17",
         "unixTs": 1747440000,
-        "sopr": 1.0148
+        "sopr": 1.007
       },
       {
         "d": "2025-05-18",
         "unixTs": 1747526400,
-        "sopr": 1.0327
+        "sopr": 1.0148
       },
       {
         "d": "2025-05-19",
         "unixTs": 1747612800,
-        "sopr": 1.0232
+        "sopr": 1.0327
       },
       {
         "d": "2025-05-20",
         "unixTs": 1747699200,
-        "sopr": 1.0273
+        "sopr": 1.0232
       },
       {
         "d": "2025-05-21",
         "unixTs": 1747785600,
-        "sopr": 1.0225
+        "sopr": 1.0273
       },
       {
         "d": "2025-05-22",
         "unixTs": 1747872000,
-        "sopr": 1.0197
+        "sopr": 1.0225
       },
       {
         "d": "2025-05-23",
         "unixTs": 1747958400,
-        "sopr": 1.0083
+        "sopr": 1.0197
       },
       {
         "d": "2025-05-24",
         "unixTs": 1748044800,
-        "sopr": 1.0108
+        "sopr": 1.0083
       },
       {
         "d": "2025-05-25",
         "unixTs": 1748131200,
-        "sopr": 1.0424
+        "sopr": 1.0108
       },
       {
         "d": "2025-05-26",
         "unixTs": 1748217600,
-        "sopr": 1.0401
+        "sopr": 1.0424
       },
       {
         "d": "2025-05-27",
         "unixTs": 1748304000,
-        "sopr": 1.0176
+        "sopr": 1.0401
       },
       {
         "d": "2025-05-28",
         "unixTs": 1748390400,
-        "sopr": 1.024
+        "sopr": 1.0176
       },
       {
         "d": "2025-05-29",
         "unixTs": 1748476800,
-        "sopr": 1.0117
+        "sopr": 1.024
       },
       {
         "d": "2025-05-30",
         "unixTs": 1748563200,
-        "sopr": 1.0018
+        "sopr": 1.0117
       },
       {
         "d": "2025-05-31",
         "unixTs": 1748649600,
-        "sopr": 1.0044
+        "sopr": 1.0018
       },
       {
         "d": "2025-06-01",
         "unixTs": 1748736000,
-        "sopr": 1.0299
+        "sopr": 1.0044
       },
       {
         "d": "2025-06-02",
         "unixTs": 1748822400,
-        "sopr": 1.0284
+        "sopr": 1.0299
       },
       {
         "d": "2025-06-03",
         "unixTs": 1748908800,
-        "sopr": 1.0207
+        "sopr": 1.0284
       },
       {
         "d": "2025-06-04",
         "unixTs": 1748995200,
-        "sopr": 1.0021
+        "sopr": 1.0207
       },
       {
         "d": "2025-06-05",
         "unixTs": 1749081600,
-        "sopr": 1.008
+        "sopr": 1.0021
       },
       {
         "d": "2025-06-06",
         "unixTs": 1749168000,
-        "sopr": 1.0127
+        "sopr": 1.008
       },
       {
         "d": "2025-06-07",
         "unixTs": 1749254400,
-        "sopr": 1.0114
+        "sopr": 1.0127
       },
       {
         "d": "2025-06-08",
         "unixTs": 1749340800,
-        "sopr": 1.0151
+        "sopr": 1.0114
       },
       {
         "d": "2025-06-09",
         "unixTs": 1749427200,
-        "sopr": 1.0184
+        "sopr": 1.0151
       },
       {
         "d": "2025-06-10",
         "unixTs": 1749513600,
-        "sopr": 1.0161
+        "sopr": 1.0184
       },
       {
         "d": "2025-06-11",
         "unixTs": 1749600000,
-        "sopr": 1.0112
+        "sopr": 1.0161
       },
       {
         "d": "2025-06-12",
         "unixTs": 1749686400,
-        "sopr": 1.0171
+        "sopr": 1.0112
       },
       {
         "d": "2025-06-13",
         "unixTs": 1749772800,
-        "sopr": 1.0052
+        "sopr": 1.0171
       },
       {
         "d": "2025-06-14",
         "unixTs": 1749859200,
-        "sopr": 1.0117
+        "sopr": 1.0052
       },
       {
         "d": "2025-06-15",
         "unixTs": 1749945600,
-        "sopr": 1.0351
+        "sopr": 1.0117
       },
       {
         "d": "2025-06-16",
         "unixTs": 1750032000,
-        "sopr": 1.0038
+        "sopr": 1.0351
       },
       {
         "d": "2025-06-17",
         "unixTs": 1750118400,
-        "sopr": 1.0082
+        "sopr": 1.0038
       },
       {
         "d": "2025-06-18",
         "unixTs": 1750204800,
-        "sopr": 1.012
+        "sopr": 1.0082
       },
       {
         "d": "2025-06-19",
         "unixTs": 1750291200,
-        "sopr": 1.0087
+        "sopr": 1.012
       },
       {
         "d": "2025-06-20",
         "unixTs": 1750377600,
-        "sopr": 1.0121
+        "sopr": 1.0087
       },
       {
         "d": "2025-06-21",
         "unixTs": 1750464000,
-        "sopr": 1.0031
+        "sopr": 1.0121
       },
       {
         "d": "2025-06-22",
         "unixTs": 1750550400,
-        "sopr": 1.0115
+        "sopr": 1.0031
       },
       {
         "d": "2025-06-23",
         "unixTs": 1750636800,
-        "sopr": 1.018
+        "sopr": 1.0115
       },
       {
         "d": "2025-06-24",
         "unixTs": 1750723200,
-        "sopr": 1.0197
+        "sopr": 1.018
       },
       {
         "d": "2025-06-25",
         "unixTs": 1750809600,
-        "sopr": 1.0304
+        "sopr": 1.0197
       },
       {
         "d": "2025-06-26",
         "unixTs": 1750896000,
-        "sopr": 1.0312
+        "sopr": 1.0304
       },
       {
         "d": "2025-06-27",
         "unixTs": 1750982400,
-        "sopr": 1.0069
+        "sopr": 1.0312
       },
       {
         "d": "2025-06-28",
         "unixTs": 1751068800,
-        "sopr": 1.0145
+        "sopr": 1.0069
       },
       {
         "d": "2025-06-29",
         "unixTs": 1751155200,
-        "sopr": 1.0374
+        "sopr": 1.0145
       },
       {
         "d": "2025-06-30",
         "unixTs": 1751241600,
-        "sopr": 1.011
+        "sopr": 1.0374
       },
       {
         "d": "2025-07-01",
         "unixTs": 1751328000,
-        "sopr": 1.0216
+        "sopr": 1.011
       },
       {
         "d": "2025-07-02",
         "unixTs": 1751414400,
-        "sopr": 1.0231
+        "sopr": 1.0216
       },
       {
         "d": "2025-07-03",
         "unixTs": 1751500800,
-        "sopr": 1.1783
+        "sopr": 1.0231
       },
       {
         "d": "2025-07-04",
         "unixTs": 1751587200,
-        "sopr": 1.0085
+        "sopr": 1.1783
       },
       {
         "d": "2025-07-05",
         "unixTs": 1751673600,
-        "sopr": 1.0103
+        "sopr": 1.0085
       },
       {
         "d": "2025-07-06",
         "unixTs": 1751760000,
-        "sopr": 1.0273
+        "sopr": 1.0103
       },
       {
         "d": "2025-07-07",
         "unixTs": 1751846400,
-        "sopr": 1.0345
+        "sopr": 1.0273
       },
       {
         "d": "2025-07-08",
         "unixTs": 1751932800,
-        "sopr": 1.0446
+        "sopr": 1.0345
       },
       {
         "d": "2025-07-09",
         "unixTs": 1752019200,
-        "sopr": 1.0185
+        "sopr": 1.0446
       },
       {
         "d": "2025-07-10",
         "unixTs": 1752105600,
-        "sopr": 1.0308
+        "sopr": 1.0185
       },
       {
         "d": "2025-07-11",
         "unixTs": 1752192000,
-        "sopr": 1.0257
+        "sopr": 1.0308
       },
       {
         "d": "2025-07-12",
         "unixTs": 1752278400,
-        "sopr": 1.0172
+        "sopr": 1.0257
       },
       {
         "d": "2025-07-13",
         "unixTs": 1752364800,
-        "sopr": 1.0318
+        "sopr": 1.0172
       },
       {
         "d": "2025-07-14",
         "unixTs": 1752451200,
-        "sopr": 1.0127
+        "sopr": 1.0318
       },
       {
         "d": "2025-07-15",
         "unixTs": 1752537600,
-        "sopr": 1.0625
+        "sopr": 1.0127
       },
       {
         "d": "2025-07-16",
         "unixTs": 1752624000,
-        "sopr": 1.0324
+        "sopr": 1.0625
       },
       {
         "d": "2025-07-17",
         "unixTs": 1752710400,
-        "sopr": 1.0185
+        "sopr": 1.0324
       },
       {
         "d": "2025-07-18",
         "unixTs": 1752796800,
-        "sopr": 1.0244
+        "sopr": 1.0185
       },
       {
         "d": "2025-07-19",
         "unixTs": 1752883200,
-        "sopr": 1.0099
+        "sopr": 1.0244
       },
       {
         "d": "2025-07-20",
         "unixTs": 1752969600,
-        "sopr": 1.0174
+        "sopr": 1.0099
       },
       {
         "d": "2025-07-21",
         "unixTs": 1753056000,
-        "sopr": 1.0316
+        "sopr": 1.0174
       },
       {
         "d": "2025-07-22",
         "unixTs": 1753142400,
-        "sopr": 1.0289
+        "sopr": 1.0316
       },
       {
         "d": "2025-07-23",
         "unixTs": 1753228800,
-        "sopr": 1.0186
+        "sopr": 1.0289
       },
       {
         "d": "2025-07-24",
         "unixTs": 1753315200,
-        "sopr": 1.0163
+        "sopr": 1.0186
       },
       {
         "d": "2025-07-25",
         "unixTs": 1753401600,
-        "sopr": 1.0104
+        "sopr": 1.0163
       },
       {
         "d": "2025-07-26",
         "unixTs": 1753488000,
-        "sopr": 1.0107
+        "sopr": 1.0104
       },
       {
         "d": "2025-07-27",
         "unixTs": 1753574400,
-        "sopr": 1.0166
+        "sopr": 1.0107
       },
       {
         "d": "2025-07-28",
         "unixTs": 1753660800,
-        "sopr": 1.0274
+        "sopr": 1.0166
       },
       {
         "d": "2025-07-29",
         "unixTs": 1753747200,
-        "sopr": 1.0187
+        "sopr": 1.0274
       },
       {
         "d": "2025-07-30",
         "unixTs": 1753833600,
-        "sopr": 1.0107
+        "sopr": 1.0187
       },
       {
         "d": "2025-07-31",
         "unixTs": 1753920000,
-        "sopr": 1.0051
+        "sopr": 1.0107
       },
       {
         "d": "2025-08-01",
         "unixTs": 1754006400,
-        "sopr": 1.0028
+        "sopr": 1.0051
       },
       {
         "d": "2025-08-02",
         "unixTs": 1754092800,
-        "sopr": 1.0134
+        "sopr": 1.0028
       },
       {
         "d": "2025-08-03",
         "unixTs": 1754179200,
-        "sopr": 1.0081
+        "sopr": 1.0134
       },
       {
         "d": "2025-08-04",
         "unixTs": 1754265600,
-        "sopr": 1.0095
+        "sopr": 1.0081
       },
       {
         "d": "2025-08-05",
         "unixTs": 1754352000,
-        "sopr": 1.0049
+        "sopr": 1.0095
       },
       {
         "d": "2025-08-06",
         "unixTs": 1754438400,
-        "sopr": 1.0203
+        "sopr": 1.0049
       },
       {
         "d": "2025-08-07",
         "unixTs": 1754524800,
-        "sopr": 1.0144
+        "sopr": 1.0203
       },
       {
         "d": "2025-08-08",
         "unixTs": 1754611200,
-        "sopr": 1.0066
+        "sopr": 1.0144
       },
       {
         "d": "2025-08-09",
         "unixTs": 1754697600,
-        "sopr": 1.0104
+        "sopr": 1.0066
       },
       {
         "d": "2025-08-10",
         "unixTs": 1754784000,
-        "sopr": 1.0145
+        "sopr": 1.0104
       },
       {
         "d": "2025-08-11",
         "unixTs": 1754870400,
-        "sopr": 1.0133
+        "sopr": 1.0145
       },
       {
         "d": "2025-08-12",
         "unixTs": 1754956800,
-        "sopr": 1.0179
+        "sopr": 1.0133
       },
       {
         "d": "2025-08-13",
         "unixTs": 1755043200,
-        "sopr": 1.0201
+        "sopr": 1.0179
       },
       {
         "d": "2025-08-14",
         "unixTs": 1755129600,
-        "sopr": 1.0095
+        "sopr": 1.0201
       },
       {
         "d": "2025-08-15",
         "unixTs": 1755216000,
-        "sopr": 1.0733
+        "sopr": 1.0095
       },
       {
         "d": "2025-08-16",
         "unixTs": 1755302400,
-        "sopr": 1.0061
+        "sopr": 1.0733
       },
       {
         "d": "2025-08-17",
         "unixTs": 1755388800,
-        "sopr": 1.0025
+        "sopr": 1.0061
       },
       {
         "d": "2025-08-18",
         "unixTs": 1755475200,
-        "sopr": 1.0141
+        "sopr": 1.0025
       },
       {
         "d": "2025-08-19",
         "unixTs": 1755561600,
-        "sopr": 1.0073
+        "sopr": 1.0141
       },
       {
         "d": "2025-08-20",
         "unixTs": 1755648000,
-        "sopr": 1.0061
+        "sopr": 1.0073
       },
       {
         "d": "2025-08-21",
         "unixTs": 1755734400,
-        "sopr": 1.0201
+        "sopr": 1.0061
       },
       {
         "d": "2025-08-22",
@@ -777460,7 +777773,7 @@
       {
         "d": "2026-03-29",
         "unixTs": 1774742400,
-        "sopr": 1.1992
+        "sopr": 0.996
       },
       {
         "d": "2026-03-30",
@@ -778501,6 +778814,41 @@
         "d": "2026-10-23",
         "unixTs": 1792713600,
         "sopr": 1.0026
+      },
+      {
+        "d": "2026-10-24",
+        "unixTs": 1792800000,
+        "sopr": 0.9994
+      },
+      {
+        "d": "2026-10-25",
+        "unixTs": 1792886400,
+        "sopr": 1.0015
+      },
+      {
+        "d": "2026-10-26",
+        "unixTs": 1792972800,
+        "sopr": 1.0007
+      },
+      {
+        "d": "2026-10-27",
+        "unixTs": 1793059200,
+        "sopr": 1
+      },
+      {
+        "d": "2026-10-28",
+        "unixTs": 1793145600,
+        "sopr": 1.0032
+      },
+      {
+        "d": "2026-10-29",
+        "unixTs": 1793232000,
+        "sopr": 0.9937
+      },
+      {
+        "d": "2026-10-30",
+        "unixTs": 1793318400,
+        "sopr": 0.9933
       }
     ],
     "stablecoin-supply": [
@@ -811033,6 +811381,16 @@
         "busd": "34354393.27",
         "gusd": "35743392.24",
         "pax": "22285326.40"
+      },
+      {
+        "d": "2026-10-30",
+        "unixTs": "1793318400",
+        "usdt": "180741724287.52",
+        "usdc": "71187902813.38",
+        "dai": "4569170417.75",
+        "busd": "34264333.65",
+        "gusd": "35646083.96",
+        "pax": "22440539.97"
       }
     ],
     "sth": [
@@ -836250,6 +836608,41 @@
         "d": "2026-10-23",
         "unixTs": 1792713600,
         "sthMvrv": 1.0671
+      },
+      {
+        "d": "2026-10-24",
+        "unixTs": 1792800000,
+        "sthMvrv": 1.0672
+      },
+      {
+        "d": "2026-10-25",
+        "unixTs": 1792886400,
+        "sthMvrv": 1.0546
+      },
+      {
+        "d": "2026-10-26",
+        "unixTs": 1792972800,
+        "sthMvrv": 1.0567
+      },
+      {
+        "d": "2026-10-27",
+        "unixTs": 1793059200,
+        "sthMvrv": 1.0666
+      },
+      {
+        "d": "2026-10-28",
+        "unixTs": 1793145600,
+        "sthMvrv": 1.0707
+      },
+      {
+        "d": "2026-10-29",
+        "unixTs": 1793232000,
+        "sthMvrv": 1.0286
+      },
+      {
+        "d": "2026-10-30",
+        "unixTs": 1793318400,
+        "sthMvrv": 1.0201
       }
     ],
     "sth-nupl": [
@@ -861472,6 +861865,41 @@
         "d": "2026-10-23",
         "unixTs": 1792713600,
         "nuplSth": 0.0629
+      },
+      {
+        "d": "2026-10-24",
+        "unixTs": 1792800000,
+        "nuplSth": 0.0629
+      },
+      {
+        "d": "2026-10-25",
+        "unixTs": 1792886400,
+        "nuplSth": 0.0518
+      },
+      {
+        "d": "2026-10-26",
+        "unixTs": 1792972800,
+        "nuplSth": 0.0537
+      },
+      {
+        "d": "2026-10-27",
+        "unixTs": 1793059200,
+        "nuplSth": 0.0624
+      },
+      {
+        "d": "2026-10-28",
+        "unixTs": 1793145600,
+        "nuplSth": 0.066
+      },
+      {
+        "d": "2026-10-29",
+        "unixTs": 1793232000,
+        "nuplSth": 0.0278
+      },
+      {
+        "d": "2026-10-30",
+        "unixTs": 1793318400,
+        "nuplSth": 0.0197
       }
     ],
     "sth-realized-price": [
@@ -888524,6 +888952,11 @@
         "d": "2026-10-23",
         "unixTs": "1.7927136E9",
         "sthRealizedPrice": "75800.28"
+      },
+      {
+        "d": "2026-10-24",
+        "unixTs": "1.7928E9",
+        "sthRealizedPrice": "75819.27"
       }
     ],
     "sth-sopr": [
@@ -916240,12 +916673,12 @@
       {
         "d": "2025-10-20",
         "unixTs": 1760918400,
-        "sthSopr": 1.6913
+        "sthSopr": 1.0003
       },
       {
         "d": "2025-10-21",
         "unixTs": 1761004800,
-        "sthSopr": 1.553
+        "sthSopr": 0.9995
       },
       {
         "d": "2025-10-22",
@@ -918081,6 +918514,41 @@
         "d": "2026-10-23",
         "unixTs": 1792713600,
         "sthSopr": 1.0009
+      },
+      {
+        "d": "2026-10-24",
+        "unixTs": 1792800000,
+        "sthSopr": 0.9984
+      },
+      {
+        "d": "2026-10-25",
+        "unixTs": 1792886400,
+        "sthSopr": 0.9998
+      },
+      {
+        "d": "2026-10-26",
+        "unixTs": 1792972800,
+        "sthSopr": 0.9992
+      },
+      {
+        "d": "2026-10-27",
+        "unixTs": 1793059200,
+        "sthSopr": 1
+      },
+      {
+        "d": "2026-10-28",
+        "unixTs": 1793145600,
+        "sthSopr": 1.0022
+      },
+      {
+        "d": "2026-10-29",
+        "unixTs": 1793232000,
+        "sthSopr": 0.9989
+      },
+      {
+        "d": "2026-10-30",
+        "unixTs": 1793318400,
+        "sthSopr": 0.9936
       }
     ],
     "supply-adjusted-cdd": [
@@ -944728,6 +945196,11 @@
         "d": "2026-10-29",
         "unixTs": 1793232000,
         "supplyAdjustedCdd": 0.87318674
+      },
+      {
+        "d": "2026-10-30",
+        "unixTs": 1793318400,
+        "supplyAdjustedCdd": 0.89279717
       }
     ],
     "supply-adjusted-cdd-binary": [
@@ -971369,6 +971842,11 @@
       {
         "d": "2026-10-29",
         "unixTs": 1793232000,
+        "supplyAdjustedCddBinary": 1
+      },
+      {
+        "d": "2026-10-30",
+        "unixTs": 1793318400,
         "supplyAdjustedCddBinary": 1
       }
     ],
@@ -1003917,6 +1004395,11 @@
         "d": "2026-10-29",
         "unixTs": 1793232000,
         "supplyCurrent": 20105251.11649269
+      },
+      {
+        "d": "2026-10-30",
+        "unixTs": 1793318400,
+        "supplyCurrent": 20105701.11603769
       }
     ],
     "supply-loss": [
@@ -1023694,6 +1024177,11 @@
         "d": "2026-10-29",
         "unixTs": 1793232000,
         "supplyLossBtc": 7543704.62359478
+      },
+      {
+        "d": "2026-10-30",
+        "unixTs": 1793318400,
+        "supplyLossBtc": 7792287.34495235
       }
     ],
     "supply-profit": [
@@ -1043471,6 +1043959,11 @@
         "d": "2026-10-29",
         "unixTs": 1793232000,
         "supplyProfitBtc": 12561546.49289791
+      },
+      {
+        "d": "2026-10-30",
+        "unixTs": 1793318400,
+        "supplyProfitBtc": 12313413.77108534
       }
     ],
     "supplyAdjustedDormancy": [
@@ -1074708,6 +1075201,11 @@
         "d": "2026-10-29",
         "unixTs": 1793232000,
         "supplyAdjustedDormancy": 9.299e-7
+      },
+      {
+        "d": "2026-10-30",
+        "unixTs": 1793318400,
+        "supplyAdjustedDormancy": 6.705e-7
       }
     ],
     "thermoCap": [
@@ -1101350,6 +1101848,11 @@
         "d": "2026-10-29",
         "unixTs": 1793232000,
         "thermoCap": 95311922557.38
+      },
+      {
+        "d": "2026-10-30",
+        "unixTs": 1793318400,
+        "thermoCap": 95346791108.38
       }
     ],
     "true-market-mean": [
@@ -1128796,1792 +1129299,1797 @@
       {
         "d": "2025-10-31",
         "unixTs": 1761868800,
-        "trueMarketMean": 81275.92
+        "trueMarketMean": 79976.62
       },
       {
         "d": "2025-11-01",
         "unixTs": 1761955200,
-        "trueMarketMean": 81395.75
+        "trueMarketMean": 80094.63
       },
       {
         "d": "2025-11-02",
         "unixTs": 1762041600,
-        "trueMarketMean": 81456.16
+        "trueMarketMean": 80154.07
       },
       {
         "d": "2025-11-03",
         "unixTs": 1762128000,
-        "trueMarketMean": 81479.21
+        "trueMarketMean": 80176.75
       },
       {
         "d": "2025-11-04",
         "unixTs": 1762214400,
-        "trueMarketMean": 81335.77
+        "trueMarketMean": 80035.41
       },
       {
         "d": "2025-11-05",
         "unixTs": 1762300800,
-        "trueMarketMean": 81622.07
+        "trueMarketMean": 80317.44
       },
       {
         "d": "2025-11-06",
         "unixTs": 1762387200,
-        "trueMarketMean": 81671.93
+        "trueMarketMean": 80366.51
       },
       {
         "d": "2025-11-07",
         "unixTs": 1762473600,
-        "trueMarketMean": 81867.06
+        "trueMarketMean": 80558.83
       },
       {
         "d": "2025-11-08",
         "unixTs": 1762560000,
-        "trueMarketMean": 81874.93
+        "trueMarketMean": 80566.54
       },
       {
         "d": "2025-11-09",
         "unixTs": 1762646400,
-        "trueMarketMean": 81940.01
+        "trueMarketMean": 80630.59
       },
       {
         "d": "2025-11-10",
         "unixTs": 1762732800,
-        "trueMarketMean": 81879.93
+        "trueMarketMean": 80571.35
       },
       {
         "d": "2025-11-11",
         "unixTs": 1762819200,
-        "trueMarketMean": 82087.95
+        "trueMarketMean": 80776.24
       },
       {
         "d": "2025-11-12",
         "unixTs": 1762905600,
-        "trueMarketMean": 82172.96
+        "trueMarketMean": 80859.94
       },
       {
         "d": "2025-11-13",
         "unixTs": 1762992000,
-        "trueMarketMean": 82030.96
+        "trueMarketMean": 80720.01
       },
       {
         "d": "2025-11-14",
         "unixTs": 1763078400,
-        "trueMarketMean": 81749.31
+        "trueMarketMean": 80442.49
       },
       {
         "d": "2025-11-15",
         "unixTs": 1763164800,
-        "trueMarketMean": 82054.23
+        "trueMarketMean": 80742.85
       },
       {
         "d": "2025-11-16",
         "unixTs": 1763251200,
-        "trueMarketMean": 81854.92
+        "trueMarketMean": 80546.42
       },
       {
         "d": "2025-11-17",
         "unixTs": 1763337600,
-        "trueMarketMean": 81964.89
+        "trueMarketMean": 80654.75
       },
       {
         "d": "2025-11-18",
         "unixTs": 1763424000,
-        "trueMarketMean": 82053.42
+        "trueMarketMean": 80741.99
       },
       {
         "d": "2025-11-19",
         "unixTs": 1763510400,
-        "trueMarketMean": 82020.21
+        "trueMarketMean": 80709.23
       },
       {
         "d": "2025-11-20",
         "unixTs": 1763596800,
-        "trueMarketMean": 81936.59
+        "trueMarketMean": 80626.84
       },
       {
         "d": "2025-11-21",
         "unixTs": 1763683200,
-        "trueMarketMean": 81711.24
+        "trueMarketMean": 80404.79
       },
       {
         "d": "2025-11-22",
         "unixTs": 1763769600,
-        "trueMarketMean": 81538.96
+        "trueMarketMean": 80235.61
       },
       {
         "d": "2025-11-23",
         "unixTs": 1763856000,
-        "trueMarketMean": 81594.06
+        "trueMarketMean": 80290.28
       },
       {
         "d": "2025-11-24",
         "unixTs": 1763942400,
-        "trueMarketMean": 81778.06
+        "trueMarketMean": 80471.52
       },
       {
         "d": "2025-11-25",
         "unixTs": 1764028800,
-        "trueMarketMean": 81587.92
+        "trueMarketMean": 80284.16
       },
       {
         "d": "2025-11-26",
         "unixTs": 1764115200,
-        "trueMarketMean": 81861.93
+        "trueMarketMean": 80554.12
       },
       {
         "d": "2025-11-27",
         "unixTs": 1764201600,
-        "trueMarketMean": 81687.36
+        "trueMarketMean": 80382.07
       },
       {
         "d": "2025-11-28",
         "unixTs": 1764288000,
-        "trueMarketMean": 81820.12
+        "trueMarketMean": 80512.81
       },
       {
         "d": "2025-11-29",
         "unixTs": 1764374400,
-        "trueMarketMean": 81696.56
+        "trueMarketMean": 80391.02
       },
       {
         "d": "2025-11-30",
         "unixTs": 1764460800,
-        "trueMarketMean": 81869.23
+        "trueMarketMean": 80561.07
       },
       {
         "d": "2025-12-01",
         "unixTs": 1764547200,
-        "trueMarketMean": 81755.05
+        "trueMarketMean": 80448.56
       },
       {
         "d": "2025-12-02",
         "unixTs": 1764633600,
-        "trueMarketMean": 81723.51
+        "trueMarketMean": 80417.44
       },
       {
         "d": "2025-12-03",
         "unixTs": 1764720000,
-        "trueMarketMean": 81614.44
+        "trueMarketMean": 80309.96
       },
       {
         "d": "2025-12-04",
         "unixTs": 1764806400,
-        "trueMarketMean": 81741.14
+        "trueMarketMean": 80434.74
       },
       {
         "d": "2025-12-05",
         "unixTs": 1764892800,
-        "trueMarketMean": 81762.77
+        "trueMarketMean": 80456.03
       },
       {
         "d": "2025-12-06",
         "unixTs": 1764979200,
-        "trueMarketMean": 81727.81
+        "trueMarketMean": 80421.52
       },
       {
         "d": "2025-12-07",
         "unixTs": 1765065600,
-        "trueMarketMean": 80268.57
+        "trueMarketMean": 78983.78
       },
       {
         "d": "2025-12-08",
         "unixTs": 1765152000,
-        "trueMarketMean": 79747.81
+        "trueMarketMean": 78470.66
       },
       {
         "d": "2025-12-09",
         "unixTs": 1765238400,
-        "trueMarketMean": 79837.52
+        "trueMarketMean": 78559
       },
       {
         "d": "2025-12-10",
         "unixTs": 1765324800,
-        "trueMarketMean": 80748.8
+        "trueMarketMean": 79456.74
       },
       {
         "d": "2025-12-11",
         "unixTs": 1765411200,
-        "trueMarketMean": 81886.36
+        "trueMarketMean": 80577.43
       },
       {
         "d": "2025-12-12",
         "unixTs": 1765497600,
-        "trueMarketMean": 81846.38
+        "trueMarketMean": 80538
       },
       {
         "d": "2025-12-13",
         "unixTs": 1765584000,
-        "trueMarketMean": 81903.23
+        "trueMarketMean": 80593.95
       },
       {
         "d": "2025-12-14",
         "unixTs": 1765670400,
-        "trueMarketMean": 81736.05
+        "trueMarketMean": 80429.18
       },
       {
         "d": "2025-12-15",
         "unixTs": 1765756800,
-        "trueMarketMean": 81801.34
+        "trueMarketMean": 80493.46
       },
       {
         "d": "2025-12-16",
         "unixTs": 1765843200,
-        "trueMarketMean": 81730.99
+        "trueMarketMean": 80424.11
       },
       {
         "d": "2025-12-17",
         "unixTs": 1765929600,
-        "trueMarketMean": 81695.12
+        "trueMarketMean": 80388.73
       },
       {
         "d": "2025-12-18",
         "unixTs": 1766016000,
-        "trueMarketMean": 81742.75
+        "trueMarketMean": 80435.6
       },
       {
         "d": "2025-12-19",
         "unixTs": 1766102400,
-        "trueMarketMean": 81760.42
+        "trueMarketMean": 80452.96
       },
       {
         "d": "2025-12-20",
         "unixTs": 1766188800,
-        "trueMarketMean": 81141.53
+        "trueMarketMean": 79843.18
       },
       {
         "d": "2025-12-21",
         "unixTs": 1766275200,
-        "trueMarketMean": 81547.33
+        "trueMarketMean": 80242.92
       },
       {
         "d": "2025-12-22",
         "unixTs": 1766361600,
-        "trueMarketMean": 81097.62
+        "trueMarketMean": 79799.81
       },
       {
         "d": "2025-12-23",
         "unixTs": 1766448000,
-        "trueMarketMean": 81696.36
+        "trueMarketMean": 80389.67
       },
       {
         "d": "2025-12-24",
         "unixTs": 1766534400,
-        "trueMarketMean": 81710.93
+        "trueMarketMean": 80403.96
       },
       {
         "d": "2025-12-25",
         "unixTs": 1766620800,
-        "trueMarketMean": 81744.29
+        "trueMarketMean": 80436.77
       },
       {
         "d": "2025-12-26",
         "unixTs": 1766707200,
-        "trueMarketMean": 81702.29
+        "trueMarketMean": 80395.34
       },
       {
         "d": "2025-12-27",
         "unixTs": 1766793600,
-        "trueMarketMean": 81680.75
+        "trueMarketMean": 80374.06
       },
       {
         "d": "2025-12-28",
         "unixTs": 1766880000,
-        "trueMarketMean": 81700.5
+        "trueMarketMean": 80393.46
       },
       {
         "d": "2025-12-29",
         "unixTs": 1766966400,
-        "trueMarketMean": 81736.17
+        "trueMarketMean": 80428.55
       },
       {
         "d": "2025-12-30",
         "unixTs": 1767052800,
-        "trueMarketMean": 81707.88
+        "trueMarketMean": 80400.64
       },
       {
         "d": "2025-12-31",
         "unixTs": 1767139200,
-        "trueMarketMean": 81654.06
+        "trueMarketMean": 80347.58
       },
       {
         "d": "2026-01-01",
         "unixTs": 1767225600,
-        "trueMarketMean": 80972.41
+        "trueMarketMean": 79675.95
       },
       {
         "d": "2026-01-02",
         "unixTs": 1767312000,
-        "trueMarketMean": 81162.39
+        "trueMarketMean": 79863.07
       },
       {
         "d": "2026-01-03",
         "unixTs": 1767398400,
-        "trueMarketMean": 81502.17
+        "trueMarketMean": 80197.76
       },
       {
         "d": "2026-01-04",
         "unixTs": 1767484800,
-        "trueMarketMean": 81701.56
+        "trueMarketMean": 80394.14
       },
       {
         "d": "2026-01-05",
         "unixTs": 1767571200,
-        "trueMarketMean": 81731.55
+        "trueMarketMean": 80423.64
       },
       {
         "d": "2026-01-06",
         "unixTs": 1767657600,
-        "trueMarketMean": 81769.01
+        "trueMarketMean": 80460.49
       },
       {
         "d": "2026-01-07",
         "unixTs": 1767744000,
-        "trueMarketMean": 81809.3
+        "trueMarketMean": 80500.16
       },
       {
         "d": "2026-01-08",
         "unixTs": 1767830400,
-        "trueMarketMean": 80545.92
+        "trueMarketMean": 79255.4
       },
       {
         "d": "2026-01-09",
         "unixTs": 1767916800,
-        "trueMarketMean": 81764.8
+        "trueMarketMean": 80456.22
       },
       {
         "d": "2026-01-10",
         "unixTs": 1768003200,
-        "trueMarketMean": 81769.79
+        "trueMarketMean": 80461.1
       },
       {
         "d": "2026-01-11",
         "unixTs": 1768089600,
-        "trueMarketMean": 81772.09
+        "trueMarketMean": 80463.31
       },
       {
         "d": "2026-01-12",
         "unixTs": 1768176000,
-        "trueMarketMean": 81653.99
+        "trueMarketMean": 80346.9
       },
       {
         "d": "2026-01-13",
         "unixTs": 1768262400,
-        "trueMarketMean": 81166.14
+        "trueMarketMean": 79866.22
       },
       {
         "d": "2026-01-14",
         "unixTs": 1768348800,
-        "trueMarketMean": 81994.83
+        "trueMarketMean": 80682.62
       },
       {
         "d": "2026-01-15",
         "unixTs": 1768435200,
-        "trueMarketMean": 81754.79
+        "trueMarketMean": 80446.07
       },
       {
         "d": "2026-01-16",
         "unixTs": 1768521600,
-        "trueMarketMean": 82086.83
+        "trueMarketMean": 80773.14
       },
       {
         "d": "2026-01-17",
         "unixTs": 1768608000,
-        "trueMarketMean": 82061.88
+        "trueMarketMean": 80748.5
       },
       {
         "d": "2026-01-18",
         "unixTs": 1768694400,
-        "trueMarketMean": 81556.28
+        "trueMarketMean": 80250.31
       },
       {
         "d": "2026-01-19",
         "unixTs": 1768780800,
-        "trueMarketMean": 82134.34
+        "trueMarketMean": 80819.77
       },
       {
         "d": "2026-01-20",
         "unixTs": 1768867200,
-        "trueMarketMean": 82011.96
+        "trueMarketMean": 80699.15
       },
       {
         "d": "2026-01-21",
         "unixTs": 1768953600,
-        "trueMarketMean": 82019.75
+        "trueMarketMean": 80706.77
       },
       {
         "d": "2026-01-22",
         "unixTs": 1769040000,
-        "trueMarketMean": 81885.49
+        "trueMarketMean": 80574.45
       },
       {
         "d": "2026-01-23",
         "unixTs": 1769126400,
-        "trueMarketMean": 81677.82
+        "trueMarketMean": 80369.84
       },
       {
         "d": "2026-01-24",
         "unixTs": 1769212800,
-        "trueMarketMean": 81629.6
+        "trueMarketMean": 80322.28
       },
       {
         "d": "2026-01-25",
         "unixTs": 1769299200,
-        "trueMarketMean": 81485.88
+        "trueMarketMean": 80180.63
       },
       {
         "d": "2026-01-26",
         "unixTs": 1769385600,
-        "trueMarketMean": 81632.33
+        "trueMarketMean": 80324.87
       },
       {
         "d": "2026-01-27",
         "unixTs": 1769472000,
-        "trueMarketMean": 81511.72
+        "trueMarketMean": 80205.99
       },
       {
         "d": "2026-01-28",
         "unixTs": 1769558400,
-        "trueMarketMean": 81706.02
+        "trueMarketMean": 80397.38
       },
       {
         "d": "2026-01-29",
         "unixTs": 1769644800,
-        "trueMarketMean": 81584.36
+        "trueMarketMean": 80277.46
       },
       {
         "d": "2026-01-30",
         "unixTs": 1769731200,
-        "trueMarketMean": 81557.99
+        "trueMarketMean": 80251.44
       },
       {
         "d": "2026-01-31",
         "unixTs": 1769817600,
-        "trueMarketMean": 81469.99
+        "trueMarketMean": 80164.7
       },
       {
         "d": "2026-02-01",
         "unixTs": 1769904000,
-        "trueMarketMean": 81251.46
+        "trueMarketMean": 79949.36
       },
       {
         "d": "2026-02-02",
         "unixTs": 1769990400,
-        "trueMarketMean": 81401.28
+        "trueMarketMean": 80096.95
       },
       {
         "d": "2026-02-03",
         "unixTs": 1770076800,
-        "trueMarketMean": 81244.7
+        "trueMarketMean": 79942.64
       },
       {
         "d": "2026-02-04",
         "unixTs": 1770163200,
-        "trueMarketMean": 80883.36
+        "trueMarketMean": 79586.61
       },
       {
         "d": "2026-02-05",
         "unixTs": 1770249600,
-        "trueMarketMean": 80531.12
+        "trueMarketMean": 79239.58
       },
       {
         "d": "2026-02-06",
         "unixTs": 1770336000,
-        "trueMarketMean": 80391.16
+        "trueMarketMean": 79101.67
       },
       {
         "d": "2026-02-07",
         "unixTs": 1770422400,
-        "trueMarketMean": 80394.47
+        "trueMarketMean": 79104.88
       },
       {
         "d": "2026-02-08",
         "unixTs": 1770508800,
-        "trueMarketMean": 80427.51
+        "trueMarketMean": 79137.37
       },
       {
         "d": "2026-02-09",
         "unixTs": 1770595200,
-        "trueMarketMean": 80289.17
+        "trueMarketMean": 79001.03
       },
       {
         "d": "2026-02-10",
         "unixTs": 1770681600,
-        "trueMarketMean": 80142.71
+        "trueMarketMean": 78856.7
       },
       {
         "d": "2026-02-11",
         "unixTs": 1770768000,
-        "trueMarketMean": 80125.15
+        "trueMarketMean": 78839.35
       },
       {
         "d": "2026-02-12",
         "unixTs": 1770854400,
-        "trueMarketMean": 80076.03
+        "trueMarketMean": 78790.91
       },
       {
         "d": "2026-02-13",
         "unixTs": 1770940800,
-        "trueMarketMean": 79510.36
+        "trueMarketMean": 78233.57
       },
       {
         "d": "2026-02-14",
         "unixTs": 1771027200,
-        "trueMarketMean": 80023.4
+        "trueMarketMean": 78738.97
       },
       {
         "d": "2026-02-15",
         "unixTs": 1771113600,
-        "trueMarketMean": 79899.19
+        "trueMarketMean": 78616.53
       },
       {
         "d": "2026-02-16",
         "unixTs": 1771200000,
-        "trueMarketMean": 78978.14
+        "trueMarketMean": 77709.03
       },
       {
         "d": "2026-02-17",
         "unixTs": 1771286400,
-        "trueMarketMean": 79788.07
+        "trueMarketMean": 78506.95
       },
       {
         "d": "2026-02-18",
         "unixTs": 1771372800,
-        "trueMarketMean": 79042.81
+        "trueMarketMean": 77772.66
       },
       {
         "d": "2026-02-19",
         "unixTs": 1771459200,
-        "trueMarketMean": 79888.12
+        "trueMarketMean": 78605.43
       },
       {
         "d": "2026-02-20",
         "unixTs": 1771545600,
-        "trueMarketMean": 79821.1
+        "trueMarketMean": 78539.36
       },
       {
         "d": "2026-02-21",
         "unixTs": 1771632000,
-        "trueMarketMean": 79698.21
+        "trueMarketMean": 78418.24
       },
       {
         "d": "2026-02-22",
         "unixTs": 1771718400,
-        "trueMarketMean": 79815.67
+        "trueMarketMean": 78533.91
       },
       {
         "d": "2026-02-23",
         "unixTs": 1771804800,
-        "trueMarketMean": 79719.61
+        "trueMarketMean": 78439.23
       },
       {
         "d": "2026-02-24",
         "unixTs": 1771891200,
-        "trueMarketMean": 79654.05
+        "trueMarketMean": 78374.6
       },
       {
         "d": "2026-02-25",
         "unixTs": 1771977600,
-        "trueMarketMean": 79468.1
+        "trueMarketMean": 78191.35
       },
       {
         "d": "2026-02-26",
         "unixTs": 1772064000,
-        "trueMarketMean": 79635.02
+        "trueMarketMean": 78355.76
       },
       {
         "d": "2026-02-27",
         "unixTs": 1772150400,
-        "trueMarketMean": 79550.72
+        "trueMarketMean": 78272.66
       },
       {
         "d": "2026-02-28",
         "unixTs": 1772236800,
-        "trueMarketMean": 79549.25
+        "trueMarketMean": 78271.16
       },
       {
         "d": "2026-03-01",
         "unixTs": 1772323200,
-        "trueMarketMean": 79469.19
+        "trueMarketMean": 78192.23
       },
       {
         "d": "2026-03-02",
         "unixTs": 1772409600,
-        "trueMarketMean": 79457.54
+        "trueMarketMean": 78180.71
       },
       {
         "d": "2026-03-03",
         "unixTs": 1772496000,
-        "trueMarketMean": 79555.42
+        "trueMarketMean": 78277.1
       },
       {
         "d": "2026-03-04",
         "unixTs": 1772582400,
-        "trueMarketMean": 79541.37
+        "trueMarketMean": 78263.21
       },
       {
         "d": "2026-03-05",
         "unixTs": 1772668800,
-        "trueMarketMean": 79454.06
+        "trueMarketMean": 78177.14
       },
       {
         "d": "2026-03-06",
         "unixTs": 1772755200,
-        "trueMarketMean": 79501.01
+        "trueMarketMean": 78223.36
       },
       {
         "d": "2026-03-07",
         "unixTs": 1772841600,
-        "trueMarketMean": 79522.73
+        "trueMarketMean": 78244.71
       },
       {
         "d": "2026-03-08",
         "unixTs": 1772928000,
-        "trueMarketMean": 79403.14
+        "trueMarketMean": 78126.84
       },
       {
         "d": "2026-03-09",
         "unixTs": 1773014400,
-        "trueMarketMean": 79495.61
+        "trueMarketMean": 78217.9
       },
       {
         "d": "2026-03-10",
         "unixTs": 1773100800,
-        "trueMarketMean": 79451.37
+        "trueMarketMean": 78174.27
       },
       {
         "d": "2026-03-11",
         "unixTs": 1773187200,
-        "trueMarketMean": 79276.3
+        "trueMarketMean": 78001.74
       },
       {
         "d": "2026-03-12",
         "unixTs": 1773273600,
-        "trueMarketMean": 79382.88
+        "trueMarketMean": 78106.72
       },
       {
         "d": "2026-03-13",
         "unixTs": 1773360000,
-        "trueMarketMean": 79380.77
+        "trueMarketMean": 78104.6
       },
       {
         "d": "2026-03-14",
         "unixTs": 1773446400,
-        "trueMarketMean": 79393.02
+        "trueMarketMean": 78116.62
       },
       {
         "d": "2026-03-15",
         "unixTs": 1773532800,
-        "trueMarketMean": 79261.14
+        "trueMarketMean": 77986.64
       },
       {
         "d": "2026-03-16",
         "unixTs": 1773619200,
-        "trueMarketMean": 79230.36
+        "trueMarketMean": 77956.27
       },
       {
         "d": "2026-03-17",
         "unixTs": 1773705600,
-        "trueMarketMean": 79484.34
+        "trueMarketMean": 78206.46
       },
       {
         "d": "2026-03-18",
         "unixTs": 1773792000,
-        "trueMarketMean": 79451.8
+        "trueMarketMean": 78174.35
       },
       {
         "d": "2026-03-19",
         "unixTs": 1773878400,
-        "trueMarketMean": 79295.68
+        "trueMarketMean": 78020.49
       },
       {
         "d": "2026-03-20",
         "unixTs": 1773964800,
-        "trueMarketMean": 79387.94
+        "trueMarketMean": 78111.36
       },
       {
         "d": "2026-03-21",
         "unixTs": 1774051200,
-        "trueMarketMean": 79248.37
+        "trueMarketMean": 77973.8
       },
       {
         "d": "2026-03-22",
         "unixTs": 1774137600,
-        "trueMarketMean": 79415.65
+        "trueMarketMean": 78138.59
       },
       {
         "d": "2026-03-23",
         "unixTs": 1774224000,
-        "trueMarketMean": 79432.17
+        "trueMarketMean": 78154.82
       },
       {
         "d": "2026-03-24",
         "unixTs": 1774310400,
-        "trueMarketMean": 79178.38
+        "trueMarketMean": 77904.75
       },
       {
         "d": "2026-03-25",
         "unixTs": 1774396800,
-        "trueMarketMean": 79364.65
+        "trueMarketMean": 78088.21
       },
       {
         "d": "2026-03-26",
         "unixTs": 1774483200,
-        "trueMarketMean": 79317.54
+        "trueMarketMean": 78041.75
       },
       {
         "d": "2026-03-27",
         "unixTs": 1774569600,
-        "trueMarketMean": 79090.78
+        "trueMarketMean": 77818.29
       },
       {
         "d": "2026-03-28",
         "unixTs": 1774656000,
-        "trueMarketMean": 79122.07
+        "trueMarketMean": 77849.06
       },
       {
         "d": "2026-03-29",
         "unixTs": 1774742400,
-        "trueMarketMean": 79100.85
+        "trueMarketMean": 77828.11
       },
       {
         "d": "2026-03-30",
         "unixTs": 1774828800,
-        "trueMarketMean": 79212.98
+        "trueMarketMean": 77938.53
       },
       {
         "d": "2026-03-31",
         "unixTs": 1774915200,
-        "trueMarketMean": 79171.93
+        "trueMarketMean": 77898.08
       },
       {
         "d": "2026-04-01",
         "unixTs": 1775001600,
-        "trueMarketMean": 79159.06
+        "trueMarketMean": 77885.35
       },
       {
         "d": "2026-04-02",
         "unixTs": 1775088000,
-        "trueMarketMean": 79122.81
+        "trueMarketMean": 77849.59
       },
       {
         "d": "2026-04-03",
         "unixTs": 1775174400,
-        "trueMarketMean": 78994.53
+        "trueMarketMean": 77723.16
       },
       {
         "d": "2026-04-04",
         "unixTs": 1775260800,
-        "trueMarketMean": 79040.12
+        "trueMarketMean": 77768.03
       },
       {
         "d": "2026-04-05",
         "unixTs": 1775347200,
-        "trueMarketMean": 79029.86
+        "trueMarketMean": 77757.88
       },
       {
         "d": "2026-04-06",
         "unixTs": 1775433600,
-        "trueMarketMean": 79192.11
+        "trueMarketMean": 77917.69
       },
       {
         "d": "2026-04-07",
         "unixTs": 1775520000,
-        "trueMarketMean": 79193.84
+        "trueMarketMean": 77919.35
       },
       {
         "d": "2026-04-08",
         "unixTs": 1775606400,
-        "trueMarketMean": 79210.64
+        "trueMarketMean": 77935.85
       },
       {
         "d": "2026-04-09",
         "unixTs": 1775692800,
-        "trueMarketMean": 79235.29
+        "trueMarketMean": 77960.1
       },
       {
         "d": "2026-04-10",
         "unixTs": 1775779200,
-        "trueMarketMean": 78466.81
+        "trueMarketMean": 77202.94
       },
       {
         "d": "2026-04-11",
         "unixTs": 1775865600,
-        "trueMarketMean": 78981.61
+        "trueMarketMean": 77710.1
       },
       {
         "d": "2026-04-12",
         "unixTs": 1775952000,
-        "trueMarketMean": 79290.48
+        "trueMarketMean": 78014.32
       },
       {
         "d": "2026-04-13",
         "unixTs": 1776038400,
-        "trueMarketMean": 79176.02
+        "trueMarketMean": 77901.5
       },
       {
         "d": "2026-04-14",
         "unixTs": 1776124800,
-        "trueMarketMean": 79302.55
+        "trueMarketMean": 78026.13
       },
       {
         "d": "2026-04-15",
         "unixTs": 1776211200,
-        "trueMarketMean": 79279.44
+        "trueMarketMean": 78003.32
       },
       {
         "d": "2026-04-16",
         "unixTs": 1776297600,
-        "trueMarketMean": 79274.46
+        "trueMarketMean": 77998.37
       },
       {
         "d": "2026-04-17",
         "unixTs": 1776384000,
-        "trueMarketMean": 79383.36
+        "trueMarketMean": 78105.61
       },
       {
         "d": "2026-04-18",
         "unixTs": 1776470400,
-        "trueMarketMean": 79345.07
+        "trueMarketMean": 78067.83
       },
       {
         "d": "2026-04-19",
         "unixTs": 1776556800,
-        "trueMarketMean": 79177.64
+        "trueMarketMean": 77902.82
       },
       {
         "d": "2026-04-20",
         "unixTs": 1776643200,
-        "trueMarketMean": 79343.63
+        "trueMarketMean": 78066.32
       },
       {
         "d": "2026-04-21",
         "unixTs": 1776729600,
-        "trueMarketMean": 79400.58
+        "trueMarketMean": 78122.42
       },
       {
         "d": "2026-04-22",
         "unixTs": 1776816000,
-        "trueMarketMean": 79386.93
+        "trueMarketMean": 78108.94
       },
       {
         "d": "2026-04-23",
         "unixTs": 1776902400,
-        "trueMarketMean": 79246.01
+        "trueMarketMean": 77970.06
       },
       {
         "d": "2026-04-24",
         "unixTs": 1776988800,
-        "trueMarketMean": 79100.87
+        "trueMarketMean": 77827.07
       },
       {
         "d": "2026-04-25",
         "unixTs": 1777075200,
-        "trueMarketMean": 79231.1
+        "trueMarketMean": 77955.32
       },
       {
         "d": "2026-04-26",
         "unixTs": 1777161600,
-        "trueMarketMean": 79128.72
+        "trueMarketMean": 77854.39
       },
       {
         "d": "2026-04-27",
         "unixTs": 1777248000,
-        "trueMarketMean": 79276.83
+        "trueMarketMean": 78000.26
       },
       {
         "d": "2026-04-28",
         "unixTs": 1777334400,
-        "trueMarketMean": 79146.24
+        "trueMarketMean": 77871.55
       },
       {
         "d": "2026-04-29",
         "unixTs": 1777420800,
-        "trueMarketMean": 79244.28
+        "trueMarketMean": 77968.1
       },
       {
         "d": "2026-04-30",
         "unixTs": 1777507200,
-        "trueMarketMean": 79155.48
+        "trueMarketMean": 77880.57
       },
       {
         "d": "2026-05-01",
         "unixTs": 1777593600,
-        "trueMarketMean": 79376.5
+        "trueMarketMean": 78098.28
       },
       {
         "d": "2026-05-02",
         "unixTs": 1777680000,
-        "trueMarketMean": 79247.2
+        "trueMarketMean": 77970.83
       },
       {
         "d": "2026-05-03",
         "unixTs": 1777766400,
-        "trueMarketMean": 79384.68
+        "trueMarketMean": 78106.23
       },
       {
         "d": "2026-05-04",
         "unixTs": 1777852800,
-        "trueMarketMean": 79462.87
+        "trueMarketMean": 78183.24
       },
       {
         "d": "2026-05-05",
         "unixTs": 1777939200,
-        "trueMarketMean": 79472.45
+        "trueMarketMean": 78192.62
       },
       {
         "d": "2026-05-06",
         "unixTs": 1778025600,
-        "trueMarketMean": 79536.19
+        "trueMarketMean": 78255.37
       },
       {
         "d": "2026-05-07",
         "unixTs": 1778112000,
-        "trueMarketMean": 79431.9
+        "trueMarketMean": 78152.57
       },
       {
         "d": "2026-05-08",
         "unixTs": 1778198400,
-        "trueMarketMean": 79538.73
+        "trueMarketMean": 78257.77
       },
       {
         "d": "2026-05-09",
         "unixTs": 1778284800,
-        "trueMarketMean": 79433.59
+        "trueMarketMean": 78154.11
       },
       {
         "d": "2026-05-10",
         "unixTs": 1778371200,
-        "trueMarketMean": 79624.93
+        "trueMarketMean": 78342.57
       },
       {
         "d": "2026-05-11",
         "unixTs": 1778457600,
-        "trueMarketMean": 79558.48
+        "trueMarketMean": 78277.04
       },
       {
         "d": "2026-05-12",
         "unixTs": 1778544000,
-        "trueMarketMean": 79626.33
+        "trueMarketMean": 78343.84
       },
       {
         "d": "2026-05-13",
         "unixTs": 1778630400,
-        "trueMarketMean": 79628.2
+        "trueMarketMean": 78345.63
       },
       {
         "d": "2026-05-14",
         "unixTs": 1778716800,
-        "trueMarketMean": 79697.04
+        "trueMarketMean": 78413.4
       },
       {
         "d": "2026-05-15",
         "unixTs": 1778803200,
-        "trueMarketMean": 79699.2
+        "trueMarketMean": 78415.48
       },
       {
         "d": "2026-05-16",
         "unixTs": 1778889600,
-        "trueMarketMean": 79680.92
+        "trueMarketMean": 78397.41
       },
       {
         "d": "2026-05-17",
         "unixTs": 1778976000,
-        "trueMarketMean": 79511.19
+        "trueMarketMean": 78230.13
       },
       {
         "d": "2026-05-18",
         "unixTs": 1779062400,
-        "trueMarketMean": 79546.14
+        "trueMarketMean": 78264.51
       },
       {
         "d": "2026-05-19",
         "unixTs": 1779148800,
-        "trueMarketMean": 79642.1
+        "trueMarketMean": 78359.01
       },
       {
         "d": "2026-05-20",
         "unixTs": 1779235200,
-        "trueMarketMean": 79665.25
+        "trueMarketMean": 78381.77
       },
       {
         "d": "2026-05-21",
         "unixTs": 1779321600,
-        "trueMarketMean": 79507.23
+        "trueMarketMean": 78226.04
       },
       {
         "d": "2026-05-22",
         "unixTs": 1779408000,
-        "trueMarketMean": 79452.32
+        "trueMarketMean": 78171.89
       },
       {
         "d": "2026-05-23",
         "unixTs": 1779494400,
-        "trueMarketMean": 79615.76
+        "trueMarketMean": 78332.86
       },
       {
         "d": "2026-05-24",
         "unixTs": 1779580800,
-        "trueMarketMean": 79593.48
+        "trueMarketMean": 78310.86
       },
       {
         "d": "2026-05-25",
         "unixTs": 1779667200,
-        "trueMarketMean": 79594.71
+        "trueMarketMean": 78312.01
       },
       {
         "d": "2026-05-26",
         "unixTs": 1779753600,
-        "trueMarketMean": 79584.68
+        "trueMarketMean": 78302.08
       },
       {
         "d": "2026-05-27",
         "unixTs": 1779840000,
-        "trueMarketMean": 79471.42
+        "trueMarketMean": 78190.45
       },
       {
         "d": "2026-05-28",
         "unixTs": 1779926400,
-        "trueMarketMean": 79479.14
+        "trueMarketMean": 78198.02
       },
       {
         "d": "2026-05-29",
         "unixTs": 1780012800,
-        "trueMarketMean": 79421.43
+        "trueMarketMean": 78141.12
       },
       {
         "d": "2026-05-30",
         "unixTs": 1780099200,
-        "trueMarketMean": 79420.91
+        "trueMarketMean": 78140.56
       },
       {
         "d": "2026-05-31",
         "unixTs": 1780185600,
-        "trueMarketMean": 79259.75
+        "trueMarketMean": 77981.73
       },
       {
         "d": "2026-06-01",
         "unixTs": 1780272000,
-        "trueMarketMean": 79372.99
+        "trueMarketMean": 78093.25
       },
       {
         "d": "2026-06-02",
         "unixTs": 1780358400,
-        "trueMarketMean": 79115.82
+        "trueMarketMean": 77839.86
       },
       {
         "d": "2026-06-03",
         "unixTs": 1780444800,
-        "trueMarketMean": 79009.45
+        "trueMarketMean": 77735.03
       },
       {
         "d": "2026-06-04",
         "unixTs": 1780531200,
-        "trueMarketMean": 78894.89
+        "trueMarketMean": 77622.13
       },
       {
         "d": "2026-06-05",
         "unixTs": 1780617600,
-        "trueMarketMean": 78587.93
+        "trueMarketMean": 77319.68
       },
       {
         "d": "2026-06-06",
         "unixTs": 1780704000,
-        "trueMarketMean": 78765.22
+        "trueMarketMean": 77494.31
       },
       {
         "d": "2026-06-07",
         "unixTs": 1780790400,
-        "trueMarketMean": 78775.47
+        "trueMarketMean": 77504.38
       },
       {
         "d": "2026-06-08",
         "unixTs": 1780876800,
-        "trueMarketMean": 78735.25
+        "trueMarketMean": 77464.71
       },
       {
         "d": "2026-06-09",
         "unixTs": 1780963200,
-        "trueMarketMean": 78579.17
+        "trueMarketMean": 77310.91
       },
       {
         "d": "2026-06-10",
         "unixTs": 1781049600,
-        "trueMarketMean": 78601.17
+        "trueMarketMean": 77332.54
       },
       {
         "d": "2026-06-11",
         "unixTs": 1781136000,
-        "trueMarketMean": 78618.67
+        "trueMarketMean": 77349.75
       },
       {
         "d": "2026-06-12",
         "unixTs": 1781222400,
-        "trueMarketMean": 78602.09
+        "trueMarketMean": 77333.37
       },
       {
         "d": "2026-06-13",
         "unixTs": 1781308800,
-        "trueMarketMean": 78503.82
+        "trueMarketMean": 77236.5
       },
       {
         "d": "2026-06-14",
         "unixTs": 1781395200,
-        "trueMarketMean": 78638.66
+        "trueMarketMean": 77369.3
       },
       {
         "d": "2026-06-15",
         "unixTs": 1781481600,
-        "trueMarketMean": 78480.23
+        "trueMarketMean": 77213.18
       },
       {
         "d": "2026-06-16",
         "unixTs": 1781568000,
-        "trueMarketMean": 78460.12
+        "trueMarketMean": 77193.33
       },
       {
         "d": "2026-06-17",
         "unixTs": 1781654400,
-        "trueMarketMean": 78566.96
+        "trueMarketMean": 77298.54
       },
       {
         "d": "2026-06-18",
         "unixTs": 1781740800,
-        "trueMarketMean": 78547.43
+        "trueMarketMean": 77279.25
       },
       {
         "d": "2026-06-19",
         "unixTs": 1781827200,
-        "trueMarketMean": 78525.35
+        "trueMarketMean": 77257.45
       },
       {
         "d": "2026-06-20",
         "unixTs": 1781913600,
-        "trueMarketMean": 78548.24
+        "trueMarketMean": 77279.95
       },
       {
         "d": "2026-06-21",
         "unixTs": 1782000000,
-        "trueMarketMean": 78547.31
+        "trueMarketMean": 77279.04
       },
       {
         "d": "2026-06-22",
         "unixTs": 1782086400,
-        "trueMarketMean": 78546.15
+        "trueMarketMean": 77277.85
       },
       {
         "d": "2026-06-23",
         "unixTs": 1782172800,
-        "trueMarketMean": 78486.26
+        "trueMarketMean": 77218.81
       },
       {
         "d": "2026-06-24",
         "unixTs": 1782259200,
-        "trueMarketMean": 78439.67
+        "trueMarketMean": 77172.86
       },
       {
         "d": "2026-06-25",
         "unixTs": 1782345600,
-        "trueMarketMean": 78334.34
+        "trueMarketMean": 77069.06
       },
       {
         "d": "2026-06-26",
         "unixTs": 1782432000,
-        "trueMarketMean": 78225.03
+        "trueMarketMean": 76961.32
       },
       {
         "d": "2026-06-27",
         "unixTs": 1782518400,
-        "trueMarketMean": 78280.25
+        "trueMarketMean": 77015.67
       },
       {
         "d": "2026-06-28",
         "unixTs": 1782604800,
-        "trueMarketMean": 78251.53
+        "trueMarketMean": 76987.34
       },
       {
         "d": "2026-06-29",
         "unixTs": 1782691200,
-        "trueMarketMean": 78163.76
+        "trueMarketMean": 76900.83
       },
       {
         "d": "2026-06-30",
         "unixTs": 1782777600,
-        "trueMarketMean": 77995.39
+        "trueMarketMean": 76734.92
       },
       {
         "d": "2026-07-01",
         "unixTs": 1782864000,
-        "trueMarketMean": 78025.4
+        "trueMarketMean": 76764.46
       },
       {
         "d": "2026-07-02",
         "unixTs": 1782950400,
-        "trueMarketMean": 77866.85
+        "trueMarketMean": 76608.26
       },
       {
         "d": "2026-07-03",
         "unixTs": 1783036800,
-        "trueMarketMean": 78017.89
+        "trueMarketMean": 76757.02
       },
       {
         "d": "2026-07-04",
         "unixTs": 1783123200,
-        "trueMarketMean": 78028.26
+        "trueMarketMean": 76767.18
       },
       {
         "d": "2026-07-05",
         "unixTs": 1783209600,
-        "trueMarketMean": 78015.92
+        "trueMarketMean": 76754.98
       },
       {
         "d": "2026-07-06",
         "unixTs": 1783296000,
-        "trueMarketMean": 77887.61
+        "trueMarketMean": 76628.53
       },
       {
         "d": "2026-07-07",
         "unixTs": 1783382400,
-        "trueMarketMean": 77897.12
+        "trueMarketMean": 76637.86
       },
       {
         "d": "2026-07-08",
         "unixTs": 1783468800,
-        "trueMarketMean": 78015.41
+        "trueMarketMean": 76754.36
       },
       {
         "d": "2026-07-09",
         "unixTs": 1783555200,
-        "trueMarketMean": 78025.36
+        "trueMarketMean": 76764.12
       },
       {
         "d": "2026-07-10",
         "unixTs": 1783641600,
-        "trueMarketMean": 77944.64
+        "trueMarketMean": 76684.56
       },
       {
         "d": "2026-07-11",
         "unixTs": 1783728000,
-        "trueMarketMean": 77860.52
+        "trueMarketMean": 76601.63
       },
       {
         "d": "2026-07-12",
         "unixTs": 1783814400,
-        "trueMarketMean": 77829.25
+        "trueMarketMean": 76570.79
       },
       {
         "d": "2026-07-13",
         "unixTs": 1783900800,
-        "trueMarketMean": 77786.67
+        "trueMarketMean": 76528.83
       },
       {
         "d": "2026-07-14",
         "unixTs": 1783987200,
-        "trueMarketMean": 77587.82
+        "trueMarketMean": 76332.88
       },
       {
         "d": "2026-07-15",
         "unixTs": 1784073600,
-        "trueMarketMean": 77607.79
+        "trueMarketMean": 76352.52
       },
       {
         "d": "2026-07-16",
         "unixTs": 1784160000,
-        "trueMarketMean": 77747.51
+        "trueMarketMean": 76490.13
       },
       {
         "d": "2026-07-17",
         "unixTs": 1784246400,
-        "trueMarketMean": 77712.81
+        "trueMarketMean": 76455.92
       },
       {
         "d": "2026-07-18",
         "unixTs": 1784332800,
-        "trueMarketMean": 77766.05
+        "trueMarketMean": 76508.32
       },
       {
         "d": "2026-07-19",
         "unixTs": 1784419200,
-        "trueMarketMean": 77749.9
+        "trueMarketMean": 76492.36
       },
       {
         "d": "2026-07-20",
         "unixTs": 1784505600,
-        "trueMarketMean": 77647.86
+        "trueMarketMean": 76391.8
       },
       {
         "d": "2026-07-21",
         "unixTs": 1784592000,
-        "trueMarketMean": 77789.83
+        "trueMarketMean": 76531.63
       },
       {
         "d": "2026-07-22",
         "unixTs": 1784678400,
-        "trueMarketMean": 77785
+        "trueMarketMean": 76526.84
       },
       {
         "d": "2026-07-23",
         "unixTs": 1784764800,
-        "trueMarketMean": 77722.42
+        "trueMarketMean": 76465.14
       },
       {
         "d": "2026-07-24",
         "unixTs": 1784851200,
-        "trueMarketMean": 77600.29
+        "trueMarketMean": 76344.76
       },
       {
         "d": "2026-07-25",
         "unixTs": 1784937600,
-        "trueMarketMean": 77774.92
+        "trueMarketMean": 76516.81
       },
       {
         "d": "2026-07-26",
         "unixTs": 1785024000,
-        "trueMarketMean": 77766.09
+        "trueMarketMean": 76508.06
       },
       {
         "d": "2026-07-27",
         "unixTs": 1785110400,
-        "trueMarketMean": 77747.66
+        "trueMarketMean": 76489.86
       },
       {
         "d": "2026-07-28",
         "unixTs": 1785196800,
-        "trueMarketMean": 77653.98
+        "trueMarketMean": 76397.53
       },
       {
         "d": "2026-07-29",
         "unixTs": 1785283200,
-        "trueMarketMean": 77645.17
+        "trueMarketMean": 76388.81
       },
       {
         "d": "2026-07-30",
         "unixTs": 1785369600,
-        "trueMarketMean": 77768.4
+        "trueMarketMean": 76510.18
       },
       {
         "d": "2026-07-31",
         "unixTs": 1785456000,
-        "trueMarketMean": 77540.84
+        "trueMarketMean": 76286.03
       },
       {
         "d": "2026-08-01",
         "unixTs": 1785542400,
-        "trueMarketMean": 77576.34
+        "trueMarketMean": 76321.03
       },
       {
         "d": "2026-08-02",
         "unixTs": 1785628800,
-        "trueMarketMean": 77440.14
+        "trueMarketMean": 76186.82
       },
       {
         "d": "2026-08-03",
         "unixTs": 1785715200,
-        "trueMarketMean": 77480.12
+        "trueMarketMean": 76226.2
       },
       {
         "d": "2026-08-04",
         "unixTs": 1785801600,
-        "trueMarketMean": 77404.21
+        "trueMarketMean": 76151.4
       },
       {
         "d": "2026-08-05",
         "unixTs": 1785888000,
-        "trueMarketMean": 77434.88
+        "trueMarketMean": 76181.59
       },
       {
         "d": "2026-08-06",
         "unixTs": 1785974400,
-        "trueMarketMean": 77468.66
+        "trueMarketMean": 76214.84
       },
       {
         "d": "2026-08-07",
         "unixTs": 1786060800,
-        "trueMarketMean": 77436.79
+        "trueMarketMean": 76183.41
       },
       {
         "d": "2026-08-08",
         "unixTs": 1786147200,
-        "trueMarketMean": 77442.21
+        "trueMarketMean": 76188.71
       },
       {
         "d": "2026-08-09",
         "unixTs": 1786233600,
-        "trueMarketMean": 77331.98
+        "trueMarketMean": 76080.06
       },
       {
         "d": "2026-08-10",
         "unixTs": 1786320000,
-        "trueMarketMean": 77423
+        "trueMarketMean": 76169.7
       },
       {
         "d": "2026-08-11",
         "unixTs": 1786406400,
-        "trueMarketMean": 77405.65
+        "trueMarketMean": 76152.57
       },
       {
         "d": "2026-08-12",
         "unixTs": 1786492800,
-        "trueMarketMean": 77354.85
+        "trueMarketMean": 76102.5
       },
       {
         "d": "2026-08-13",
         "unixTs": 1786579200,
-        "trueMarketMean": 77266.61
+        "trueMarketMean": 76015.52
       },
       {
         "d": "2026-08-14",
         "unixTs": 1786665600,
-        "trueMarketMean": 77267.03
+        "trueMarketMean": 76015.89
       },
       {
         "d": "2026-08-15",
         "unixTs": 1786752000,
-        "trueMarketMean": 77364.92
+        "trueMarketMean": 76112.29
       },
       {
         "d": "2026-08-16",
         "unixTs": 1786838400,
-        "trueMarketMean": 77366.93
+        "trueMarketMean": 76114.22
       },
       {
         "d": "2026-08-17",
         "unixTs": 1786924800,
-        "trueMarketMean": 77228.42
+        "trueMarketMean": 75977.71
       },
       {
         "d": "2026-08-18",
         "unixTs": 1787011200,
-        "trueMarketMean": 77242.25
+        "trueMarketMean": 75991.3
       },
       {
         "d": "2026-08-19",
         "unixTs": 1787097600,
-        "trueMarketMean": 77382.02
+        "trueMarketMean": 76128.99
       },
       {
         "d": "2026-08-20",
         "unixTs": 1787184000,
-        "trueMarketMean": 77430.64
+        "trueMarketMean": 76176.86
       },
       {
         "d": "2026-08-21",
         "unixTs": 1787270400,
-        "trueMarketMean": 77457.14
+        "trueMarketMean": 76202.95
       },
       {
         "d": "2026-08-22",
         "unixTs": 1787356800,
-        "trueMarketMean": 77607.63
+        "trueMarketMean": 76351.16
       },
       {
         "d": "2026-08-23",
         "unixTs": 1787443200,
-        "trueMarketMean": 77605.54
+        "trueMarketMean": 76349.05
       },
       {
         "d": "2026-08-24",
         "unixTs": 1787529600,
-        "trueMarketMean": 77757.9
+        "trueMarketMean": 76499.12
       },
       {
         "d": "2026-08-25",
         "unixTs": 1787616000,
-        "trueMarketMean": 77806.75
+        "trueMarketMean": 76547.22
       },
       {
         "d": "2026-08-26",
         "unixTs": 1787702400,
-        "trueMarketMean": 77742.93
+        "trueMarketMean": 76484.29
       },
       {
         "d": "2026-08-27",
         "unixTs": 1787788800,
-        "trueMarketMean": 77974.44
+        "trueMarketMean": 76712.35
       },
       {
         "d": "2026-08-28",
         "unixTs": 1787875200,
-        "trueMarketMean": 77934.34
+        "trueMarketMean": 76672.81
       },
       {
         "d": "2026-08-29",
         "unixTs": 1787961600,
-        "trueMarketMean": 77960.22
+        "trueMarketMean": 76698.25
       },
       {
         "d": "2026-08-30",
         "unixTs": 1788048000,
-        "trueMarketMean": 77934.55
+        "trueMarketMean": 76672.9
       },
       {
         "d": "2026-08-31",
         "unixTs": 1788134400,
-        "trueMarketMean": 78046.25
+        "trueMarketMean": 76782.9
       },
       {
         "d": "2026-09-01",
         "unixTs": 1788220800,
-        "trueMarketMean": 77900.87
+        "trueMarketMean": 76639.62
       },
       {
         "d": "2026-09-02",
         "unixTs": 1788307200,
-        "trueMarketMean": 78073.14
+        "trueMarketMean": 76809.31
       },
       {
         "d": "2026-09-03",
         "unixTs": 1788393600,
-        "trueMarketMean": 78095.83
+        "trueMarketMean": 76831.61
       },
       {
         "d": "2026-09-04",
         "unixTs": 1788480000,
-        "trueMarketMean": 78138.18
+        "trueMarketMean": 76873.28
       },
       {
         "d": "2026-09-05",
         "unixTs": 1788566400,
-        "trueMarketMean": 78195.93
+        "trueMarketMean": 76930.14
       },
       {
         "d": "2026-09-06",
         "unixTs": 1788652800,
-        "trueMarketMean": 78246.57
+        "trueMarketMean": 76979.98
       },
       {
         "d": "2026-09-07",
         "unixTs": 1788739200,
-        "trueMarketMean": 78220.7
+        "trueMarketMean": 76954.44
       },
       {
         "d": "2026-09-08",
         "unixTs": 1788825600,
-        "trueMarketMean": 78109.29
+        "trueMarketMean": 76844.63
       },
       {
         "d": "2026-09-09",
         "unixTs": 1788912000,
-        "trueMarketMean": 78253.71
+        "trueMarketMean": 76986.86
       },
       {
         "d": "2026-09-10",
         "unixTs": 1788998400,
-        "trueMarketMean": 78254.96
+        "trueMarketMean": 76988.05
       },
       {
         "d": "2026-09-11",
         "unixTs": 1789084800,
-        "trueMarketMean": 78272.34
+        "trueMarketMean": 77005.12
       },
       {
         "d": "2026-09-12",
         "unixTs": 1789171200,
-        "trueMarketMean": 78298.5
+        "trueMarketMean": 77030.84
       },
       {
         "d": "2026-09-13",
         "unixTs": 1789257600,
-        "trueMarketMean": 78360.58
+        "trueMarketMean": 77091.94
       },
       {
         "d": "2026-09-14",
         "unixTs": 1789344000,
-        "trueMarketMean": 78167.3
+        "trueMarketMean": 76901.47
       },
       {
         "d": "2026-09-15",
         "unixTs": 1789430400,
-        "trueMarketMean": 78336.71
+        "trueMarketMean": 77068.32
       },
       {
         "d": "2026-09-16",
         "unixTs": 1789516800,
-        "trueMarketMean": 78166.89
+        "trueMarketMean": 76900.98
       },
       {
         "d": "2026-09-17",
         "unixTs": 1789603200,
-        "trueMarketMean": 78194.3
+        "trueMarketMean": 76927.95
       },
       {
         "d": "2026-09-18",
         "unixTs": 1789689600,
-        "trueMarketMean": 78384.13
+        "trueMarketMean": 77114.92
       },
       {
         "d": "2026-09-19",
         "unixTs": 1789776000,
-        "trueMarketMean": 78425.93
+        "trueMarketMean": 77156.06
       },
       {
         "d": "2026-09-20",
         "unixTs": 1789862400,
-        "trueMarketMean": 78448.8
+        "trueMarketMean": 77178.53
       },
       {
         "d": "2026-09-21",
         "unixTs": 1789948800,
-        "trueMarketMean": 78381.6
+        "trueMarketMean": 77112.28
       },
       {
         "d": "2026-09-22",
         "unixTs": 1790035200,
-        "trueMarketMean": 78718.22
+        "trueMarketMean": 77443.93
       },
       {
         "d": "2026-09-23",
         "unixTs": 1790121600,
-        "trueMarketMean": 78741.73
+        "trueMarketMean": 77467.06
       },
       {
         "d": "2026-09-24",
         "unixTs": 1790208000,
-        "trueMarketMean": 78826.25
+        "trueMarketMean": 77550.28
       },
       {
         "d": "2026-09-25",
         "unixTs": 1790294400,
-        "trueMarketMean": 78646.83
+        "trueMarketMean": 77373.48
       },
       {
         "d": "2026-09-26",
         "unixTs": 1790380800,
-        "trueMarketMean": 78729.87
+        "trueMarketMean": 77455.23
       },
       {
         "d": "2026-09-27",
         "unixTs": 1790467200,
-        "trueMarketMean": 78892.91
+        "trueMarketMean": 77615.8
       },
       {
         "d": "2026-09-28",
         "unixTs": 1790553600,
-        "trueMarketMean": 78765.28
+        "trueMarketMean": 77490.02
       },
       {
         "d": "2026-09-29",
         "unixTs": 1790640000,
-        "trueMarketMean": 78941.79
+        "trueMarketMean": 77663.88
       },
       {
         "d": "2026-09-30",
         "unixTs": 1790726400,
-        "trueMarketMean": 79004.06
+        "trueMarketMean": 77725.18
       },
       {
         "d": "2026-10-01",
         "unixTs": 1790812800,
-        "trueMarketMean": 78997.1
+        "trueMarketMean": 77718.28
       },
       {
         "d": "2026-10-02",
         "unixTs": 1790899200,
-        "trueMarketMean": 79041.18
+        "trueMarketMean": 77761.67
       },
       {
         "d": "2026-10-03",
         "unixTs": 1790985600,
-        "trueMarketMean": 79129.51
+        "trueMarketMean": 77848.63
       },
       {
         "d": "2026-10-04",
         "unixTs": 1791072000,
-        "trueMarketMean": 79002.05
+        "trueMarketMean": 77723.01
       },
       {
         "d": "2026-10-05",
         "unixTs": 1791158400,
-        "trueMarketMean": 79227.77
+        "trueMarketMean": 77945.34
       },
       {
         "d": "2026-10-06",
         "unixTs": 1791244800,
-        "trueMarketMean": 79098.18
+        "trueMarketMean": 77817.62
       },
       {
         "d": "2026-10-07",
         "unixTs": 1791331200,
-        "trueMarketMean": 79265.71
+        "trueMarketMean": 77982.66
       },
       {
         "d": "2026-10-08",
         "unixTs": 1791417600,
-        "trueMarketMean": 79247.63
+        "trueMarketMean": 77964.83
       },
       {
         "d": "2026-10-09",
         "unixTs": 1791504000,
-        "trueMarketMean": 79273.51
+        "trueMarketMean": 77990.28
       },
       {
         "d": "2026-10-10",
         "unixTs": 1791590400,
-        "trueMarketMean": 79160.76
+        "trueMarketMean": 77879.14
       },
       {
         "d": "2026-10-11",
         "unixTs": 1791676800,
-        "trueMarketMean": 79287.03
+        "trueMarketMean": 78003.5
       },
       {
         "d": "2026-10-12",
         "unixTs": 1791763200,
-        "trueMarketMean": 79157.66
+        "trueMarketMean": 77876
       },
       {
         "d": "2026-10-13",
         "unixTs": 1791849600,
-        "trueMarketMean": 79339.25
+        "trueMarketMean": 78054.86
       },
       {
         "d": "2026-10-14",
         "unixTs": 1791936000,
-        "trueMarketMean": 79354.3
+        "trueMarketMean": 78069.64
       },
       {
         "d": "2026-10-15",
         "unixTs": 1792022400,
-        "trueMarketMean": 79197.56
+        "trueMarketMean": 77915.18
       },
       {
         "d": "2026-10-16",
         "unixTs": 1792108800,
-        "trueMarketMean": 79373.98
+        "trueMarketMean": 78088.94
       },
       {
         "d": "2026-10-17",
         "unixTs": 1792195200,
-        "trueMarketMean": 79375
+        "trueMarketMean": 78089.9
       },
       {
         "d": "2026-10-18",
         "unixTs": 1792281600,
-        "trueMarketMean": 79408.87
+        "trueMarketMean": 78123.21
       },
       {
         "d": "2026-10-19",
         "unixTs": 1792368000,
-        "trueMarketMean": 79429.79
+        "trueMarketMean": 78143.77
       },
       {
         "d": "2026-10-20",
         "unixTs": 1792454400,
-        "trueMarketMean": 79484.33
+        "trueMarketMean": 78197.46
       },
       {
         "d": "2026-10-21",
         "unixTs": 1792540800,
-        "trueMarketMean": 79467.61
+        "trueMarketMean": 78180.74
       },
       {
         "d": "2026-10-22",
         "unixTs": 1792627200,
-        "trueMarketMean": 79625.41
+        "trueMarketMean": 78336.23
       },
       {
         "d": "2026-10-23",
         "unixTs": 1792713600,
-        "trueMarketMean": 79631.04
+        "trueMarketMean": 78341.74
+      },
+      {
+        "d": "2026-10-24",
+        "unixTs": 1792800000,
+        "trueMarketMean": 78358.62
       }
     ],
     "vdd-multiple": [
@@ -1158714,6 +1159222,11 @@
         "d": "2026-10-29",
         "unixTs": 1793232000,
         "vddMultiple": 1.1091
+      },
+      {
+        "d": "2026-10-30",
+        "unixTs": 1793318400,
+        "vddMultiple": 1.1283
       }
     ],
     "marketCap": [
